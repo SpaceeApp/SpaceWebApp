@@ -46,6 +46,7 @@ export function LiquidGlass({
         aria-hidden
         className="absolute inset-0 z-0"
         style={{
+          borderRadius: "inherit",
           backdropFilter: "blur(3px)",
           WebkitBackdropFilter: "blur(3px)",
           filter: filterId,
@@ -55,12 +56,19 @@ export function LiquidGlass({
       <div
         aria-hidden
         className="absolute inset-0 z-10"
-        style={{ background: "rgba(255, 255, 255, 0.22)" }}
+        style={{
+          borderRadius: "inherit",
+          background: "rgba(255, 255, 255, 0.22)",
+        }}
       />
+      {/* Specular rim: the inset shadow is drawn from this element's own edge,
+          so it must share the parent's border-radius — otherwise the highlight
+          stays rectangular and gets chopped at the rounded corners. */}
       <div
         aria-hidden
         className="absolute inset-0 z-20"
         style={{
+          borderRadius: "inherit",
           boxShadow:
             "inset 2px 2px 1px 0 rgba(255,255,255,0.55), inset -1px -1px 1px 1px rgba(255,255,255,0.45)",
         }}

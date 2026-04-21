@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Canvas (light) ───────────────────────────────────────────────── */
+  /* ── Canvas (light, default) ──────────────────────────────────────── */
   --color-canvas: #f8f9fa;
   --color-surface: #ffffff;
 
@@ -13,10 +13,59 @@
   --color-accent: #4a48d4;
   --color-accent-soft: #6b69e0;
   --color-accent-deep: #3531a3;
+  --color-accent-fg: #ffffff;
   --color-app-rose: #a64d79;
+
+  /* Surfaces & states */
+  --color-border: #e5e5ea;
+  --color-subtle-bg: rgba(74, 72, 212, 0.08);
+  --color-placeholder: rgba(28, 28, 30, 0.30);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* ── Dark theme: activated via `data-theme="dark"` on <html>. The inline
+       script in app/layout.tsx sets the attribute before paint, reading
+       localStorage.theme first then falling back to prefers-color-scheme.
+       Flipping the attribute swaps every utility built on these vars. ── */
+:root[data-theme="dark"] {
+  --color-canvas: #0a0a0c;
+  --color-surface: #1a1a1e;
+
+  --color-text-primary: #ebebf0;
+  --color-text-secondary: #8e8e93;
+
+  --color-accent: #5e5ce6;
+  --color-accent-soft: #7a78f0;
+  --color-accent-deep: #4744c0;
+  --color-accent-fg: #ffffff;
+  --color-app-rose: #c76892;
+
+  --color-border: #2c2c2e;
+  --color-subtle-bg: rgba(94, 92, 230, 0.12);
+  --color-placeholder: rgba(235, 235, 240, 0.35);
+}
+
+/* No-JS fallback: if the script never runs, still honor OS preference. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-canvas: #0a0a0c;
+    --color-surface: #1a1a1e;
+
+    --color-text-primary: #ebebf0;
+    --color-text-secondary: #8e8e93;
+
+    --color-accent: #5e5ce6;
+    --color-accent-soft: #7a78f0;
+    --color-accent-deep: #4744c0;
+    --color-accent-fg: #ffffff;
+    --color-app-rose: #c76892;
+
+    --color-border: #2c2c2e;
+    --color-subtle-bg: rgba(94, 92, 230, 0.12);
+    --color-placeholder: rgba(235, 235, 240, 0.35);
+  }
 }
 
 html,
@@ -139,6 +188,22 @@ body {
     0 1px 2px rgba(28, 28, 30, 0.04),
     0 12px 30px -18px rgba(28, 28, 30, 0.18);
 }
+/* Dark: the light border + dark shadows disappear on a dark canvas, so
+   swap to the themed border and a deeper shadow. */
+:root[data-theme="dark"] .card {
+  border-color: var(--color-border);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 18px 40px -20px rgba(0, 0, 0, 0.7);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .card {
+    border-color: var(--color-border);
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.35),
+      0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+}
 
 .display {
   font-feature-settings: "ss01", "cv11";
@@ -157,7 +222,7 @@ body {
   transform: scale(1.02);
 }
 .nav-pill:active {
-  transform: scale(0.84);
+  transform: scale(0.94);
   transition-duration: 100ms;
   transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }

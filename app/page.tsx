@@ -1,4 +1,5 @@
 import { LiquidGlass, LiquidGlassFilter } from "./components/LiquidGlass";
+import { PressableLink } from "./components/PressableLink";
 
 export default function Home() {
   return (
@@ -27,34 +28,34 @@ function Nav() {
           style={{borderRadius: 9999}}
         >
         <div className="flex items-center justify-between px-5 py-2.5">
-          <a href="#top" className="flex items-center gap-2">
+          <PressableLink href="#top" className="flex items-center gap-2">
             <span className="text-sm font-semibold tracking-[0.3em] text-text-primary">
               SPACE
             </span>
-          </a>
+          </PressableLink>
           <nav className="hidden gap-8 text-sm text-text-secondary sm:flex">
-            <a
+            <PressableLink
               href="#features"
               className="transition-colors hover:text-text-primary"
             >
               Funzioni
-            </a>
-            <a
+            </PressableLink>
+            <PressableLink
               href="#privacy"
               className="transition-colors hover:text-text-primary"
             >
               Privacy
-            </a>
-            <a
+            </PressableLink>
+            <PressableLink
               href="#get"
               className="transition-colors hover:text-text-primary"
             >
               Scarica
-            </a>
+            </PressableLink>
           </nav>
-          <a href="#get" className="cta-primary !py-2 !px-4 !text-xs">
+          <PressableLink href="#get" className="cta-primary !py-2 !px-4 !text-xs">
             Entra in SPACE
-          </a>
+          </PressableLink>
         </div>
         </LiquidGlass>
       </div>
@@ -95,13 +96,13 @@ function Hero() {
             className="nav-pill rounded-full"
             variant="mild"
             style={{borderRadius: 9999}}
-          >      
-          <a
+          >
+          <PressableLink
             href="#features"
             className="block px-7 py-[0.9rem] text-[0.9rem] font-semibold text-text-primary"
           >
             Scopri di più
-          </a>
+          </PressableLink>
         </LiquidGlass>
       </div>
     </section>
@@ -153,27 +154,27 @@ function FeatureGrid() {
   const features = [
     {
       title: "Cartelle condivise",
-      body: "Crea uno spazio, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo.",
+      body: "Crea uno spazio, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo",
     },
     {
       title: "Solo su invito",
-      body: "Nessuno vede le vostre foto se non è dentro. Niente link pubblici, niente sorprese.",
+      body: "Nessuno vede le vostre foto se non è dentro. Niente link pubblici, niente sorprese",
     },
     {
       title: "Sincronizzato",
-      body: "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo spazio. Subito.",
+      body: "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo spazio. Subito",
     },
     {
       title: "Leggero, veloce",
-      body: "Costruita per essere fluida. Scorri, carica, commenta senza attese.",
+      body: "Costruita per essere fluida. Scorri, carica, commenta senza attese",
     },
     {
       title: "I tuoi ricordi",
-      body: "Le foto restano tue. Scarichi tutto quando vuoi, in pieno controllo.",
+      body: "Le foto restano tue. Scarichi tutto quando vuoi, in pieno controllo",
     },
     {
       title: "Bella da usare",
-      body: "Interfaccia pulita, luce e vetro. Perché i ricordi meritano una cornice.",
+      body: "Interfaccia pulita, luce e vetro. Perché i ricordi meritano una cornice",
     },
   ];
 
@@ -184,9 +185,9 @@ function FeatureGrid() {
           funzioni
         </p>
         <h2 className="display text-[clamp(2.25rem,5vw,3.75rem)] font-semibold text-text-primary">
-          Tutto quello che serve.
+          Tutto quello che serve
           <br />
-          <span className="signature-fill">Niente che non serve.</span>
+          <span className="signature-fill">Niente che non serve</span>
         </h2>
       </div>
 
@@ -380,7 +381,7 @@ function Footer() {
           <ul className="space-y-2 text-sm text-text-secondary">
             <li>
               <a
-                href="#privacy-policy"
+                href="/privacy"
                 className="transition-colors hover:text-accent"
               >
                 Privacy Policy
@@ -388,7 +389,7 @@ function Footer() {
             </li>
             <li>
               <a
-                href="#terms"
+                href="/terms"
                 className="transition-colors hover:text-accent"
               >
                 Termini di servizio
