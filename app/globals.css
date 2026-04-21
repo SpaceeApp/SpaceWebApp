@@ -1,26 +1,293 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* ── Canvas (light) ───────────────────────────────────────────────── */
+  --color-canvas: #f8f9fa;
+  --color-surface: #ffffff;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Typography */
+  --color-text-primary: #1c1c1e;
+  --color-text-secondary: rgba(60, 60, 67, 0.62);
+
+  /* Accents */
+  --color-accent: #4a48d4;
+  --color-accent-soft: #6b69e0;
+  --color-accent-deep: #3531a3;
+  --color-app-rose: #a64d79;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html,
+body {
+  background: var(--color-canvas);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: clip; /* moved here so nothing creates a containing block
+                       that would break backdrop-filter on fixed nav */
+}
+
+/* ── Hero ambient: one big indigo+rose halo behind the hero so the
+       liquid glass has something varied to refract ───────────────── */
+.hero-ambient {
+  position: absolute;
+  inset: -4rem 0 -32rem 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      1100px 620px at 35% 22%,
+      rgba(74, 72, 212, 0.28),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 500px at 75% 45%,
+      rgba(166, 77, 121, 0.22),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 500px at 50% 78%,
+      rgba(107, 105, 224, 0.18),
+      transparent 68%
+    );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 65%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 65%,
+    transparent 100%
+  );
+}
+
+/* Slow ambient drift so the hero feels alive (also keeps glass refraction
+   from ever looking static) */
+@keyframes ambient-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-2vw, 1vh, 0);
+  }
+}
+.hero-ambient {
+  animation: ambient-drift 18s ease-in-out infinite;
+}
+
+/* ── Signature gradient fill for display type ─────────────────────────── */
+.signature-fill {
+  background: linear-gradient(
+    135deg,
+    #6b69e0 0%,
+    #4a48d4 40%,
+    #3531a3 70%,
+    #a64d79 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Reveal on view ───────────────────────────────────────────────────── */
+@keyframes section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+.reveal {
+  animation: section-rise linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+}
+@supports not (animation-timeline: view()) {
+  .reveal {
+    animation: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Marquee ──────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid rgba(28, 28, 30, 0.06);
+  box-shadow:
+    0 1px 2px rgba(28, 28, 30, 0.04),
+    0 12px 30px -18px rgba(28, 28, 30, 0.18);
+}
+
+.display {
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+/* ── Apple-style spring hover/press on the nav pill ───────────────────── */
+.nav-pill {
+  transition:
+    transform 600ms cubic-bezier(0.175, 0.885, 0.32, 2.2),
+    box-shadow 500ms ease;
+  transform-origin: center;
+}
+.nav-pill:hover {
+  transform: scale(1.02);
+}
+.nav-pill:active {
+  transform: scale(0.84);
+  transition-duration: 100ms;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ── Per-word scroll-driven reveal for the scroll stage phrases ───────── */
+.scroll-word {
+  display: inline-block;
+  opacity: 0.16;
+  transform: translateY(12px);
+  filter: blur(4px);
+  animation: scroll-word-in linear both;
+  animation-timeline: view();
+  animation-range: entry calc(8% + var(--i, 0) * 3%)
+    cover calc(32% + var(--i, 0) * 2%);
+}
+@keyframes scroll-word-in {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+@supports not (animation-timeline: view()) {
+  .scroll-word {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* ── Signature phrase: Apple-style lift-in, scroll-bound. Rises from
+       below with a subtle scale-up — no blur, since the per-word dark
+       reveal already carries blur and stacking two blurs reads muddy. ── */
+.scroll-phrase {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(42px) scale(0.92);
+  transform-origin: 50% 100%;
+  will-change: opacity, transform;
+  animation: scroll-phrase-in linear both;
+  animation-timeline: view();
+  animation-range: entry 8% cover 52%;
+}
+.scroll-phrase > .signature-fill {
+  display: inline-block;
+}
+@keyframes scroll-phrase-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@supports not (animation-timeline: view()) {
+  .scroll-phrase {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Primary CTA: indigo gradient + glow + animated sheen ─────────────── */
+.cta-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  background: linear-gradient(135deg, #6b69e0, #4a48d4 55%, #3531a3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 10px 24px -8px rgba(74, 72, 212, 0.55),
+    0 24px 60px -20px rgba(53, 49, 163, 0.6);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 220ms ease;
+}
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 14px 30px -8px rgba(74, 72, 212, 0.65),
+    0 32px 70px -20px rgba(53, 49, 163, 0.7);
+}
+.cta-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  z-index: -1;
+  animation: cta-sheen 4.5s ease-in-out infinite;
+}
+@keyframes cta-sheen {
+  0%,
+  15% {
+    transform: translateX(-120%);
+  }
+  40%,
+  100% {
+    transform: translateX(220%);
+  }
+}
+.cta-primary-lg {
+  padding: 1.25rem 2.25rem;
+  font-size: 1.05rem;
+}
+
+.cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border: 1px solid rgba(28, 28, 30, 0.08);
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cta-ghost:hover {
+  transform: translateY(-2px);
 }
