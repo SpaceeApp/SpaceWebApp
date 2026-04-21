@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SPACE — sito
 
-## Getting Started
+Landing page di SPACE, l'app per cartelle di foto condivise con amici e
+famiglia. Next.js 16 (App Router) + Tailwind v4.
 
-First, run the development server:
+## Avvio
 
 ```bash
+npm install
+cp .env.example .env.local   # poi modifica i valori se serve
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apri [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Struttura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  layout.tsx         Root layout + script no-FOUC per data-theme
+  page.tsx           Home (Nav, Hero, ScrollStage, Features, CTA, Footer)
+  globals.css        Palette (light + dark), nav-pill, cta, signature-fill
+  components/
+    LiquidGlass.tsx  Vetro liquido in stile Apple (backdrop + SVG displacement)
+    PressableLink.tsx Anchor che cattura il pointer (fix click sulla nav-pill)
+  (legal)/
+    layout.tsx       Chrome condiviso per le pagine legali
+    privacy/page.md  Privacy policy
+    terms/page.md    Termini & condizioni
+mdx-components.tsx   Mapping degli elementi MDX sugli stili del tema
+documents/           Sorgente .md dei documenti legali (non serviti)
+```
 
-## Learn More
+## Temi
 
-To learn more about Next.js, take a look at the following resources:
+Le variabili CSS in [app/globals.css](app/globals.css) definiscono le palette
+light (default) e dark (`:root[data-theme="dark"]`). Lo script in
+[app/layout.tsx](app/layout.tsx) imposta `data-theme` prima del paint leggendo
+`localStorage.theme`, con fallback su `prefers-color-scheme`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Per forzare un tema da console:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```js
+localStorage.setItem('theme', 'dark'); // o 'light'
+document.documentElement.setAttribute('data-theme', 'dark');
+```
 
-## Deploy on Vercel
+## MDX
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le pagine legali sono file `.md` renderizzati via `@next/mdx`
+(configurato in [next.config.ts](next.config.ts)). Gli stili dei tag
+(h1/h2/p/ul/…) sono in [mdx-components.tsx](mdx-components.tsx) e seguono
+il tema del sito. Per aggiungere un'altra pagina legale basta creare
+`app/(legal)/<nome>/page.md`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Build
+
+```bash
+npm run build   # produzione
+npm run lint
+```
+
+## Note
+
+AGENTS.md / CLAUDE.md contengono istruzioni specifiche di questa versione
+di Next.js per gli agenti AI.

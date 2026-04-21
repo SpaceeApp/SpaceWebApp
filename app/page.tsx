@@ -84,7 +84,7 @@ function Hero() {
       <p className="relative z-10 mt-8 max-w-xl text-lg text-text-primary/80 sm:text-xl">
         Le tue foto. Le tue persone. Un posto solo vostro.
         <br className="hidden sm:inline" />
-        Cartelle condivise, senza rumore.
+        Cartelle condivise, senza rumore
       </p>
 
       <div className="relative z-10 mt-12 flex flex-col items-center gap-3">
@@ -227,12 +227,12 @@ function PrivacyBand() {
           privacy
         </p>
         <h2 className="display max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-semibold">
-          Le vostre foto non sono un prodotto.
+          Le vostre foto non sono un prodotto
         </h2>
         <p className="mt-6 max-w-xl text-lg text-white/85">
           SPACE è pensato perché i ricordi restino fra chi li ha vissuti.
           Nessuna pubblicità, nessun tracciamento esterno, nessun feed
-          pubblico.
+          pubblico
         </p>
       </div>
     </section>
@@ -260,7 +260,7 @@ function BigCTA() {
       <p className="mt-6 max-w-lg text-lg text-text-secondary">
         {IS_LIVE
           ? "Crea il tuo primo spazio in meno di un minuto. Invita chi vuoi."
-          : "Siamo quasi pronti. Lasciaci la tua email e ti avvisiamo appena SPACE è scaricabile."}
+          : "Siamo quasi pronti. Lasciaci la tua email e ti avvisiamo appena SPACE è scaricabile"}
       </p>
 
       {IS_LIVE ? (
