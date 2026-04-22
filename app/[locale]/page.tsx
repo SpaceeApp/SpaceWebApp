@@ -1,7 +1,17 @@
-import { LiquidGlass, LiquidGlassFilter } from "./components/LiquidGlass";
-import { PressableLink } from "./components/PressableLink";
+import { useTranslations } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { LiquidGlass, LiquidGlassFilter } from "../components/LiquidGlass";
+import { PressableLocaleLink } from "../components/PressableLink";
+import { Link } from "../../i18n/navigation";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <>
       <LiquidGlassFilter />
@@ -19,44 +29,48 @@ export default function Home() {
 /* ─── Nav (liquid glass — refracts whatever is under it) ──────────── */
 
 function Nav() {
+  const t = useTranslations("nav");
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4">
       <div className="mx-auto mt-4 max-w-6xl">
         <LiquidGlass
           className="nav-pill rounded-full"
           variant="mild"
-          style={{borderRadius: 9999}}
+          style={{ borderRadius: 9999 }}
         >
-        <div className="flex items-center justify-between px-5 py-2.5">
-          <PressableLink href="#top" className="flex items-center gap-2">
-            <span className="text-sm font-semibold tracking-[0.3em] text-text-primary">
-              SPACE
-            </span>
-          </PressableLink>
-          <nav className="hidden gap-8 text-sm text-text-secondary sm:flex">
-            <PressableLink
-              href="#features"
-              className="transition-colors hover:text-text-primary"
+          <div className="flex items-center justify-between px-5 py-2.5">
+            <PressableLocaleLink href="/" className="flex items-center gap-2">
+              <span className="text-sm font-semibold tracking-[0.3em] text-text-primary">
+                SPACE
+              </span>
+            </PressableLocaleLink>
+            <nav className="hidden gap-8 text-sm text-text-secondary sm:flex">
+              <PressableLocaleLink
+                href="/#features"
+                className="transition-colors hover:text-text-primary"
+              >
+                {t("features")}
+              </PressableLocaleLink>
+              <PressableLocaleLink
+                href="/#privacy"
+                className="transition-colors hover:text-text-primary"
+              >
+                {t("privacy")}
+              </PressableLocaleLink>
+              <PressableLocaleLink
+                href="/#get"
+                className="transition-colors hover:text-text-primary"
+              >
+                {t("download")}
+              </PressableLocaleLink>
+            </nav>
+            <PressableLocaleLink
+              href="/#get"
+              className="cta-primary !py-2 !px-4 !text-xs"
             >
-              Funzioni
-            </PressableLink>
-            <PressableLink
-              href="#privacy"
-              className="transition-colors hover:text-text-primary"
-            >
-              Privacy
-            </PressableLink>
-            <PressableLink
-              href="#get"
-              className="transition-colors hover:text-text-primary"
-            >
-              Scarica
-            </PressableLink>
-          </nav>
-          <PressableLink href="#get" className="cta-primary !py-2 !px-4 !text-xs">
-            Entra in SPACE
-          </PressableLink>
-        </div>
+              {t("cta")}
+            </PressableLocaleLink>
+          </div>
         </LiquidGlass>
       </div>
     </header>
@@ -66,6 +80,7 @@ function Nav() {
 /* ─── Hero with real photo collage behind ─────────────────────────── */
 
 function Hero() {
+  const t = useTranslations("hero");
   return (
     <section
       id="top"
@@ -74,7 +89,7 @@ function Hero() {
       <div className="hero-ambient" />
 
       <p className="relative z-10 mb-6 text-xs font-medium uppercase tracking-[0.4em] text-accent">
-        per te e chi conta davvero
+        {t("eyebrow")}
       </p>
 
       <h1 className="display signature-fill relative z-10 text-[clamp(4rem,14vw,13rem)] font-semibold">
@@ -82,27 +97,27 @@ function Hero() {
       </h1>
 
       <p className="relative z-10 mt-8 max-w-xl text-lg text-text-primary/80 sm:text-xl">
-        Le tue foto. Le tue persone. Un posto solo vostro.
+        {t("tagline")}
         <br className="hidden sm:inline" />
-        Cartelle condivise, senza rumore
+        {t("taglineSub")}
       </p>
 
       <div className="relative z-10 mt-12 flex flex-col items-center gap-3">
-        <a href="#get" className="cta-primary cta-primary-lg">
-          Entra in SPACE
+        <PressableLocaleLink href="/#get" className="cta-primary cta-primary-lg">
+          {t("ctaPrimary")}
           <ArrowIcon />
-        </a>
+        </PressableLocaleLink>
         <LiquidGlass
-            className="nav-pill rounded-full"
-            variant="mild"
-            style={{borderRadius: 9999}}
-          >
-          <PressableLink
-            href="#features"
+          className="nav-pill rounded-full"
+          variant="mild"
+          style={{ borderRadius: 9999 }}
+        >
+          <PressableLocaleLink
+            href="/#features"
             className="block px-7 py-[0.9rem] text-[0.9rem] font-semibold text-text-primary"
           >
-            Scopri di più
-          </PressableLink>
+            {t("ctaSecondary")}
+          </PressableLocaleLink>
         </LiquidGlass>
       </div>
     </section>
@@ -112,13 +127,9 @@ function Hero() {
 /* ─── Scroll stage ────────────────────────────────────────────────── */
 
 function ScrollStage() {
+  const t = useTranslations("scroll");
   // Tuple: [accent part (solid dark), signature-fill part (indigo→rose)]
-  const lines: [string, string][] = [
-    ["Una cartella", "per ogni ricordo"],
-    ["Invita", "solo chi vuoi tu"],
-    ["Niente algoritmi", "niente feed"],
-    ["Solo voi,", "le vostre foto, il vostro spazio"],
-  ];
+  const lines = t.raw("lines") as [string, string][];
 
   return (
     <section className="relative mx-auto max-w-6xl px-6 py-10 sm:py-40">
@@ -151,43 +162,22 @@ function ScrollStage() {
 /* ─── Feature grid ────────────────────────────────────────────────── */
 
 function FeatureGrid() {
-  const features = [
-    {
-      title: "Cartelle condivise",
-      body: "Crea uno spazio, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo",
-    },
-    {
-      title: "Solo su invito",
-      body: "Nessuno vede le vostre foto se non è dentro. Niente link pubblici, niente sorprese",
-    },
-    {
-      title: "Sincronizzato",
-      body: "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo spazio. Subito",
-    },
-    {
-      title: "Leggero, veloce",
-      body: "Costruita per essere fluida. Scorri, carica, commenta senza attese",
-    },
-    {
-      title: "I tuoi ricordi",
-      body: "Le foto restano tue. Scarichi tutto quando vuoi, in pieno controllo",
-    },
-    {
-      title: "Bella da usare",
-      body: "Interfaccia pulita, luce e vetro. Perché i ricordi meritano una cornice",
-    },
-  ];
+  const t = useTranslations("features");
+  const features = t.raw("items") as { title: string; body: string }[];
 
   return (
-    <section id="features" className="relative mx-auto max-w-6xl px-6 py-16 sm:py-32">
+    <section
+      id="features"
+      className="relative mx-auto max-w-6xl px-6 py-16 sm:py-32"
+    >
       <div className="reveal mb-10 max-w-2xl sm:mb-16">
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-accent">
-          funzioni
+          {t("eyebrow")}
         </p>
         <h2 className="display text-[clamp(2.25rem,5vw,3.75rem)] font-semibold text-text-primary">
-          Tutto quello che serve
+          {t("titlePrefix")}
           <br />
-          <span className="signature-fill">Niente che non serve</span>
+          <span className="signature-fill">{t("titleSuffix")}</span>
         </h2>
       </div>
 
@@ -216,6 +206,7 @@ function FeatureGrid() {
 /* ─── Privacy band ────────────────────────────────────────────────── */
 
 function PrivacyBand() {
+  const t = useTranslations("privacyBand");
   return (
     <section
       id="privacy"
@@ -224,16 +215,12 @@ function PrivacyBand() {
       <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-accent-deep via-accent to-accent-soft p-10 text-white shadow-[0_40px_80px_-30px_rgba(74,72,212,0.45)] sm:p-16">
         <div className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-white/20 blur-3xl" />
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-white/80">
-          privacy
+          {t("eyebrow")}
         </p>
         <h2 className="display max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-semibold">
-          Le vostre foto non sono un prodotto
+          {t("title")}
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-white/85">
-          SPACE è pensato perché i ricordi restino fra chi li ha vissuti.
-          Nessuna pubblicità, nessun tracciamento esterno, nessun feed
-          pubblico
-        </p>
+        <p className="mt-6 max-w-xl text-lg text-white/85">{t("body")}</p>
       </div>
     </section>
   );
@@ -244,33 +231,32 @@ function PrivacyBand() {
 const IS_LIVE = process.env.NEXT_PUBLIC_LIVE_MODE === "true";
 
 function BigCTA() {
+  const t = useTranslations("cta");
   return (
     <section
       id="get"
       className="reveal relative mx-auto flex max-w-4xl flex-col items-center px-6 py-20 text-center sm:py-40"
     >
       <p className="mb-4 text-xs font-medium uppercase tracking-[0.4em] text-accent">
-        {IS_LIVE ? "scarica ora" : "inizia ora"}
+        {IS_LIVE ? t("eyebrowLive") : t("eyebrowPre")}
       </p>
       <h2 className="display text-[clamp(2.75rem,8vw,6rem)] font-semibold text-text-primary">
-        Il vostro <span className="signature-fill">SPACE</span>
+        {t("titlePrefix")} <span className="signature-fill">SPACE</span>
         <br />
-        vi aspetta
+        {t("titleSuffix")}
       </h2>
       <p className="mt-6 max-w-lg text-lg text-text-secondary">
-        {IS_LIVE
-          ? "Crea il tuo primo spazio in meno di un minuto. Invita chi vuoi."
-          : "Siamo quasi pronti. Lasciaci la tua email e ti avvisiamo appena SPACE è scaricabile"}
+        {IS_LIVE ? t("bodyLive") : t("bodyPre")}
       </p>
 
       {IS_LIVE ? (
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
           <a href="#download-ios" className="cta-primary cta-primary-lg">
-            Scarica per iOS
+            {t("iosDownload")}
             <ArrowIcon />
           </a>
           <a href="#download-android" className="cta-primary cta-primary-lg">
-            Scarica per Android
+            {t("androidDownload")}
             <ArrowIcon />
           </a>
         </div>
@@ -279,11 +265,11 @@ function BigCTA() {
           <input
             type="email"
             required
-            placeholder="la-tua@email.com"
+            placeholder={t("emailPlaceholder")}
             className="flex-1 rounded-full border border-text-primary/10 bg-surface px-5 py-3 text-sm text-text-primary placeholder:text-text-secondary focus:border-accent focus:outline-none"
           />
           <button type="submit" className="cta-primary">
-            Avvisami al lancio
+            {t("submit")}
           </button>
         </form>
       )}
@@ -294,16 +280,8 @@ function BigCTA() {
 /* ─── Footer ──────────────────────────────────────────────────────── */
 
 function Footer() {
-  const tags = [
-    "foto",
-    "amici",
-    "cartelle condivise",
-    "privacy",
-    "ricordi",
-    "famiglia",
-    "viaggi",
-    "sincronizzato",
-  ];
+  const t = useTranslations("footer");
+  const tags = t.raw("tags") as string[];
   const strip = [...tags, ...tags];
 
   const socials = [
@@ -324,8 +302,8 @@ function Footer() {
     <footer className="relative mt-16 border-t border-text-primary/5 bg-surface/60">
       <div className="overflow-hidden py-10">
         <div className="marquee flex w-[200%] gap-4 whitespace-nowrap text-[clamp(2rem,6vw,4rem)] font-semibold text-text-primary/10">
-          {strip.map((t, i) => (
-            <span key={i}> - {t}</span>
+          {strip.map((tag, i) => (
+            <span key={i}> - {tag}</span>
           ))}
         </div>
       </div>
@@ -338,13 +316,13 @@ function Footer() {
             </span>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-text-secondary">
-            Le tue foto. Le tue persone. Un posto solo vostro.
+            {t("tagline")}
           </p>
         </div>
 
         <div>
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-text-primary">
-            Contatti
+            {t("contacts")}
           </p>
           <a
             href="mailto:hello@space-app.it"
@@ -356,7 +334,7 @@ function Footer() {
 
         <div>
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-text-primary">
-            Seguici
+            {t("follow")}
           </p>
           <div className="flex items-center gap-3">
             {socials.map(({ name, href, icon: Icon }) => (
@@ -376,24 +354,24 @@ function Footer() {
 
         <div>
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-text-primary">
-            Legale
+            {t("legal")}
           </p>
           <ul className="space-y-2 text-sm text-text-secondary">
             <li>
-              <a
+              <Link
                 href="/privacy"
                 className="transition-colors hover:text-accent"
               >
-                Privacy Policy
-              </a>
+                {t("privacyPolicy")}
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/terms"
                 className="transition-colors hover:text-accent"
               >
-                Termini di servizio
-              </a>
+                {t("terms")}
+              </Link>
             </li>
           </ul>
         </div>
@@ -401,7 +379,7 @@ function Footer() {
 
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 border-t border-text-primary/5 px-6 py-6 text-xs text-text-secondary sm:flex-row">
         <p>© {new Date().getFullYear()} SPACE</p>
-        <p className="text-text-secondary/70">Tutti i diritti riservati</p>
+        <p className="text-text-secondary/70">{t("rights")}</p>
       </div>
     </footer>
   );
@@ -443,7 +421,13 @@ function InstagramIcon() {
 
 function LinkedInIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
       <path d="M4.98 3.5A2.5 2.5 0 1 1 4.97 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9.5h4v11H3v-11zm7 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V20.5H18.6v-4.9c0-1.17-.02-2.68-1.63-2.68-1.64 0-1.89 1.28-1.89 2.6v4.98H10v-11z" />
     </svg>
   );
@@ -451,7 +435,13 @@ function LinkedInIcon() {
 
 function XIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
     </svg>
   );

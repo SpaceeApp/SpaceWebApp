@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "SPACE",
+    "description": "SPACE is the app to share photo folders with the people who matter. Private, fast, beautiful."
+  },
+  "nav": {
+    "features": "Features",
+    "privacy": "Privacy",
+    "download": "Download",
+    "cta": "Join SPACE"
+  },
+  "hero": {
+    "eyebrow": "for you and the people who matter",
+    "tagline": "Your photos. Your people. A place just for you.",
+    "taglineSub": "Shared folders, without the noise.",
+    "ctaPrimary": "Join SPACE",
+    "ctaSecondary": "Learn more"
+  },
+  "scroll": {
+    "lines": [
+      ["A folder", "for every memory"],
+      ["Invite", "only who you want"],
+      ["No algorithms", "no feed"],
+      ["Just you,", "your photos, your space"]
+    ]
+  },
+  "features": {
+    "eyebrow": "features",
+    "titlePrefix": "Everything you need",
+    "titleSuffix": "Nothing you don't",
+    "items": [
+      {
+        "title": "Shared folders",
+        "body": "Create a space, invite friends, upload together. Every folder is a little world"
+      },
+      {
+        "title": "Invite only",
+        "body": "No one sees your photos unless they're in. No public links, no surprises"
+      },
+      {
+        "title": "Synced",
+        "body": "Add a photo on your phone, it appears on the tablet of whoever shares the space. Instantly"
+      },
+      {
+        "title": "Light, fast",
+        "body": "Built to be fluid. Scroll, upload, comment without waiting"
+      },
+      {
+        "title": "Your memories",
+        "body": "The photos stay yours. Download everything whenever you want, in full control"
+      },
+      {
+        "title": "Beautiful to use",
+        "body": "Clean interface, light and glass. Because memories deserve a frame"
+      }
+    ]
+  },
+  "privacyBand": {
+    "eyebrow": "privacy",
+    "title": "Your photos are not a product",
+    "body": "SPACE is designed so memories stay between those who lived them. No ads, no external tracking, no public feed"
+  },
+  "cta": {
+    "eyebrowPre": "start now",
+    "eyebrowLive": "download now",
+    "titlePrefix": "Your",
+    "titleSuffix": "is waiting",
+    "bodyPre": "We're almost ready. Leave us your email and we'll let you know as soon as SPACE is available",
+    "bodyLive": "Create your first space in under a minute. Invite anyone you like.",
+    "iosDownload": "Download for iOS",
+    "androidDownload": "Download for Android",
+    "emailPlaceholder": "your@email.com",
+    "submit": "Notify me at launch"
+  },
+  "footer": {
+    "tagline": "Your photos. Your people. A place just for you.",
+    "contacts": "Contact",
+    "follow": "Follow us",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of service",
+    "rights": "All rights reserved",
+    "tags": [
+      "photos",
+      "friends",
+      "shared folders",
+      "privacy",
+      "memories",
+      "family",
+      "travels",
+      "synced"
+    ]
+  },
+  "legal": {
+    "backHome": "Back to home",
+    "backHomeShort": "Back",
+    "rights": "All rights reserved"
+  }
+}

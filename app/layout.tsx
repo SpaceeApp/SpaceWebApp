@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,17 +12,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "SPACE",
-  description:
-    "SPACE è l'app per condividere cartelle di foto con le persone che contano. Privato, veloce, bello.",
-};
-
-// Runs synchronously in <head> before first paint so the correct palette
-// is applied without a flash. Reads localStorage.theme ("light"|"dark") and
-// falls back to the OS `prefers-color-scheme` when nothing is stored.
+// Runs synchronously before first paint so the correct palette is applied
+// without a flash. Reads localStorage.theme ("light"|"dark") and falls back
+// to the OS `prefers-color-scheme` when nothing is stored.
 const themeInitScript = `(function(){try{var s=localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
 
+// Root layout sits above [locale] and stays mounted across locale navigation.
+// Keeping the <Script> here (not in [locale]/layout.tsx) avoids React 19's
+// "script tag while rendering on the client" warning that fires when the
+// [locale] segment re-renders.
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,14 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="it"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="min-h-full flex flex-col bg-canvas text-text-primary">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
         {children}
       </body>
     </html>

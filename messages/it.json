@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "SPACE",
+    "description": "SPACE è l'app per condividere cartelle di foto con le persone che contano. Privato, veloce, bello."
+  },
+  "nav": {
+    "features": "Funzioni",
+    "privacy": "Privacy",
+    "download": "Scarica",
+    "cta": "Entra in SPACE"
+  },
+  "hero": {
+    "eyebrow": "per te e chi conta davvero",
+    "tagline": "Le tue foto. Le tue persone. Un posto solo vostro.",
+    "taglineSub": "Cartelle condivise, senza rumore.",
+    "ctaPrimary": "Entra in SPACE",
+    "ctaSecondary": "Scopri di più"
+  },
+  "scroll": {
+    "lines": [
+      ["Una cartella", "per ogni ricordo"],
+      ["Invita", "solo chi vuoi tu"],
+      ["Niente algoritmi", "niente feed"],
+      ["Solo voi,", "le vostre foto, il vostro spazio"]
+    ]
+  },
+  "features": {
+    "eyebrow": "funzioni",
+    "titlePrefix": "Tutto quello che serve",
+    "titleSuffix": "Niente che non serve",
+    "items": [
+      {
+        "title": "Cartelle condivise",
+        "body": "Crea uno spazio, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo"
+      },
+      {
+        "title": "Solo su invito",
+        "body": "Nessuno vede le vostre foto se non è dentro. Niente link pubblici, niente sorprese"
+      },
+      {
+        "title": "Sincronizzato",
+        "body": "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo spazio. Subito"
+      },
+      {
+        "title": "Leggero, veloce",
+        "body": "Costruita per essere fluida. Scorri, carica, commenta senza attese"
+      },
+      {
+        "title": "I tuoi ricordi",
+        "body": "Le foto restano tue. Scarichi tutto quando vuoi, in pieno controllo"
+      },
+      {
+        "title": "Bella da usare",
+        "body": "Interfaccia pulita, luce e vetro. Perché i ricordi meritano una cornice"
+      }
+    ]
+  },
+  "privacyBand": {
+    "eyebrow": "privacy",
+    "title": "Le vostre foto non sono un prodotto",
+    "body": "SPACE è pensato perché i ricordi restino fra chi li ha vissuti. Nessuna pubblicità, nessun tracciamento esterno, nessun feed pubblico"
+  },
+  "cta": {
+    "eyebrowPre": "inizia ora",
+    "eyebrowLive": "scarica ora",
+    "titlePrefix": "Il vostro",
+    "titleSuffix": "vi aspetta",
+    "bodyPre": "Siamo quasi pronti. Lasciaci la tua email e ti avvisiamo appena SPACE è scaricabile",
+    "bodyLive": "Crea il tuo primo spazio in meno di un minuto. Invita chi vuoi.",
+    "iosDownload": "Scarica per iOS",
+    "androidDownload": "Scarica per Android",
+    "emailPlaceholder": "la-tua@email.com",
+    "submit": "Avvisami al lancio"
+  },
+  "footer": {
+    "tagline": "Le tue foto. Le tue persone. Un posto solo vostro.",
+    "contacts": "Contatti",
+    "follow": "Seguici",
+    "legal": "Legale",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Termini di servizio",
+    "rights": "Tutti i diritti riservati",
+    "tags": [
+      "foto",
+      "amici",
+      "cartelle condivise",
+      "privacy",
+      "ricordi",
+      "famiglia",
+      "viaggi",
+      "sincronizzato"
+    ]
+  },
+  "legal": {
+    "backHome": "Torna alla home",
+    "backHomeShort": "Indietro",
+    "rights": "Tutti i diritti riservati"
+  }
+}

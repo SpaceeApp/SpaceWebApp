@@ -1,0 +1,7 @@
+import { createNavigation } from "next-intl/navigation";
+import { routing } from "./routing";
+
+// Locale-aware navigation helpers: <Link> auto-prefixes the active locale
+// ("/privacy" → "/en/privacy" when on English), useRouter/redirect do the same.
+export const { Link, redirect, usePathname, useRouter, getPathname } =
+  createNavigation(routing);
