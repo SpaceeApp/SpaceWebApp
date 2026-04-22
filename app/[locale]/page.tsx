@@ -287,15 +287,15 @@ function Footer() {
   const socials = [
     {
       name: "Instagram",
-      href: "https://instagram.com/space.app",
+      href: "https://www.instagram.com/spaceeapp",
       icon: InstagramIcon,
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/company/space-app",
+      href: "https://www.linkedin.com/in/space-app-45533a405",
       icon: LinkedInIcon,
     },
-    { name: "X", href: "https://x.com/space_app", icon: XIcon },
+    { name: "X", href: "https://x.com/spaceeapp", icon: XIcon },
   ];
 
   return (
@@ -328,7 +328,7 @@ function Footer() {
             href="mailto:hello@space-app.it"
             className="text-sm text-text-secondary transition-colors hover:text-accent"
           >
-            hello@space-app.it
+            info@spaceeapp.com
           </a>
         </div>
 

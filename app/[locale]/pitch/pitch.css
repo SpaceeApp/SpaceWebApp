@@ -1,0 +1,942 @@
+/* ─── SPACE | VC pitch deck ───────────────────────────────────────────
+   All styles live under `.pitch-root` so this file is safe to load
+   alongside the rest of the site (no global class name collisions).
+   Light is the default; dark activates via `data-theme="dark"` on
+   <html> (set by app/layout.tsx) or via OS preference as a fallback. */
+
+.pitch-root {
+  --pitch-bg: #f8f9fa;
+  --pitch-card-solid: #ffffff;
+  --pitch-text-primary: #1c1c1e;
+  --pitch-text-secondary: #636366;
+  --pitch-accent: #4a48d4;
+  --pitch-accent-fg: #ffffff;
+  --pitch-border: #e5e5ea;
+  --pitch-subtle-bg: rgba(74, 72, 212, 0.08);
+  --pitch-placeholder: rgba(28, 28, 30, 0.3);
+  --pitch-accent-rgb: 74, 72, 212;
+
+  --pitch-ink: var(--pitch-text-primary);
+  --pitch-ink-dim: var(--pitch-text-secondary);
+  --pitch-line: var(--pitch-border);
+  --pitch-accent-strong: var(--pitch-accent);
+  --pitch-card: var(--pitch-card-solid);
+  --pitch-blur: saturate(120%) blur(10px);
+  --pitch-noise-color: var(--pitch-placeholder);
+  --pitch-noise-opacity: 0.035;
+  --pitch-fx-shadow: 0 18px 46px rgba(74, 72, 212, 0.14);
+  --pitch-fx-panel-a: rgba(74, 72, 212, 0.44);
+  --pitch-fx-panel-b: rgba(74, 72, 212, 0.26);
+}
+
+:root[data-theme="dark"] .pitch-root {
+  --pitch-bg: #0a0a0c;
+  --pitch-card-solid: #1a1a1e;
+  --pitch-text-primary: #ebebf0;
+  --pitch-text-secondary: #8e8e93;
+  --pitch-border: #2c2c2e;
+  --pitch-subtle-bg: rgba(74, 72, 212, 0.12);
+  --pitch-placeholder: rgba(235, 235, 240, 0.35);
+  --pitch-blur: saturate(130%) blur(12px);
+  --pitch-noise-opacity: 0.06;
+  --pitch-fx-shadow: 0 22px 68px rgba(74, 72, 212, 0.16);
+  --pitch-fx-panel-a: rgba(74, 72, 212, 0.56);
+  --pitch-fx-panel-b: rgba(74, 72, 212, 0.26);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .pitch-root {
+    --pitch-bg: #0a0a0c;
+    --pitch-card-solid: #1a1a1e;
+    --pitch-text-primary: #ebebf0;
+    --pitch-text-secondary: #8e8e93;
+    --pitch-border: #2c2c2e;
+    --pitch-subtle-bg: rgba(74, 72, 212, 0.12);
+    --pitch-placeholder: rgba(235, 235, 240, 0.35);
+    --pitch-blur: saturate(130%) blur(12px);
+    --pitch-noise-opacity: 0.06;
+    --pitch-fx-shadow: 0 22px 68px rgba(74, 72, 212, 0.16);
+    --pitch-fx-panel-a: rgba(74, 72, 212, 0.56);
+    --pitch-fx-panel-b: rgba(74, 72, 212, 0.26);
+  }
+}
+
+.pitch-root,
+.pitch-root * {
+  box-sizing: border-box;
+}
+
+.pitch-root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  perspective: 1200px;
+  color: var(--pitch-ink);
+  background:
+    radial-gradient(circle at 12% 15%, var(--pitch-subtle-bg), transparent 30%),
+    radial-gradient(circle at 80% 18%, rgba(var(--pitch-accent-rgb), 0.2), transparent 26%),
+    radial-gradient(circle at 84% 84%, rgba(var(--pitch-accent-rgb), 0.14), transparent 30%),
+    var(--pitch-bg);
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+  z-index: 1;
+}
+
+.pitch-root .noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--pitch-noise-opacity);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--pitch-noise-color) 0,
+      var(--pitch-noise-color) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--pitch-noise-color) 0,
+      var(--pitch-noise-color) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  mix-blend-mode: soft-light;
+}
+
+.pitch-root .deck {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.pitch-root .slide {
+  position: absolute;
+  inset: 0;
+  padding: clamp(1.15rem, 2.1vw, 2rem);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  opacity: 0;
+  transform: translate3d(24px, 0, 0) scale(0.992) rotateY(-4deg);
+  transform-origin: left center;
+  filter: blur(2px) saturate(92%);
+  pointer-events: none;
+  transition:
+    opacity 420ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 420ms ease;
+}
+
+.pitch-root .slide.active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
+  filter: blur(0) saturate(100%);
+  pointer-events: auto;
+}
+
+.pitch-root .panel {
+  position: relative;
+  border: 1px solid var(--pitch-line);
+  border-radius: 26px;
+  background: var(--pitch-card);
+  backdrop-filter: var(--pitch-blur);
+  -webkit-backdrop-filter: var(--pitch-blur);
+  box-shadow: var(--pitch-fx-shadow);
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+.pitch-root .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 18%,
+    var(--pitch-fx-panel-a) 28%,
+    transparent 44%,
+    var(--pitch-fx-panel-b) 66%,
+    transparent 82%,
+    var(--pitch-fx-panel-a) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.58;
+  pointer-events: none;
+  animation: pitchPanelSpin 14s linear infinite;
+}
+
+.pitch-root .panel::after {
+  content: "";
+  position: absolute;
+  width: 68%;
+  height: 55%;
+  top: -16%;
+  left: -10%;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--pitch-accent-rgb), 0.28),
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: pitchAmbientSweep 9s ease-in-out infinite;
+}
+
+.pitch-root .panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pitch-root .slide-header,
+.pitch-root .slide-footer {
+  padding: 1rem 1.2rem;
+}
+
+.pitch-root .slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.9rem;
+  border-bottom: 1px solid var(--pitch-line);
+}
+
+.pitch-root .slide-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--pitch-ink-dim);
+  border-top: 1px solid var(--pitch-line);
+}
+
+.pitch-root .slide-body {
+  padding: clamp(1.1rem, 2.1vw, 2rem);
+  display: grid;
+  gap: clamp(0.95rem, 1.6vw, 1.2rem);
+  align-content: center;
+  contain: layout paint;
+}
+
+.pitch-root .slide.active .slide-body > * {
+  animation: pitchContentRise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pitch-root .slide.active .slide-body > *:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.pitch-root .slide.active .slide-body > *:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+.pitch-root .slide.active .slide-body > *:nth-child(4) {
+  animation-delay: 210ms;
+}
+
+.pitch-root .slide.active .slide-body > *:nth-child(5) {
+  animation-delay: 260ms;
+}
+
+.pitch-root .brand {
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--pitch-accent-strong);
+}
+
+.pitch-root .tag {
+  border: 1px solid var(--pitch-line);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  color: var(--pitch-ink-dim);
+  font-size: 0.82rem;
+}
+
+.pitch-root .roman {
+  color: var(--pitch-ink-dim);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.pitch-root h1,
+.pitch-root h2,
+.pitch-root h3,
+.pitch-root p {
+  margin: 0;
+}
+
+.pitch-root h1 {
+  font-size: clamp(2.3rem, 5.2vw, 4.7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.pitch-root h2 {
+  font-size: clamp(1.5rem, 3.25vw, 2.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+
+.pitch-root h3 {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.pitch-root .lead {
+  color: var(--pitch-ink-dim);
+  max-width: 68ch;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.45;
+}
+
+.pitch-root .accent {
+  color: var(--pitch-accent-strong);
+}
+
+.pitch-root .layout-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pitch-root .layout-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pitch-root .layout-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pitch-root .card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pitch-line);
+  border-radius: 18px;
+  background: var(--pitch-card-solid);
+  padding: clamp(0.9rem, 1.3vw, 1.2rem);
+  transition:
+    transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 340ms ease,
+    box-shadow 340ms ease;
+}
+
+.pitch-root .card::before,
+.pitch-root .chart-card::before,
+.pitch-root .profile-box::before,
+.pitch-root .screen-box::before,
+.pitch-root .phone-mock::before,
+.pitch-root .cta::before {
+  content: "";
+  position: absolute;
+  inset: -140% -40% auto;
+  height: 240%;
+  background: linear-gradient(
+    115deg,
+    transparent 44%,
+    rgba(var(--pitch-accent-rgb), 0.22) 50%,
+    transparent 56%
+  );
+  transform: translateY(65%) rotate(8deg);
+  opacity: 0;
+  transition: transform 700ms ease, opacity 700ms ease;
+  pointer-events: none;
+}
+
+.pitch-root .slide.active .card::before,
+.pitch-root .slide.active .chart-card::before,
+.pitch-root .slide.active .profile-box::before,
+.pitch-root .slide.active .screen-box::before,
+.pitch-root .slide.active .phone-mock::before,
+.pitch-root .slide.active .cta::before {
+  opacity: 0.42;
+  transform: translateY(34%) rotate(8deg);
+}
+
+.pitch-root .card:hover,
+.pitch-root .chart-card:hover,
+.pitch-root .profile-box:hover,
+.pitch-root .screen-box:hover,
+.pitch-root .phone-mock:hover,
+.pitch-root .cta:hover {
+  transform: translateY(-4px);
+  border-color: var(--pitch-accent-strong);
+  box-shadow: 0 10px 34px rgba(var(--pitch-accent-rgb), 0.26);
+}
+
+.pitch-root .underlined {
+  display: inline-block;
+  border-bottom: 0;
+  background-image: linear-gradient(
+    90deg,
+    var(--pitch-accent-strong),
+    var(--pitch-accent-strong)
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  padding-bottom: 0.08em;
+  animation: pitchUnderlinePulse 4.4s ease-in-out infinite;
+}
+
+.pitch-root .intro-stage {
+  position: relative;
+  min-height: clamp(430px, 70vh, 690px);
+  display: grid;
+  align-content: center;
+  gap: 0.65rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.pitch-root .intro-orb {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(1px);
+}
+
+.pitch-root .intro-orb.orb-a {
+  width: clamp(170px, 20vw, 320px);
+  height: clamp(170px, 20vw, 320px);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(var(--pitch-accent-rgb), 0.72),
+    transparent 70%
+  );
+  top: -12%;
+  left: -3%;
+  animation: pitchOrbFloatA 7s ease-in-out infinite;
+}
+
+.pitch-root .intro-orb.orb-b {
+  width: clamp(200px, 25vw, 360px);
+  height: clamp(200px, 25vw, 360px);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(var(--pitch-accent-rgb), 0.55),
+    transparent 74%
+  );
+  bottom: -20%;
+  right: 14%;
+  animation: pitchOrbFloatB 8.5s ease-in-out infinite;
+}
+
+.pitch-root .intro-orb.orb-c {
+  width: clamp(100px, 13vw, 220px);
+  height: clamp(100px, 13vw, 220px);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(var(--pitch-accent-rgb), 0.42),
+    transparent 72%
+  );
+  top: 12%;
+  right: 24%;
+  animation: pitchOrbFloatC 6.2s ease-in-out infinite;
+}
+
+.pitch-root .intro-kicker {
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--pitch-ink-dim);
+}
+
+.pitch-root .intro-space {
+  font-size: clamp(4.5rem, 22vw, 15.8rem);
+  line-height: 0.79;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-left: -0.02em;
+  color: transparent;
+  background-image: linear-gradient(
+    110deg,
+    rgba(var(--pitch-accent-rgb), 0.72) 14%,
+    var(--pitch-accent-strong) 49%,
+    rgba(var(--pitch-accent-rgb), 0.8) 82%
+  );
+  background-size: 190% 190%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 38px rgba(var(--pitch-accent-rgb), 0.28));
+  animation:
+    pitchIntroGradient 8s ease-in-out infinite,
+    pitchIntroTitleFloat 5.5s ease-in-out infinite;
+}
+
+.pitch-root .intro-space-outline {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: clamp(4.6rem, 22vw, 16rem);
+  font-weight: 700;
+  line-height: 0.79;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(var(--pitch-accent-rgb), 0.32);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.pitch-root .intro-tagline {
+  font-size: clamp(1.15rem, 2.1vw, 2rem);
+  color: var(--pitch-ink);
+  max-width: 28ch;
+}
+
+.pitch-root .intro-sub {
+  max-width: 60ch;
+  color: var(--pitch-ink-dim);
+}
+
+.pitch-root .problem-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.65fr 0.95fr;
+  gap: 1rem;
+}
+
+.pitch-root .problem-copy {
+  color: var(--pitch-ink-dim);
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  line-height: 1.45;
+}
+
+.pitch-root .phone-mock {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--pitch-accent-strong);
+  border-radius: 22px;
+  background: linear-gradient(180deg, var(--pitch-subtle-bg), transparent);
+  padding: 0.75rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 380px;
+}
+
+.pitch-root .phone-screen {
+  border: 1px dashed var(--pitch-placeholder);
+  border-radius: 14px;
+}
+
+.pitch-root .phone-notice {
+  margin-top: 0.65rem;
+  border: 1px solid var(--pitch-line);
+  border-radius: 10px;
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--pitch-ink-dim);
+  font-size: 0.88rem;
+}
+
+.pitch-root .quote {
+  display: grid;
+  align-content: center;
+  gap: 0.9rem;
+}
+
+.pitch-root .quote-text {
+  border-left: 4px solid var(--pitch-accent-strong);
+  padding-left: 0.8rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.36rem);
+  line-height: 1.35;
+}
+
+.pitch-root .screen-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pitch-root .screen-box {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pitch-line);
+  border-radius: 18px;
+  min-height: 265px;
+  display: grid;
+  place-items: center;
+  color: var(--pitch-ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--pitch-subtle-bg);
+}
+
+.pitch-root .center-copy {
+  text-align: center;
+}
+
+.pitch-root .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pitch-root .table th,
+.pitch-root .table td {
+  border-bottom: 1px solid var(--pitch-line);
+  text-align: left;
+  padding: 0.62rem 0.35rem;
+  color: var(--pitch-ink-dim);
+}
+
+.pitch-root .table th {
+  color: var(--pitch-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.pitch-root .table td:first-child {
+  color: var(--pitch-ink);
+  font-weight: 500;
+}
+
+.pitch-root .highlight {
+  color: var(--pitch-accent-strong);
+  font-weight: 700;
+}
+
+.pitch-root .chart-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pitch-line);
+  border-radius: 18px;
+  padding: 0.8rem;
+  background: var(--pitch-card-solid);
+  transition:
+    transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 340ms ease,
+    box-shadow 340ms ease;
+}
+
+.pitch-root .bars {
+  display: flex;
+  align-items: end;
+  gap: 0.42rem;
+  min-height: 150px;
+  margin-top: 0.55rem;
+}
+
+.pitch-root .bar {
+  flex: 1;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(
+    180deg,
+    var(--pitch-accent-strong),
+    rgba(var(--pitch-accent-rgb), 0.5)
+  );
+  transform-origin: bottom;
+}
+
+.pitch-root .slide.active .bars .bar {
+  animation: pitchBarGrow 740ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pitch-root .slide.active .bars .bar:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.pitch-root .slide.active .bars .bar:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.pitch-root .slide.active .bars .bar:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.pitch-root .slide.active .bars .bar:nth-child(5) {
+  animation-delay: 240ms;
+}
+
+.pitch-root .business-note {
+  font-size: clamp(1.25rem, 2.6vw, 2.15rem);
+  line-height: 1.2;
+  max-width: 28ch;
+}
+
+.pitch-root .bullet-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.52rem;
+  color: var(--pitch-ink-dim);
+}
+
+.pitch-root .chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pitch-root .chip {
+  border: 1px solid var(--pitch-line);
+  background: var(--pitch-subtle-bg);
+  border-radius: 999px;
+  padding: 0.36rem 0.72rem;
+  color: var(--pitch-ink);
+  font-size: 0.9rem;
+  transition: transform 320ms ease, border-color 320ms ease;
+}
+
+.pitch-root .slide.active .chip {
+  animation: pitchChipPop 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pitch-root .slide.active .chip:nth-child(2) { animation-delay: 35ms; }
+.pitch-root .slide.active .chip:nth-child(3) { animation-delay: 70ms; }
+.pitch-root .slide.active .chip:nth-child(4) { animation-delay: 105ms; }
+.pitch-root .slide.active .chip:nth-child(5) { animation-delay: 140ms; }
+.pitch-root .slide.active .chip:nth-child(6) { animation-delay: 175ms; }
+.pitch-root .slide.active .chip:nth-child(7) { animation-delay: 210ms; }
+.pitch-root .slide.active .chip:nth-child(8) { animation-delay: 245ms; }
+.pitch-root .slide.active .chip:nth-child(9) { animation-delay: 280ms; }
+.pitch-root .slide.active .chip:nth-child(10) { animation-delay: 315ms; }
+
+.pitch-root .chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--pitch-accent-strong);
+}
+
+.pitch-root .profile-box {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pitch-line);
+  border-radius: 18px;
+  min-height: 290px;
+  padding: 0.8rem;
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  background: var(--pitch-card-solid);
+  transition:
+    transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 340ms ease,
+    box-shadow 340ms ease;
+}
+
+.pitch-root .avatar-placeholder {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  border: 1px dashed var(--pitch-placeholder);
+  background: var(--pitch-subtle-bg);
+}
+
+.pitch-root .small {
+  color: var(--pitch-ink-dim);
+  font-size: 0.92rem;
+}
+
+.pitch-root .cta {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pitch-line);
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--pitch-subtle-bg), transparent);
+  padding: clamp(1rem, 1.5vw, 1.35rem);
+  display: grid;
+  gap: 0.7rem;
+  transition:
+    transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 340ms ease,
+    box-shadow 340ms ease;
+}
+
+.pitch-root .btn {
+  border: none;
+  border-radius: 12px;
+  background: var(--pitch-accent-strong);
+  color: var(--pitch-accent-fg);
+  font-family: inherit;
+  font-weight: 700;
+  padding: 0.7rem 1rem;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.pitch-root .progress-wrap {
+  flex: 1;
+  max-width: 240px;
+  height: 6px;
+  background: var(--pitch-subtle-bg);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.pitch-root .progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--pitch-accent-strong),
+    rgba(var(--pitch-accent-rgb), 0.68)
+  );
+  transition: width 260ms ease;
+  background-size: 180% 100%;
+  animation: pitchProgressFlow 4s linear infinite;
+}
+
+.pitch-root .kbd {
+  border: 1px solid var(--pitch-line);
+  border-bottom-width: 2px;
+  border-radius: 8px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.8rem;
+}
+
+.pitch-root .fade-up {
+  animation: pitchFadeUp 500ms ease both;
+}
+
+.pitch-root .fade-up.delay-1 { animation-delay: 110ms; }
+.pitch-root .fade-up.delay-2 { animation-delay: 190ms; }
+
+.pitch-root .slide.active .table tbody tr {
+  animation: pitchRowLift 580ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pitch-root .slide.active .table tbody tr:nth-child(2) { animation-delay: 90ms; }
+.pitch-root .slide.active .table tbody tr:nth-child(3) { animation-delay: 150ms; }
+.pitch-root .slide.active .table tbody tr:nth-child(4) { animation-delay: 210ms; }
+
+@keyframes pitchFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pitchPanelSpin {
+  to { transform: rotate(1turn); }
+}
+
+@keyframes pitchAmbientSweep {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.6; }
+  50% { transform: translate3d(10%, 12%, 0); opacity: 0.82; }
+}
+
+@keyframes pitchContentRise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0) scale(0.992); filter: blur(4px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); filter: blur(0); }
+}
+
+@keyframes pitchUnderlinePulse {
+  0%, 100% { background-size: 100% 2px; }
+  50% { background-size: 92% 2px; }
+}
+
+@keyframes pitchBarGrow {
+  from { opacity: 0; transform: scaleY(0.12); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes pitchChipPop {
+  from { opacity: 0; transform: translateY(6px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pitchRowLift {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pitchProgressFlow {
+  from { background-position: 180% 0; }
+  to { background-position: 0 0; }
+}
+
+@keyframes pitchIntroGradient {
+  0% { background-position: 0% 52%; }
+  50% { background-position: 100% 48%; }
+  100% { background-position: 0% 52%; }
+}
+
+@keyframes pitchIntroTitleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pitchOrbFloatA {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(14px, 12px, 0); }
+}
+
+@keyframes pitchOrbFloatB {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-16px, -10px, 0); }
+}
+
+@keyframes pitchOrbFloatC {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(9px, -6px, 0); }
+}
+
+@media (max-width: 1120px) {
+  .pitch-root {
+    position: relative;
+    inset: auto;
+    overflow: visible;
+    perspective: none;
+    min-height: 100vh;
+  }
+
+  .pitch-root .deck {
+    height: auto;
+    display: grid;
+  }
+
+  .pitch-root .slide {
+    position: relative;
+    inset: auto;
+    min-height: 100vh;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    pointer-events: auto;
+  }
+
+  .pitch-root .problem-layout,
+  .pitch-root .layout-2,
+  .pitch-root .layout-3,
+  .pitch-root .layout-4,
+  .pitch-root .screen-row {
+    grid-template-columns: 1fr;
+  }
+
+  .pitch-root .phone-mock { min-height: 260px; }
+
+  .pitch-root .intro-space,
+  .pitch-root .intro-space-outline {
+    font-size: clamp(4rem, 25vw, 8rem);
+  }
+
+  .pitch-root .progress-wrap,
+  .pitch-root .desktop-help {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pitch-root *,
+  .pitch-root *::before,
+  .pitch-root *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

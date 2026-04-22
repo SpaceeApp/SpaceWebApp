@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPACE | VC Pitch Deck</title>
+    <style>
+      @font-face {
+        font-family: "Satoshi";
+        src: url("assets/fonts/Satoshi-Regular.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Satoshi";
+        src: url("assets/fonts/Satoshi-Medium.otf") format("opentype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Satoshi";
+        src: url("assets/fonts/Satoshi-Bold.otf") format("opentype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      :root {
+        --bg: #0a0a0c;
+        --card-solid: #1a1a1e;
+        --text-primary: #ebebf0;
+        --text-secondary: #8e8e93;
+        --accent: #4A48D4;
+        --accent-fg: #ffffff;
+        --border: #2c2c2e;
+        --subtle-bg: rgba(74, 72, 212, 0.12);
+        --placeholder: rgba(235, 235, 240, 0.35);
+        --accent-rgb: 74, 72, 212;
+
+        --bg-1: var(--bg);
+        --bg-2: var(--bg);
+        --ink: var(--text-primary);
+        --ink-dim: var(--text-secondary);
+        --line: var(--border);
+        --accent-strong: var(--accent);
+        --card: var(--card-solid);
+        --blur: saturate(130%) blur(12px);
+        --noise-color: var(--placeholder);
+        --noise-opacity: 0.06;
+        --fx-shadow: 0 22px 68px rgba(74, 72, 212, 0.16);
+        --fx-panel-a: rgba(74, 72, 212, 0.56);
+        --fx-panel-b: rgba(74, 72, 212, 0.26);
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f8f9fa;
+          --card-solid: #ffffff;
+          --text-primary: #1c1c1e;
+          --text-secondary: #636366;
+          --accent: #4a48d4;
+          --accent-fg: #ffffff;
+          --border: #e5e5ea;
+          --subtle-bg: rgba(74, 72, 212, 0.08);
+          --placeholder: rgba(28, 28, 30, 0.3);
+          --accent-rgb: 74, 72, 212;
+
+          --bg-1: var(--bg);
+          --bg-2: var(--bg);
+          --ink: var(--text-primary);
+          --ink-dim: var(--text-secondary);
+          --line: var(--border);
+          --accent-strong: var(--accent);
+          --card: var(--card-solid);
+          --blur: saturate(120%) blur(10px);
+          --noise-color: var(--placeholder);
+          --noise-opacity: 0.035;
+          --fx-shadow: 0 18px 46px rgba(74, 72, 212, 0.14);
+          --fx-panel-a: rgba(74, 72, 212, 0.44);
+          --fx-panel-b: rgba(74, 72, 212, 0.26);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        font-family: "Satoshi", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 15%, var(--subtle-bg), transparent 30%),
+          radial-gradient(circle at 80% 18%, rgba(var(--accent-rgb), 0.2), transparent 26%),
+          radial-gradient(circle at 84% 84%, rgba(var(--accent-rgb), 0.14), transparent 30%),
+          linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      }
+
+      body {
+        overflow: hidden;
+        perspective: 1200px;
+      }
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: var(--noise-opacity);
+        background-image: repeating-linear-gradient(
+            0deg,
+            var(--noise-color) 0,
+            var(--noise-color) 1px,
+            transparent 1px,
+            transparent 2px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            var(--noise-color) 0,
+            var(--noise-color) 1px,
+            transparent 1px,
+            transparent 2px
+          );
+        mix-blend-mode: soft-light;
+      }
+
+      .deck {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        padding: clamp(1.15rem, 2.1vw, 2rem);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        opacity: 0;
+        transform: translate3d(24px, 0, 0) scale(0.992) rotateY(-4deg);
+        transform-origin: left center;
+        filter: blur(2px) saturate(92%);
+        pointer-events: none;
+        transition:
+          opacity 420ms ease,
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          filter 420ms ease;
+      }
+
+      .slide.active {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1) rotateY(0deg);
+        filter: blur(0) saturate(100%);
+        pointer-events: auto;
+      }
+
+      .panel {
+        position: relative;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: var(--card);
+        backdrop-filter: var(--blur);
+        -webkit-backdrop-filter: var(--blur);
+        box-shadow: var(--fx-shadow);
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow: hidden;
+      }
+
+      .panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0 18%,
+          var(--fx-panel-a) 28%,
+          transparent 44%,
+          var(--fx-panel-b) 66%,
+          transparent 82%,
+          var(--fx-panel-a) 100%
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.58;
+        pointer-events: none;
+        animation: panelSpin 14s linear infinite;
+      }
+
+      .panel::after {
+        content: "";
+        position: absolute;
+        width: 68%;
+        height: 55%;
+        top: -16%;
+        left: -10%;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(var(--accent-rgb), 0.28), transparent 72%);
+        pointer-events: none;
+        z-index: 0;
+        animation: ambientSweep 9s ease-in-out infinite;
+      }
+
+      .panel > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .slide-header,
+      .slide-footer {
+        padding: 1rem 1.2rem;
+      }
+
+      .slide-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.9rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .slide-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        color: var(--ink-dim);
+        border-top: 1px solid var(--line);
+      }
+
+      .slide-body {
+        padding: clamp(1.1rem, 2.1vw, 2rem);
+        display: grid;
+        gap: clamp(0.95rem, 1.6vw, 1.2rem);
+        align-content: center;
+        contain: layout paint;
+      }
+
+      .slide.active .slide-body > * {
+        animation: contentRise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .slide.active .slide-body > *:nth-child(2) {
+        animation-delay: 90ms;
+      }
+
+      .slide.active .slide-body > *:nth-child(3) {
+        animation-delay: 150ms;
+      }
+
+      .slide.active .slide-body > *:nth-child(4) {
+        animation-delay: 210ms;
+      }
+
+      .slide.active .slide-body > *:nth-child(5) {
+        animation-delay: 260ms;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: var(--accent-strong);
+      }
+
+      .tag {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.25rem 0.75rem;
+        color: var(--ink-dim);
+        font-size: 0.82rem;
+      }
+
+      .roman {
+        color: var(--ink-dim);
+        letter-spacing: 0.05em;
+        font-weight: 700;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.3rem, 5.2vw, 4.7rem);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-size: clamp(1.5rem, 3.25vw, 2.75rem);
+        line-height: 1.06;
+        letter-spacing: -0.01em;
+      }
+
+      h3 {
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+      }
+
+      .lead {
+        color: var(--ink-dim);
+        max-width: 68ch;
+        font-size: clamp(1rem, 1.35vw, 1.2rem);
+        line-height: 1.45;
+      }
+
+      .accent {
+        color: var(--accent-strong);
+      }
+
+      .layout-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .layout-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .layout-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card-solid);
+        padding: clamp(0.9rem, 1.3vw, 1.2rem);
+        transition:
+          transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 340ms ease,
+          box-shadow 340ms ease;
+      }
+
+      .card::before,
+      .chart-card::before,
+      .profile-box::before,
+      .screen-box::before,
+      .phone-mock::before,
+      .cta::before {
+        content: "";
+        position: absolute;
+        inset: -140% -40% auto;
+        height: 240%;
+        background: linear-gradient(115deg, transparent 44%, rgba(var(--accent-rgb), 0.22) 50%, transparent 56%);
+        transform: translateY(65%) rotate(8deg);
+        opacity: 0;
+        transition: transform 700ms ease, opacity 700ms ease;
+        pointer-events: none;
+      }
+
+      .slide.active .card::before,
+      .slide.active .chart-card::before,
+      .slide.active .profile-box::before,
+      .slide.active .screen-box::before,
+      .slide.active .phone-mock::before,
+      .slide.active .cta::before {
+        opacity: 0.42;
+        transform: translateY(34%) rotate(8deg);
+      }
+
+      .card:hover,
+      .chart-card:hover,
+      .profile-box:hover,
+      .screen-box:hover,
+      .phone-mock:hover,
+      .cta:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent-strong);
+        box-shadow: 0 10px 34px rgba(var(--accent-rgb), 0.26);
+      }
+
+      .underlined {
+        display: inline-block;
+        border-bottom: 0;
+        background-image: linear-gradient(90deg, var(--accent-strong), var(--accent-strong));
+        background-repeat: no-repeat;
+        background-size: 100% 2px;
+        background-position: 0 100%;
+        padding-bottom: 0.08em;
+        animation: underlinePulse 4.4s ease-in-out infinite;
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 1rem;
+      }
+
+      .intro-stage {
+        position: relative;
+        min-height: clamp(430px, 70vh, 690px);
+        display: grid;
+        align-content: center;
+        gap: 0.65rem;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .intro-orb {
+        position: absolute;
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: -1;
+        filter: blur(1px);
+      }
+
+      .intro-orb.orb-a {
+        width: clamp(170px, 20vw, 320px);
+        height: clamp(170px, 20vw, 320px);
+        background: radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb), 0.72), transparent 70%);
+        top: -12%;
+        left: -3%;
+        animation: orbFloatA 7s ease-in-out infinite;
+      }
+
+      .intro-orb.orb-b {
+        width: clamp(200px, 25vw, 360px);
+        height: clamp(200px, 25vw, 360px);
+        background: radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb), 0.55), transparent 74%);
+        bottom: -20%;
+        right: 14%;
+        animation: orbFloatB 8.5s ease-in-out infinite;
+      }
+
+      .intro-orb.orb-c {
+        width: clamp(100px, 13vw, 220px);
+        height: clamp(100px, 13vw, 220px);
+        background: radial-gradient(circle at 30% 30%, rgba(var(--accent-rgb), 0.42), transparent 72%);
+        top: 12%;
+        right: 24%;
+        animation: orbFloatC 6.2s ease-in-out infinite;
+      }
+
+      .intro-kicker {
+        font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--ink-dim);
+      }
+
+      .intro-space {
+        font-size: clamp(4.5rem, 22vw, 15.8rem);
+        line-height: 0.79;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-left: -0.02em;
+        color: transparent;
+        background-image: linear-gradient(
+          110deg,
+          rgba(var(--accent-rgb), 0.72) 14%,
+          var(--accent-strong) 49%,
+          rgba(var(--accent-rgb), 0.8) 82%
+        );
+        background-size: 190% 190%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        filter: drop-shadow(0 0 38px rgba(var(--accent-rgb), 0.28));
+        animation:
+          introGradient 8s ease-in-out infinite,
+          introTitleFloat 5.5s ease-in-out infinite;
+      }
+
+      .intro-space-outline {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: clamp(4.6rem, 22vw, 16rem);
+        font-weight: 700;
+        line-height: 0.79;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(var(--accent-rgb), 0.32);
+        opacity: 0.5;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .intro-tagline {
+        font-size: clamp(1.15rem, 2.1vw, 2rem);
+        color: var(--ink);
+        max-width: 28ch;
+      }
+
+      .intro-sub {
+        max-width: 60ch;
+        color: var(--ink-dim);
+      }
+
+      .hero-top-right {
+        text-align: right;
+        color: var(--ink-dim);
+        font-size: clamp(1rem, 1.8vw, 1.3rem);
+      }
+
+      .hero-massive {
+        font-size: clamp(2rem, 5vw, 4rem);
+        max-width: 24ch;
+      }
+
+      .problem-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.65fr 0.95fr;
+        gap: 1rem;
+      }
+
+      .problem-copy {
+        color: var(--ink-dim);
+        font-size: clamp(1rem, 1.4vw, 1.22rem);
+        line-height: 1.45;
+      }
+
+      .phone-mock {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid var(--accent-strong);
+        border-radius: 22px;
+        background: linear-gradient(180deg, var(--subtle-bg), transparent);
+        padding: 0.75rem;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 380px;
+      }
+
+      .phone-screen {
+        border: 1px dashed var(--placeholder);
+        border-radius: 14px;
+      }
+
+      .phone-notice {
+        margin-top: 0.65rem;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0.5rem;
+        text-align: center;
+        color: var(--ink-dim);
+        font-size: 0.88rem;
+      }
+
+      .quote {
+        display: grid;
+        align-content: center;
+        gap: 0.9rem;
+      }
+
+      .quote-text {
+        border-left: 4px solid var(--accent-strong);
+        padding-left: 0.8rem;
+        font-size: clamp(1.05rem, 1.6vw, 1.36rem);
+        line-height: 1.35;
+      }
+
+      .screen-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .screen-box {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        min-height: 265px;
+        display: grid;
+        place-items: center;
+        color: var(--ink-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        background: var(--subtle-bg);
+      }
+
+      .center-copy {
+        text-align: center;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table th,
+      .table td {
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        padding: 0.62rem 0.35rem;
+        color: var(--ink-dim);
+      }
+
+      .table th {
+        color: var(--ink);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.8rem;
+      }
+
+      .table td:first-child {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .highlight {
+        color: var(--accent-strong);
+        font-weight: 700;
+      }
+
+      .chart-card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 0.8rem;
+        background: var(--card-solid);
+        transition:
+          transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 340ms ease,
+          box-shadow 340ms ease;
+      }
+
+      .bars {
+        display: flex;
+        align-items: end;
+        gap: 0.42rem;
+        min-height: 150px;
+        margin-top: 0.55rem;
+      }
+
+      .bar {
+        flex: 1;
+        border-radius: 8px 8px 0 0;
+        background: linear-gradient(180deg, var(--accent-strong), rgba(var(--accent-rgb), 0.5));
+        transform-origin: bottom;
+      }
+
+      .slide.active .bars .bar {
+        animation: barGrow 740ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .slide.active .bars .bar:nth-child(2) {
+        animation-delay: 60ms;
+      }
+
+      .slide.active .bars .bar:nth-child(3) {
+        animation-delay: 120ms;
+      }
+
+      .slide.active .bars .bar:nth-child(4) {
+        animation-delay: 180ms;
+      }
+
+      .slide.active .bars .bar:nth-child(5) {
+        animation-delay: 240ms;
+      }
+
+      .business-note {
+        font-size: clamp(1.25rem, 2.6vw, 2.15rem);
+        line-height: 1.2;
+        max-width: 28ch;
+      }
+
+      .bullet-list {
+        margin: 0;
+        padding-left: 1.1rem;
+        display: grid;
+        gap: 0.52rem;
+        color: var(--ink-dim);
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        background: var(--subtle-bg);
+        border-radius: 999px;
+        padding: 0.36rem 0.72rem;
+        color: var(--ink);
+        font-size: 0.9rem;
+        transition: transform 320ms ease, border-color 320ms ease;
+      }
+
+      .slide.active .chip {
+        animation: chipPop 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .slide.active .chip:nth-child(2) {
+        animation-delay: 35ms;
+      }
+
+      .slide.active .chip:nth-child(3) {
+        animation-delay: 70ms;
+      }
+
+      .slide.active .chip:nth-child(4) {
+        animation-delay: 105ms;
+      }
+
+      .slide.active .chip:nth-child(5) {
+        animation-delay: 140ms;
+      }
+
+      .slide.active .chip:nth-child(6) {
+        animation-delay: 175ms;
+      }
+
+      .slide.active .chip:nth-child(7) {
+        animation-delay: 210ms;
+      }
+
+      .slide.active .chip:nth-child(8) {
+        animation-delay: 245ms;
+      }
+
+      .slide.active .chip:nth-child(9) {
+        animation-delay: 280ms;
+      }
+
+      .slide.active .chip:nth-child(10) {
+        animation-delay: 315ms;
+      }
+
+      .chip:hover {
+        transform: translateY(-2px);
+        border-color: var(--accent-strong);
+      }
+
+      .profile-box {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        min-height: 290px;
+        padding: 0.8rem;
+        display: grid;
+        align-content: start;
+        gap: 0.5rem;
+        background: var(--card-solid);
+        transition:
+          transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 340ms ease,
+          box-shadow 340ms ease;
+      }
+
+      .avatar-placeholder {
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        border: 1px dashed var(--placeholder);
+        background: var(--subtle-bg);
+      }
+
+      .small {
+        color: var(--ink-dim);
+        font-size: 0.92rem;
+      }
+
+      .cta {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: linear-gradient(135deg, var(--subtle-bg), transparent);
+        padding: clamp(1rem, 1.5vw, 1.35rem);
+        display: grid;
+        gap: 0.7rem;
+        transition:
+          transform 340ms cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 340ms ease,
+          box-shadow 340ms ease;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 12px;
+        background: var(--accent-strong);
+        color: var(--accent-fg);
+        font-family: inherit;
+        font-weight: 700;
+        padding: 0.7rem 1rem;
+        width: fit-content;
+      }
+
+      .progress-wrap {
+        flex: 1;
+        max-width: 240px;
+        height: 6px;
+        background: var(--subtle-bg);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, var(--accent-strong), rgba(var(--accent-rgb), 0.68));
+        transition: width 260ms ease;
+        background-size: 180% 100%;
+        animation: progressFlow 4s linear infinite;
+      }
+
+      .kbd {
+        border: 1px solid var(--line);
+        border-bottom-width: 2px;
+        border-radius: 8px;
+        padding: 0.15rem 0.45rem;
+        font-size: 0.8rem;
+      }
+
+      .fade-up {
+        animation: fadeUp 500ms ease both;
+      }
+
+      .fade-up.delay-1 {
+        animation-delay: 110ms;
+      }
+
+      .fade-up.delay-2 {
+        animation-delay: 190ms;
+      }
+
+      .slide.active .table tbody tr {
+        animation: rowLift 580ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .slide.active .table tbody tr:nth-child(2) {
+        animation-delay: 90ms;
+      }
+
+      .slide.active .table tbody tr:nth-child(3) {
+        animation-delay: 150ms;
+      }
+
+      .slide.active .table tbody tr:nth-child(4) {
+        animation-delay: 210ms;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes panelSpin {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+
+      @keyframes ambientSweep {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translate3d(10%, 12%, 0);
+          opacity: 0.82;
+        }
+      }
+
+      @keyframes contentRise {
+        from {
+          opacity: 0;
+          transform: translate3d(0, 14px, 0) scale(0.992);
+          filter: blur(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0) scale(1);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes underlinePulse {
+        0%,
+        100% {
+          background-size: 100% 2px;
+        }
+        50% {
+          background-size: 92% 2px;
+        }
+      }
+
+      @keyframes barGrow {
+        from {
+          opacity: 0;
+          transform: scaleY(0.12);
+        }
+        to {
+          opacity: 1;
+          transform: scaleY(1);
+        }
+      }
+
+      @keyframes chipPop {
+        from {
+          opacity: 0;
+          transform: translateY(6px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes rowLift {
+        from {
+          opacity: 0;
+          transform: translateX(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes progressFlow {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 180% 0;
+        }
+      }
+
+      @keyframes introGradient {
+        0% {
+          background-position: 0% 52%;
+        }
+        50% {
+          background-position: 100% 48%;
+        }
+        100% {
+          background-position: 0% 52%;
+        }
+      }
+
+      @keyframes introTitleFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      @keyframes orbFloatA {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(14px, 12px, 0);
+        }
+      }
+
+      @keyframes orbFloatB {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(-16px, -10px, 0);
+        }
+      }
+
+      @keyframes orbFloatC {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(9px, -6px, 0);
+        }
+      }
+
+      @media (max-width: 1120px) {
+        body {
+          overflow: auto;
+          perspective: none;
+        }
+
+        .deck {
+          height: auto;
+          display: grid;
+        }
+
+        .slide {
+          position: relative;
+          min-height: 100vh;
+          opacity: 1;
+          transform: none;
+          filter: none;
+          pointer-events: auto;
+        }
+
+        .problem-layout,
+        .layout-2,
+        .layout-3,
+        .layout-4,
+        .screen-row {
+          grid-template-columns: 1fr;
+        }
+
+        .phone-mock {
+          min-height: 260px;
+        }
+
+        .intro-space,
+        .intro-space-outline {
+          font-size: clamp(4rem, 25vw, 8rem);
+        }
+
+        .progress-wrap,
+        .desktop-help {
+          display: none;
+        }
+      }
+
+      @media print {
+        body {
+          overflow: visible;
+          background: var(--bg);
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .noise,
+        .desktop-help,
+        .btn {
+          display: none;
+        }
+
+        .panel::before,
+        .panel::after,
+        .card::before,
+        .chart-card::before,
+        .profile-box::before,
+        .screen-box::before,
+        .phone-mock::before,
+        .cta::before {
+          display: none;
+        }
+
+        .deck {
+          height: auto;
+        }
+
+        .slide {
+          position: relative;
+          min-height: 100vh;
+          opacity: 1;
+          transform: none;
+          filter: none;
+          page-break-after: always;
+        }
+
+        .progress-wrap {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <main class="deck" id="deck">
+      <section class="slide active" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">SPACE</div>
+            <div class="tag">Slide I</div>
+          </header>
+          <div class="slide-body intro-stage">
+            <div class="intro-orb orb-a" aria-hidden="true"></div>
+            <div class="intro-orb orb-b" aria-hidden="true"></div>
+            <div class="intro-orb orb-c" aria-hidden="true"></div>
+            <p class="intro-kicker fade-up">Universe of moments</p>
+            <span class="intro-space-outline" aria-hidden="true">SPACE</span>
+            <h1 class="intro-space fade-up delay-1">SPACE</h1>
+            <p class="intro-tagline fade-up delay-2">Your Space.</p>
+            <p class="intro-sub fade-up delay-2">
+              The private social layer for photos and videos: high quality, instant upload,
+              cross-platform collaboration.
+            </p>
+          </div>
+          <footer class="slide-footer">
+            <span>Intro</span>
+            <span class="desktop-help">Usa <span class="kbd">Left</span> <span class="kbd">Right</span> per navigare</span>
+            <span class="roman">I</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">The Problem</div>
+            <div class="tag">Slide II</div>
+          </header>
+          <div class="slide-body">
+            <h2><span class="underlined">The Problem:</span></h2>
+            <div class="problem-layout">
+              <p class="problem-copy">
+                After every trip or party, it is always the same story: hundreds of photos are
+                scattered across WhatsApp, Drive and iCloud, often slow, incompatible and
+                disorganized.<br /><br />
+                You end up with just a few pictures, your gallery is overloaded, and your best
+                memories get lost in the noise.
+              </p>
+              <div class="phone-mock">
+                <div class="phone-screen"></div>
+                <div class="phone-notice">Notifica</div>
+              </div>
+              <div class="quote">
+                <p class="quote-text">"Video in cui scorre la chat del gruppo su WhatsApp"</p>
+                <p class="small">Inserisci qui mini-video o gif della chat reale.</p>
+              </div>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Pain point</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">II</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">The Solution</div>
+            <div class="tag">Slide III</div>
+          </header>
+          <div class="slide-body center-copy">
+            <h2><span class="underlined">The solution:</span></h2>
+            <h1>SPACE</h1>
+            <p class="business-note" style="margin: 0 auto">
+              Everything organised.<br />Everything yours.
+            </p>
+            <div class="screen-row">
+              <div class="screen-box">Screen 1</div>
+              <div class="screen-box">Screen 2</div>
+              <div class="screen-box">Screen 3</div>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Product overview</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">III</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">Competitive Edge</div>
+            <div class="tag">Slide IV</div>
+          </header>
+          <div class="slide-body">
+            <h2 class="center-copy">Everyone does one piece.<br />SPACE does all.</h2>
+            <div class="card">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Piattaforma</th>
+                    <th>Qualita foto/video</th>
+                    <th>Collaborazione</th>
+                    <th>Ordine memorie</th>
+                    <th>Cross-platform</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>WhatsApp</td>
+                    <td>Compressione alta</td>
+                    <td>Chat-based</td>
+                    <td>Basso</td>
+                    <td>Forte</td>
+                  </tr>
+                  <tr>
+                    <td>Drive / iCloud</td>
+                    <td>Alta</td>
+                    <td>Limitata</td>
+                    <td>Medio</td>
+                    <td>Parziale</td>
+                  </tr>
+                  <tr>
+                    <td>Social pubblici</td>
+                    <td>Media</td>
+                    <td>Pubblica</td>
+                    <td>Basso</td>
+                    <td>Forte</td>
+                  </tr>
+                  <tr>
+                    <td class="highlight">SPACE</td>
+                    <td class="highlight">Alta</td>
+                    <td class="highlight">Privata e collaborativa</td>
+                    <td class="highlight">Alta</td>
+                    <td class="highlight">Forte</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Comparison table</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">IV</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">The Market</div>
+            <div class="tag">Slide V</div>
+          </header>
+          <div class="slide-body">
+            <h2><span class="underlined">The market:</span></h2>
+            <p class="lead">Vari grafici sulla crescita e sui trend del photo-sharing.</p>
+            <div class="layout-3">
+              <div class="chart-card">
+                <strong>Global Photos Shared</strong>
+                <div class="bars">
+                  <div class="bar" style="height: 42%"></div>
+                  <div class="bar" style="height: 56%"></div>
+                  <div class="bar" style="height: 64%"></div>
+                  <div class="bar" style="height: 78%"></div>
+                  <div class="bar" style="height: 92%"></div>
+                </div>
+              </div>
+              <div class="chart-card">
+                <strong>Private Sharing Preference</strong>
+                <div class="bars">
+                  <div class="bar" style="height: 36%"></div>
+                  <div class="bar" style="height: 45%"></div>
+                  <div class="bar" style="height: 61%"></div>
+                  <div class="bar" style="height: 72%"></div>
+                  <div class="bar" style="height: 84%"></div>
+                </div>
+              </div>
+              <div class="chart-card">
+                <strong>Cross-platform Demand</strong>
+                <div class="bars">
+                  <div class="bar" style="height: 30%"></div>
+                  <div class="bar" style="height: 49%"></div>
+                  <div class="bar" style="height: 58%"></div>
+                  <div class="bar" style="height: 73%"></div>
+                  <div class="bar" style="height: 88%"></div>
+                </div>
+              </div>
+            </div>
+            <p class="small">Sostituisci i grafici con dati reali (fonte: Statista, DataReportal, SensorTower).</p>
+          </div>
+          <footer class="slide-footer">
+            <span>Market momentum</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">V</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">Business Model</div>
+            <div class="tag">Slide VI</div>
+          </header>
+          <div class="slide-body">
+            <h2><span class="underlined">Business model</span></h2>
+            <div class="layout-2">
+              <div class="card">
+                <p class="business-note">
+                  It is free for everyone.<br />
+                  We do not monetize yet.<br />
+                  <span class="accent">Freemium version?</span>
+                </p>
+              </div>
+              <div class="card">
+                <h3>Prossimi step di monetizzazione</h3>
+                <ul class="bullet-list">
+                  <li>Premium storage per eventi lunghi e video full-quality.</li>
+                  <li>Piano famiglia/gruppo con spazio condiviso espanso.</li>
+                  <li>Pack creator/eventi con accesso rapido via QR.</li>
+                  <li>Target: primo test pricing entro 6 mesi.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Revenue strategy</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">VI</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">Tech Stack</div>
+            <div class="tag">Slide VII</div>
+          </header>
+          <div class="slide-body">
+            <h2><span class="underlined">Tech stack</span></h2>
+            <p class="lead">Slide con tecnologie che usiamo.</p>
+            <div class="card">
+              <div class="chip-row">
+                <span class="chip">React Native 0.81</span>
+                <span class="chip">Expo SDK 54</span>
+                <span class="chip">TypeScript 5.9</span>
+                <span class="chip">Supabase</span>
+                <span class="chip">PostgreSQL + RLS</span>
+                <span class="chip">NativeWind</span>
+                <span class="chip">React Navigation 7</span>
+                <span class="chip">i18next</span>
+                <span class="chip">expo-secure-store</span>
+                <span class="chip">Jest + eslint</span>
+              </div>
+            </div>
+            <div class="layout-3">
+              <div class="card">
+                <h3>Frontend</h3>
+                <p class="small">App mobile single-codebase per iOS e Android.</p>
+              </div>
+              <div class="card">
+                <h3>Backend</h3>
+                <p class="small">Auth, database e storage centralizzati in Supabase.</p>
+              </div>
+              <div class="card">
+                <h3>Security</h3>
+                <p class="small">Token su secure store, policy RLS, accesso controllato.</p>
+              </div>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Execution capability</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">VII</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">The Team</div>
+            <div class="tag">Slide VIII</div>
+          </header>
+          <div class="slide-body">
+            <h2><span class="underlined">The team</span></h2>
+            <div class="layout-4">
+              <article class="profile-box">
+                <div class="avatar-placeholder"></div>
+                <h3>Profile 1</h3>
+                <p class="small">CEO / Product</p>
+              </article>
+              <article class="profile-box">
+                <div class="avatar-placeholder"></div>
+                <h3>Profile 2</h3>
+                <p class="small">CTO / Engineering</p>
+              </article>
+              <article class="profile-box">
+                <div class="avatar-placeholder"></div>
+                <h3>Profile 3</h3>
+                <p class="small">Growth / Marketing</p>
+              </article>
+              <article class="profile-box">
+                <div class="avatar-placeholder"></div>
+                <h3>Profile 4</h3>
+                <p class="small">Design / Operations</p>
+              </article>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Founding team</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">VIII</span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="slide" data-slide>
+        <article class="panel">
+          <header class="slide-header">
+            <div class="brand">Vision &amp; Call To Action</div>
+            <div class="tag">Slide IX</div>
+          </header>
+          <div class="slide-body">
+            <h2><span class="underlined">Vision &amp; call to action</span></h2>
+            <div class="cta">
+              <h1>Build the future of shared memories with us.</h1>
+              <p class="lead">
+                Stiamo cercando partner VC per accelerare prodotto, crescita e monetizzazione.
+                Round target: <span class="accent">[inserisci importo]</span>.
+              </p>
+              <p class="small">Contatti: [Nome] | [Email] | [Telefono]</p>
+              <button class="btn" type="button">Schedule a meeting</button>
+            </div>
+          </div>
+          <footer class="slide-footer">
+            <span>Final ask</span>
+            <div class="progress-wrap"><div class="progress-bar"></div></div>
+            <span class="roman">IX</span>
+          </footer>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const slides = Array.from(document.querySelectorAll("[data-slide]"));
+        const total = slides.length;
+        let index = 0;
+
+        function updateDeck(nextIndex) {
+          index = Math.max(0, Math.min(nextIndex, total - 1));
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+          });
+
+          const bars = document.querySelectorAll(".progress-bar");
+          const progress = ((index + 1) / total) * 100;
+          bars.forEach((bar) => {
+            bar.style.width = progress + "%";
+          });
+
+          if (window.innerWidth <= 1120) {
+            slides[index].scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        function isDesktopDeck() {
+          return window.innerWidth > 1120;
+        }
+
+        document.addEventListener("keydown", (event) => {
+          if (!isDesktopDeck()) return;
+
+          if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+            event.preventDefault();
+            updateDeck(index + 1);
+          }
+
+          if (event.key === "ArrowLeft" || event.key === "PageUp") {
+            event.preventDefault();
+            updateDeck(index - 1);
+          }
+
+          if (event.key.toLowerCase() === "home") {
+            event.preventDefault();
+            updateDeck(0);
+          }
+
+          if (event.key.toLowerCase() === "end") {
+            event.preventDefault();
+            updateDeck(total - 1);
+          }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener("touchstart", (event) => {
+          touchStartX = event.changedTouches[0].screenX;
+        });
+
+        document.addEventListener("touchend", (event) => {
+          if (!isDesktopDeck()) return;
+          touchEndX = event.changedTouches[0].screenX;
+          const delta = touchStartX - touchEndX;
+          if (Math.abs(delta) < 45) return;
+          if (delta > 0) updateDeck(index + 1);
+          if (delta < 0) updateDeck(index - 1);
+        });
+
+        updateDeck(0);
+      })();
+    </script>
+  </body>
+</html>

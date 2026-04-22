@@ -13,6 +13,16 @@ export function FloatingControls() {
   const pathname = usePathname();
   const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
+  // Optimistic copy of the active locale: updated on click *before* the
+  // navigation resolves, so the sliding pill animates immediately instead
+  // of waiting for the new page to render.
+  const [optimisticLocale, setOptimisticLocale] = useState<
+    (typeof LOCALES)[number]
+  >(locale as (typeof LOCALES)[number]);
+
+  useEffect(() => {
+    setOptimisticLocale(locale as (typeof LOCALES)[number]);
+  }, [locale]);
 
   useEffect(() => {
     const current = document.documentElement.getAttribute(
@@ -67,22 +77,37 @@ export function FloatingControls() {
           />
 
           <div
-            className="flex items-center text-[11px] font-semibold tracking-wider"
+            className="relative flex items-center text-[11px] font-semibold tracking-wider"
             role="group"
             aria-label="Language"
           >
+            {/* Sliding pill: tracks `optimisticLocale` so the slide starts the
+                instant the user clicks, before the locale-prefixed navigation
+                resolves. Spring-y cubic-bezier mirrors iOS-style segmented
+                controls — feels liquid without needing an animation lib. */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute top-0 left-0 h-full w-10 rounded-full bg-accent shadow-[0_4px_12px_-4px_rgba(74,72,212,0.55)]"
+              style={{
+                transform: `translateX(${LOCALES.indexOf(optimisticLocale) * 100}%)`,
+                transition:
+                  "transform 520ms cubic-bezier(0.34, 1.4, 0.5, 1)",
+                opacity: mounted ? 1 : 0,
+              }}
+            />
             {LOCALES.map((l) => {
-              const active = locale === l;
+              const active = optimisticLocale === l;
               return (
                 <Link
                   key={l}
                   href={pathname}
                   locale={l}
+                  onClick={() => setOptimisticLocale(l)}
                   aria-label={l === "it" ? "Italiano" : "English"}
                   aria-current={active ? "true" : undefined}
-                  className={`flex h-10 min-w-10 items-center justify-center rounded-full px-2 transition-colors ${
+                  className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-300 ${
                     active
-                      ? "bg-accent text-white shadow-[0_4px_12px_-4px_rgba(74,72,212,0.55)]"
+                      ? "text-white"
                       : "text-text-secondary hover:text-text-primary"
                   }`}
                 >

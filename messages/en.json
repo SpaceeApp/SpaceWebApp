@@ -95,5 +95,120 @@
     "backHome": "Back to home",
     "backHomeShort": "Back",
     "rights": "All rights reserved"
+  },
+  "pitch": {
+    "tag": "Slide {n}",
+    "kbdHint": "Use <kbd>Left</kbd> <kbd>Right</kbd> to navigate",
+    "slides": {
+      "intro": {
+        "brand": "SPACE",
+        "kicker": "Universe of moments",
+        "tagline": "Your Space.",
+        "sub": "The private social layer for photos and videos: high quality, instant upload, cross-platform collaboration.",
+        "footer": "Intro"
+      },
+      "problem": {
+        "brand": "The Problem",
+        "title": "The problem:",
+        "copy": "After every trip or party, it's always the same story: hundreds of photos scattered across WhatsApp, Drive and iCloud — slow, incompatible, disorganized.<br /><br />You end up with just a handful of pictures, your gallery is overloaded, and your best memories get lost in the noise.",
+        "phoneNotice": "Notification",
+        "quote": "\"Video showing the group chat scrolling on WhatsApp\"",
+        "quoteCaption": "Insert a short video or gif of the actual chat here.",
+        "footer": "Pain point"
+      },
+      "solution": {
+        "brand": "The Solution",
+        "title": "The solution:",
+        "note": "Everything organised.<br />Everything yours.",
+        "screens": ["Screen 1", "Screen 2", "Screen 3"],
+        "footer": "Product overview"
+      },
+      "competitive": {
+        "brand": "Competitive Edge",
+        "title": "Everyone does one piece.<br />SPACE does all.",
+        "tableHeaders": [
+          "Platform",
+          "Photo / video quality",
+          "Collaboration",
+          "Memory order",
+          "Cross-platform"
+        ],
+        "tableRows": [
+          ["WhatsApp", "Heavy compression", "Chat-based", "Low", "Strong"],
+          ["Drive / iCloud", "High", "Limited", "Medium", "Partial"],
+          ["Public socials", "Medium", "Public", "Low", "Strong"],
+          ["SPACE", "High", "Private and collaborative", "High", "Strong"]
+        ],
+        "footer": "Comparison table"
+      },
+      "market": {
+        "brand": "The Market",
+        "title": "The market:",
+        "lead": "Charts on growth and trends in photo sharing.",
+        "charts": [
+          { "title": "Global Photos Shared", "bars": [42, 56, 64, 78, 92] },
+          { "title": "Private Sharing Preference", "bars": [36, 45, 61, 72, 84] },
+          { "title": "Cross-platform Demand", "bars": [30, 49, 58, 73, 88] }
+        ],
+        "source": "Replace charts with real data (sources: Statista, DataReportal, SensorTower).",
+        "footer": "Market momentum"
+      },
+      "business": {
+        "brand": "Business Model",
+        "title": "Business model",
+        "note": "It is free for everyone.<br />We do not monetize yet.<br /><span class=\"accent\">Freemium version?</span>",
+        "nextStepsTitle": "Next monetization steps",
+        "bullets": [
+          "Premium storage for long events and full-quality videos.",
+          "Family / group plan with expanded shared space.",
+          "Creator / event pack with quick QR access.",
+          "Target: first pricing test within 6 months."
+        ],
+        "footer": "Revenue strategy"
+      },
+      "tech": {
+        "brand": "Tech Stack",
+        "title": "Tech stack",
+        "lead": "The technologies we use.",
+        "chips": [
+          "React Native 0.81",
+          "Expo SDK 54",
+          "TypeScript 5.9",
+          "Supabase",
+          "PostgreSQL + RLS",
+          "NativeWind",
+          "React Navigation 7",
+          "i18next",
+          "expo-secure-store",
+          "Jest + eslint"
+        ],
+        "cards": [
+          { "title": "Frontend", "body": "Mobile app with a single codebase for iOS and Android." },
+          { "title": "Backend", "body": "Auth, database and storage centralized on Supabase." },
+          { "title": "Security", "body": "Tokens in secure store, RLS policies, controlled access." }
+        ],
+        "footer": "Execution capability"
+      },
+      "team": {
+        "brand": "The Team",
+        "title": "The team",
+        "profiles": [
+          { "name": "Profile 1", "role": "CEO / Product" },
+          { "name": "Profile 2", "role": "CTO / Engineering" },
+          { "name": "Profile 3", "role": "Growth / Marketing" },
+          { "name": "Profile 4", "role": "Design / Operations" }
+        ],
+        "footer": "Founding team"
+      },
+      "vision": {
+        "brand": "Vision & Call To Action",
+        "title": "Vision & call to action",
+        "heading": "Build the future of shared memories with us.",
+        "body": "We're looking for VC partners to accelerate product, growth and monetization. Target round: <span class=\"accent\">[insert amount]</span>.",
+        "contacts": "Contact: [Name] | [Email] | [Phone]",
+        "button": "Schedule a meeting",
+        "footer": "Final ask"
+      }
+    }
   }
 }
