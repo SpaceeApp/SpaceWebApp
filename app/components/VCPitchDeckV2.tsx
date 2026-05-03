@@ -31,7 +31,7 @@ const SectionHeader = ({
   total: number;
   sub?: string;
 }) => (
-  <div className="absolute top-10 flex w-full justify-between px-10 pr-32 text-xs font-mono border-b border-gray-800 pb-4">
+  <div className="absolute top-10 flex w-full justify-between px-10 text-xs font-mono border-b border-gray-800 pb-4">
     <span className="text-gray-400">
       <span className="text-[#5E5CE6]">§ {section}</span> — {title}
     </span>
@@ -43,7 +43,7 @@ const SectionHeader = ({
 );
 
 const SectionFooter = ({ left, right }: { left: string; right: string }) => (
-  <div className="absolute bottom-10 flex w-full justify-between px-10 text-xs font-mono text-gray-400 border-t border-gray-800 pt-4">
+  <div className="absolute bottom-16 flex w-full justify-between px-10 text-xs font-mono text-gray-400 border-t border-gray-800 pt-4">
     <span>{left}</span>
     <span>{right}</span>
   </div>
@@ -105,7 +105,7 @@ const SlideIntro = ({ index, total }: SlideProps) => (
     </div>
 
     {/* Bottom footer */}
-    <div className="absolute bottom-10 flex w-full justify-between px-10 text-xs font-mono text-gray-400 uppercase tracking-widest">
+    <div className="absolute bottom-16 flex w-full justify-between px-10 text-xs font-mono text-gray-400 uppercase tracking-widest">
       <span><span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span> · Deck v2.0</span>
       <span className="animate-pulse text-[#5E5CE6]">
         → Press <span className="text-white">→</span> to begin · {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
@@ -180,10 +180,10 @@ const WhatsAppIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 
 const PhoneFrame = ({ children }: { children: React.ReactNode }) => (
   <div
-    className="w-[330px] h-[670px] rounded-[3rem] bg-black relative overflow-hidden"
+    className="w-[280px] h-[520px] rounded-[3rem] bg-black relative overflow-hidden"
     style={{ boxShadow: '0 0 0 8px #1a1a1e, 0 0 0 10px #252530, 0 40px 90px -10px rgba(94,92,230,0.55), 0 0 80px -20px rgba(94,92,230,0.25)' }}
   >
-    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-7 bg-black rounded-3xl z-50 border border-[#0a0a0a]" />
+    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-3xl z-50 border border-[#0a0a0a]" />
     {children}
   </div>
 );
@@ -307,7 +307,7 @@ const SlideProblem = ({ index, total }: SlideProps) => {
     <div className="flex flex-col h-full px-20 relative w-full">
       <SectionHeader section="02" title="THE PROBLEM" index={index} total={total} />
 
-      <div className="flex-1 flex items-center justify-between gap-16 mt-20">
+      <div className="flex-1 flex items-center justify-between gap-16 mt-20 mb-24">
         {/* iPhone mockup — wrapped for glow */}
         <div className="shrink-0 relative">
           <div className="absolute inset-x-0 bottom-0 h-3/4 bg-[#5E5CE6]/20 blur-[70px] rounded-full pointer-events-none" />
@@ -380,7 +380,7 @@ const SlideSolution = ({ index, total }: SlideProps) => (
 
 const SmallPhone = ({ children, lifted }: { children: React.ReactNode; lifted?: boolean }) => (
   <div
-    className={`w-[250px] h-[520px] rounded-[2.5rem] bg-black relative overflow-hidden ${
+    className={`w-[250px] h-[480px] rounded-[2.5rem] bg-black relative overflow-hidden ${
       lifted ? '-translate-y-6' : ''
     }`}
     style={{
@@ -650,7 +650,7 @@ const SlideProductPreview = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
     <SectionHeader section="04" title="THE PRODUCT" index={index} total={total} />
 
-    <div className="flex-1 flex items-center justify-center gap-8 mt-20 mb-16">
+    <div className="flex-1 flex items-center justify-center gap-8 mt-20 mb-24">
       <PhoneShowcase label="01 — Organise" title="Your Spaces" delay="0.1s">
         <YourSpacesScreen />
       </PhoneShowcase>
@@ -737,7 +737,7 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
     <SectionHeader section="05" title="THE LANDSCAPE" index={index} total={total} />
 
-    <div className="flex-1 flex flex-col justify-center mt-20 mb-6 max-w-6xl mx-auto w-full">
+    <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-6xl mx-auto w-full">
       <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] gap-x-4 gap-y-1 items-center">
         {/* Header row */}
         <div className="font-bold text-gray-500 uppercase tracking-widest text-xs border-b border-gray-800 pb-4">
@@ -757,11 +757,11 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => (
         {/* Competitor rows */}
         {COMPETITORS.map((comp) => (
           <React.Fragment key={comp.name}>
-            <div className="text-gray-300 font-semibold text-2xl py-3.5 tracking-tight">
+            <div className="text-gray-300 font-semibold text-2xl py-2.5 tracking-tight">
               {comp.name}
             </div>
             {comp.marks.map((m, i) => (
-              <div key={i} className="flex justify-center py-3.5">
+              <div key={i} className="flex justify-center py-2.5">
                 {renderMark(m)}
               </div>
             ))}
@@ -769,7 +769,7 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => (
         ))}
 
         {/* Visual separator before SPACE row */}
-        <div className="col-span-6 h-px bg-gradient-to-r from-transparent via-[#5E5CE6]/40 to-transparent my-3" />
+        <div className="col-span-6 h-px bg-gradient-to-r from-transparent via-[#5E5CE6]/40 to-transparent my-2" />
 
         {/* SPACE row — highlighted */}
         <div className="font-black text-[#5E5CE6] tracking-tighter leading-none" style={{ fontSize: '3.5rem', fontFamily: "'Conthrax', sans-serif" }}>
@@ -778,24 +778,11 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => (
         {[0, 1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="bg-[#5E5CE6]/10 rounded-xl py-5 flex justify-center border border-[#5E5CE6]/30"
+            className="bg-[#5E5CE6]/10 rounded-xl py-4 flex justify-center border border-[#5E5CE6]/30"
           >
             <CheckIcon />
           </div>
         ))}
-      </div>
-
-      {/* Legend */}
-      <div className="flex gap-10 mt-10 justify-center text-xs font-mono text-gray-500 uppercase tracking-widest">
-        <div className="flex items-center gap-2">
-          <CheckIcon /> <span>Yes / Optimal</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <PartialIcon /> <span>Partial / Limited</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <CrossIcon /> <span>No / Clunky</span>
-        </div>
       </div>
     </div>
 
@@ -842,7 +829,7 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
     <div className="flex flex-col h-full px-20 relative w-full">
       <SectionHeader section="06" title="THE MARKET" index={index} total={total} />
 
-      <div className="flex flex-1 flex-col justify-center mt-10 max-w-5xl mx-auto w-full">
+      <div className="flex flex-1 flex-col justify-center mt-10 mb-24 max-w-5xl mx-auto w-full">
         <h2 className="text-white text-5xl font-bold tracking-tight leading-tight mb-3">
           A market <span className="text-[#5E5CE6]">on fire.</span>
         </h2>
@@ -948,8 +935,8 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
     <SectionHeader section="07" title="BUSINESS MODEL" index={index} total={total} />
 
-    <div className="flex-1 flex flex-col justify-center mt-20 max-w-5xl mx-auto w-full">
-      <div className="mb-14">
+    <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-5xl mx-auto w-full">
+      <div className="mb-10">
         <h2 className="text-white text-5xl font-bold tracking-tight mb-3">
           Monetising without <span className="text-[#5E5CE6]">compromising.</span>
         </h2>
@@ -1414,7 +1401,7 @@ const SlideCTA = ({ index, total }: SlideProps) => (
       </div>
     </div>
 
-    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-700 text-xs font-mono tracking-widest uppercase">
+    <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-gray-700 text-xs font-mono tracking-widest uppercase">
       {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')} · End of deck
     </div>
   </div>
