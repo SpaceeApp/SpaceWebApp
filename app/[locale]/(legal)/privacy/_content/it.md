@@ -1,155 +1,157 @@
-# Privacy Policy
+# Informativa sulla Privacy
 
-Ultimo aggiornamento: 19 aprile 2026
+Ultimo aggiornamento: 2 maggio 2026
 
-Data di efficacia: 19 aprile 2026
+Data di efficacia: 2 maggio 2026
 
-## 1. Chi siamo
+## 1. Titolari del Trattamento
 
-Il titolare del trattamento dei dati personali effettuato tramite l'app SPACE è:
+I titolari del trattamento dei dati personali effettuato tramite l'App SPACE ("App") sono:
 
-- Titolare: [INSERIRE NOME PERSONA FISICA O RAGIONE SOCIALE]
-- Indirizzo: [INSERIRE INDIRIZZO]
-- Email privacy: [INSERIRE EMAIL PRIVACY]
+- **Titolari:** Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
+- **Indirizzo:** Via Villa 116, 33011 Artegna (UD), Italia
+- **Email Privacy:** privacy@spaceeapp.com
 
-Se nominato, il Responsabile della Protezione dei Dati (DPO) e contattabile a: [INSERIRE CONTATTO DPO].
+I Titolari operano in qualità di contitolari ai sensi dell'art. 26 del Regolamento (UE) 2016/679 (GDPR), determinando congiuntamente finalità e mezzi del trattamento. L'interessato può esercitare i propri diritti nei confronti di ciascun Titolare.
 
-## 2. Ambito della presente informativa
+Non è stato nominato un Responsabile della Protezione dei Dati (DPO), in quanto non sussistono attualmente i presupposti obbligatori di cui all'art. 37 del GDPR.
 
-La presente informativa descrive quali dati personali trattiamo quando usi l'App, per quali finalità, su quali basi giuridiche, con chi li condividiamo, per quanto tempo li conserviamo e quali diritti puoi esercitare ai sensi del Regolamento (UE) 2016/679 (GDPR) e della normativa italiana applicabile.
+## 2. Ambito dell'Informativa
 
-## 3. Quali dati trattiamo
+Questa informativa descrive quali dati personali trattiamo, le finalità, le basi giuridiche, i destinatari, i tempi di conservazione e i diritti esercitabili ai sensi del GDPR e della normativa italiana vigente.
 
-### 3.1 Dati forniti direttamente da te
+## 3. Categorie di Dati Personali Trattati
 
-- Dati di registrazione: email, password (gestita dal servizio di autenticazione), username.
-- Dati profilo: avatar, bio, impostazioni profilo (es. profilo privato/pubblico).
-- Contenuti caricati: immagini, copertine cartelle, commenti, like e preferiti.
-- Dati social: richieste di amicizia, amicizie accettate, inviti a cartelle condivise.
+### 3.1 Dati forniti direttamente dall'utente
 
-### 3.2 Dati generati durante l'uso dell'App
+- **Dati Account:** email, username e credenziali gestite dal provider di autenticazione.
+- **Profilo:** avatar, biografia e impostazioni sulla privacy.
+- **Contenuti:** foto, copertine, commenti, risposte, "like" interni e foto preferite (repost).
+- **Interazioni Social:** amicizie, inviti alle cartelle e ruoli assegnati.
 
-- Metadati dei contenuti: id contenuto, data/ora creazione, dimensioni immagine, utente che ha caricato.
-- Dati di collaborazione: membership cartelle, ruoli (owner/admin/collaborator), stato inviti.
-- Notifiche interne: notifiche di ingresso in cartella, cambio ruolo, upload foto.
-- Link di condivisione: token invito e data di scadenza del link (durata tipica: 7 giorni).
+### 3.2 Dati generati dall'utilizzo del servizio
 
-### 3.3 Dati tecnici e di sicurezza
+- **Metadati:** timestamp, dimensioni file e informazioni tecniche.
+- **Collaborazione:** membri, ruoli e token di condivisione temporanei.
+- **Notifiche in-app:** richieste di amicizia, inviti a cartella, ingresso in cartella, upload di foto, commenti/risposte, cambi di ruolo.
+- **Preferenze:** impostazioni notifiche per categoria (abilitato/disabilitato).
+- **Notifiche push:** preferenze e token push (APNs/FCM).
 
-- Log tecnici e di sicurezza generati dall'infrastruttura backend (ad esempio log di accesso, eventi di errore, metadati di richiesta).
-- Token di sessione autenticata conservati in area sicura del dispositivo (SecureStore / keychain-keystore).
+### 3.3 Dati forniti volontariamente per feedback e supporto
 
-### 3.4 Dati trattati localmente sul dispositivo
+- **Valutazioni e feedback:** punteggio (1–5), punti di forza, suggerimenti e propensione alla raccomandazione.
+- **Segnalazioni bug:** titolo, passi per riprodurre il problema, comportamento atteso e screenshot.
+- **Segnalazioni utenti:** motivo (spam, molestie, ecc.) e descrizione facoltativa.
 
-- Preferenza lingua dell'utente salvata in memoria locale (AsyncStorage).
-- Accesso alla libreria foto, previa autorizzazione, per selezionare contenuti da caricare.
-- Accesso alla libreria media, previa autorizzazione, per salvare contenuti sul dispositivo.
-- Uso appunti (clipboard) quando scegli di copiare un link di invito.
+### 3.4 Dati ricevuti da altri utenti
 
-## 4. Finalita e base giuridica
+Possiamo trattare dati che ti riguardano inseriti da altri utenti, ad esempio quando vieni invitato in una cartella, ricevi una richiesta di amicizia, oppure altri utenti commentano o rispondono a contenuti visibili anche a te.
 
-Trattiamo i dati per le seguenti finalita:
+### 3.5 Dati tecnici e di sicurezza
 
-1. Erogazione del servizio (creazione account, autenticazione, gestione profilo, cartelle condivise, upload e visualizzazione contenuti, funzionalita social e commenti).
+- **Log tecnici:** dati di sicurezza dell'infrastruttura backend.
+- **Token tecnici:** sessioni salvate in area sicura (SecureStore/Keychain).
+- **Controllo accessi:** meccanismi Row Level Security lato backend.
+- **Anti-spam:** contatori tecnici per la limitazione di inviti.
 
-Base giuridica: esecuzione di un contratto o misure precontrattuali (art. 6.1.b GDPR).
+### 3.6 Dati locali sul dispositivo e permessi
 
-1. Sicurezza dell'App, prevenzione abusi, controllo accessi e integrita del sistema.
+- **Preferenze locali:** lingua, tema e segnali UX (tutorial).
+- **Cache locale:** dati temporanei di cartelle e foto.
+- **Permessi media:** libreria foto per upload e salvataggio.
+- **Strumenti di sistema:** Clipboard e Share Sheet del sistema operativo.
 
-Base giuridica: legittimo interesse del titolare (art. 6.1.f GDPR).
+## 4. Funzionalità di cifratura end-to-end (E2E)
 
-1. Adempimento di obblighi legali, fiscali, contabili o richieste delle autorita competenti.
+Le cartelle "private" utilizzano la cifratura end-to-end (E2E): i contenuti vengono criptati sul dispositivo prima dell'invio. I Titolari e Supabase non possono accedere ai contenuti in chiaro. La base giuridica è l'esecuzione del contratto (art. 6.1.b GDPR).
 
-Base giuridica: obbligo legale (art. 6.1.c GDPR).
+## 5. Finalità e basi giuridiche
 
-1. Gestione di permessi del dispositivo (libreria foto/media) necessari a funzionalita opzionali.
+- **Esecuzione contrattuale:** fornire e gestire il servizio (art. 6.1.b GDPR).
+- **Legittimo interesse:** gestire feedback e sicurezza (art. 6.1.f GDPR).
+- **Consenso:** laddove richiesto per funzionalità specifiche (art. 6.1.a GDPR).
+- **Obbligo legale:** adempimenti di legge e richieste autorità (art. 6.1.c GDPR).
 
-Base giuridica: consenso/autorizzazione espressa a livello dispositivo e scelta dell'utente di usare la funzione (art. 6.1.a o 6.1.b GDPR a seconda del caso).
+## 6. Visibilità dei contenuti tra utenti
 
-## 5. Modalita del trattamento
+L'App prevede due meccanismi di condivisione dei contenuti:
 
-Il trattamento avviene con strumenti digitali e misure tecniche e organizzative adeguate, incluse misure di controllo degli accessi ai dati.
+- **Cartelle condivise:** i contenuti sono visibili ai soli collaboratori della cartella.
+- **Foto preferite ("Best Moments"):** le foto che un utente segna come preferite (repost) sono visibili agli utenti con cui esiste un'amicizia accettata, anche se tali utenti non sono membri delle cartelle originali. Questo meccanismo è distinto dai "like" interni alla cartella, che non sono mai visibili fuori dalla cartella stessa.
+- **Link di condivisione cartella:** i link sono multi-uso; chiunque disponga del token può accedere alla cartella entro 7 giorni dalla creazione del link.
 
-Il backend adotta regole di autorizzazione a livello database (Row Level Security), in modo da limitare la visibilita dei dati ai soli utenti autorizzati.
+## 7. Modalità del trattamento
 
-## 6. Condivisione dei dati e destinatari
+Il trattamento avviene con strumenti digitali e misure tecniche e organizzative adeguate. Il backend applica controlli di autorizzazione. Le foto vengono ottimizzate in WebP. Non adottiamo processi decisionali automatizzati ai sensi dell'art. 22 GDPR.
+
+## 8. Destinatari e condivisione dei dati
 
 I dati possono essere trattati da:
 
-- personale autorizzato dal titolare;
-- fornitori che agiscono quali responsabili del trattamento, tra cui il fornitore dell'infrastruttura backend/database/storage/autenticazione (Supabase);
-- eventuali ulteriori fornitori tecnici strettamente necessari all'erogazione del servizio.
+- **Personale autorizzato:** dipendenti dei titolari.
+- **Fornitori tecnici:** Supabase Inc. (UE) e Expo Inc. (USA).
+- **Soggetti pubblici:** autorità giudiziarie ove previsto per legge.
 
-I dati non sono venduti a terzi per finalita commerciali.
+Quando usi funzioni di condivisione volontaria (es. share sheet o link di invito), i contenuti o i link possono essere comunicati alle piattaforme/app di destinazione da te scelte. Tali piattaforme operano secondo le rispettive policy privacy.
 
-## 7. Trasferimenti extra SEE
+Non vendiamo dati personali per finalità commerciali. L'elenco aggiornato dei responsabili del trattamento può essere richiesto contattando i titolari a privacy@spaceeapp.com.
 
-I dati possono essere trattati su server situati nello Spazio Economico Europeo o, se necessario, in Paesi terzi.
+## 9. Trasferimenti extra SEE
 
-In caso di trasferimento verso Paesi extra SEE, il titolare adotta le garanzie previste dal GDPR (es. decisioni di adeguatezza o Clausole Contrattuali Standard).
+I dati personali sono trattati principalmente all'interno dello Spazio Economico Europeo (SEE). Qualora si rendesse necessario trasferire dati al di fuori del SEE, i Titolari adotteranno tutte le garanzie previste dal GDPR (Clausole Contrattuali Standard).
 
-## 8. Periodo di conservazione
+## 10. Conservazione dei dati
 
-Conserviamo i dati per il tempo necessario alle finalita indicate sopra, in particolare:
+Conserviamo i dati per il tempo necessario alle finalità indicate:
 
-- Dati account e profilo: fino alla cancellazione dell'account o richiesta di cancellazione, salvo obblighi di legge.
-- Contenuti caricati (foto/commenti/like): fino a cancellazione da parte dell'utente o del titolare secondo le regole del servizio.
-- Cartelle eliminate: l'App prevede una fase di recupero (Forgotten Memories) fino a 30 giorni; trascorso tale periodo i contenuti possono non essere piu accessibili e possono essere rimossi.
-- Notifiche interne: fino a cancellazione da parte dell'utente o secondo politiche tecniche del servizio.
-- Log tecnici: per il tempo strettamente necessario a sicurezza, auditing e troubleshooting, secondo le policy del fornitore infrastrutturale.
+- **Account:** fino a cancellazione o richiesta valida.
+- **Contenuti condivisi:** vengono anonimizzati alla chiusura dell'account per preservare l'integrità della cartella.
+- **Cestino:** fino a 30 giorni dalla rimozione.
+- **Log/Audit:** per il tempo strettamente necessario alla sicurezza.
 
-Al termine dei periodi applicabili, i dati sono cancellati o resi anonimi, salvo ulteriore conservazione imposta dalla legge.
+Al termine, i dati sono cancellati o anonimizzati, salvo ulteriore conservazione imposta dalla legge.
 
-## 9. Sicurezza
+## 11. Sicurezza
 
-Adottiamo misure di sicurezza ragionevoli per proteggere i dati da accessi non autorizzati, perdita, distruzione o divulgazione.
+- **E2E:** cifratura end-to-end per cartelle private.
+- **Access Control:** Row Level Security e URL firmati a scadenza.
+- **Secure Storage:** token salvati in aree sicure del dispositivo.
 
-Tra queste:
+Nessun sistema può garantire la sicurezza assoluta dei dati; adottiamo tuttavia misure tecniche e organizzative adeguate al rischio. L'utente è invitato a utilizzare password adeguate e a proteggere il proprio dispositivo.
 
-- autenticazione e gestione sessione;
-- storage token in area sicura del dispositivo;
-- controlli di accesso a livello backend;
-- URL firmati a scadenza per contenuti in bucket privati.
+## 12. Diritti dell'interessato
 
-Nessun sistema e totalmente immune da rischi: ti invitiamo a usare password robuste e a custodire in modo sicuro il tuo dispositivo.
+Nei limiti di legge puoi esercitare i diritti di:
 
-## 10. Diritti dell'interessato
+- accesso
+- rettifica
+- cancellazione
+- limitazione
+- opposizione (quando applicabile)
+- portabilità
+- revoca del consenso (senza pregiudicare i trattamenti già effettuati)
 
-Nei limiti previsti dalla legge, puoi esercitare i diritti di:
+Puoi inoltre proporre reclamo al Garante per la protezione dei dati personali.
 
-- accesso ai dati personali;
-- rettifica dei dati inesatti;
-- cancellazione (diritto all'oblio);
-- limitazione del trattamento;
-- opposizione al trattamento basato su legittimo interesse;
-- portabilita dei dati;
-- revoca del consenso (quando il trattamento si basa sul consenso), senza pregiudicare la liceita del trattamento precedente.
+Per esercitare i diritti puoi contattarci all'indirizzo: privacy@spaceeapp.com
 
-Puoi inoltre proporre reclamo al Garante per la Protezione dei Dati Personali.
+## 13. Minori
 
-Per esercitare i tuoi diritti, scrivi a: [INSERIRE EMAIL PRIVACY].
+Il Servizio non è destinato alla fruizione da parte di soggetti di età inferiore ai 14 anni. Ai sensi dell'art. 8, paragrafo 1, GDPR e dell'art. 2-quinquies del D.Lgs. 196/2003 e s.m.i., l'offerta diretta di servizi della società dell'informazione ai minori è lecita ove il minore abbia compiuto almeno 14 anni.
 
-## 11. Cancellazione account
+Qualora l'utente sia stabilito in uno Stato in cui la normativa applicabile preveda un'età superiore ai 14 anni, oppure abbia un'età inferiore ai 14 anni, il trattamento dei suoi dati personali sarà lecito solo se il consenso sia prestato o espressamente autorizzato dal titolare della responsabilità genitoriale.
 
-Puoi chiedere la cancellazione del tuo account e dei dati associati contattando il titolare ai recapiti sopra indicati oppure, se disponibile, tramite le funzioni interne dell'App.
+Qualora i Titolari accertino di aver raccolto dati di soggetti che non soddisfano i requisiti prescritti, in assenza del citato consenso genitoriale, provvederanno tempestivamente alla cancellazione di tali dati e alla chiusura del relativo account.
 
-Alcuni dati possono essere conservati per obbligo di legge o per la tutela dei diritti del titolare.
+## 14. Modifiche della Privacy Policy
 
-## 12. Minori
+Possiamo aggiornare questa informativa per motivi normativi, tecnici o legati all'evoluzione del servizio. Le modifiche rilevanti saranno comunicate tramite App o altri canali idonei.
 
-L'App non e destinata a minori di [INSERIRE ETA MINIMA, es. 14/16] anni, salvo quanto consentito dalla normativa applicabile.
+## 15. Documenti correlati
 
-Se ritieni che un minore ci abbia fornito dati personali senza autorizzazione, contattaci per richiederne la rimozione.
+Per informazioni aggiuntive su strumenti tecnici assimilabili ai cookie, consulta anche la Cookie Policy dell'App.
 
-## 13. Modifiche a questa Privacy Policy
+## 16. Contatti
 
-Possiamo aggiornare periodicamente questa informativa per motivi normativi, tecnici o di evoluzione del servizio.
-
-In caso di modifiche rilevanti, forniremo adeguata comunicazione tramite App o altri canali idonei.
-
-## 14. Contatti
-
-Per qualunque domanda sul trattamento dei dati personali:
-
-- Email privacy: [INSERIRE EMAIL PRIVACY]
-- Titolare: [INSERIRE NOME O RAGIONE SOCIALE]
+- **Email privacy:** privacy@spaceeapp.com
+- **Titolari:** Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini

@@ -286,14 +286,19 @@ function Footer() {
 
   const socials = [
     {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/space-app-45533a405",
+      icon: LinkedInIcon,
+    },
+    {
       name: "Instagram",
       href: "https://www.instagram.com/spaceeapp",
       icon: InstagramIcon,
     },
     {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/space-app-45533a405",
-      icon: LinkedInIcon,
+      name: "TikTok",
+      href: "https://www.tiktok.com/@spaceeapp",
+      icon: TikTokIcon,
     },
     { name: "X", href: "https://x.com/spaceeapp", icon: XIcon },
   ];
@@ -308,13 +313,11 @@ function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
-          <div className="mb-3 flex items-center gap-2">
-            <span className="text-sm font-semibold tracking-[0.3em] text-text-primary">
-              SPACE
-            </span>
-          </div>
+          <span className="mb-3 block text-sm font-semibold tracking-[0.3em] text-text-primary">
+            SPACE
+          </span>
           <p className="max-w-xs text-sm leading-relaxed text-text-secondary">
             {t("tagline")}
           </p>
@@ -325,7 +328,7 @@ function Footer() {
             {t("contacts")}
           </p>
           <a
-            href="mailto:hello@space-app.it"
+            href="mailto:info@spaceeapp.com"
             className="text-sm text-text-secondary transition-colors hover:text-accent"
           >
             info@spaceeapp.com
@@ -336,7 +339,7 @@ function Footer() {
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-text-primary">
             {t("follow")}
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap gap-2">
             {socials.map(({ name, href, icon: Icon }) => (
               <a
                 key={name}
@@ -371,6 +374,14 @@ function Footer() {
                 className="transition-colors hover:text-accent"
               >
                 {t("terms")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/cookie"
+                className="transition-colors hover:text-accent"
+              >
+                {t("cookiePolicy")}
               </Link>
             </li>
           </ul>
@@ -443,6 +454,20 @@ function XIcon() {
       aria-hidden
     >
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
     </svg>
   );
 }
