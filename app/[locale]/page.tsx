@@ -40,7 +40,7 @@ function Nav() {
         >
           <div className="flex items-center justify-between px-5 py-2.5">
             <PressableLocaleLink href="/" className="flex items-center gap-2">
-              <span className="text-sm font-semibold tracking-[0.3em] text-text-primary">
+              <span className="text-sm font-semibold tracking-[0.3em] text-text-primary" style={{ fontFamily: "'Conthrax', sans-serif" }}>
                 SPACE
               </span>
             </PressableLocaleLink>
@@ -92,7 +92,7 @@ function Hero() {
         {t("eyebrow")}
       </p>
 
-      <h1 className="display signature-fill relative z-10 text-[clamp(4rem,14vw,13rem)] font-semibold">
+      <h1 className="display signature-fill relative z-10 text-[clamp(4rem,14vw,13rem)] font-semibold" style={{ fontFamily: "'Conthrax', sans-serif" }}>
         SPACE
       </h1>
 
@@ -241,7 +241,7 @@ function BigCTA() {
         {IS_LIVE ? t("eyebrowLive") : t("eyebrowPre")}
       </p>
       <h2 className="display text-[clamp(2.75rem,8vw,6rem)] font-semibold text-text-primary">
-        {t("titlePrefix")} <span className="signature-fill">SPACE</span>
+        {t("titlePrefix")} <span className="signature-fill" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
         <br />
         {t("titleSuffix")}
       </h2>
@@ -315,7 +315,7 @@ function Footer() {
 
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
-          <span className="mb-3 block text-sm font-semibold tracking-[0.3em] text-text-primary">
+          <span className="mb-3 block text-sm font-semibold tracking-[0.3em] text-text-primary" style={{ fontFamily: "'Conthrax', sans-serif" }}>
             SPACE
           </span>
           <p className="max-w-xs text-sm leading-relaxed text-text-secondary">
