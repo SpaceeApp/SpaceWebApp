@@ -9,7 +9,6 @@ Data di efficacia: 2 maggio 2026
 Il servizio SPACE ("App") è fornito da:
 
 - Titolari: Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
-- Indirizzo: Via Villa 116, 33011 Artegna (UD), Italia
 - Email supporto: support@spaceeapp.com
 - Email legale: legal@spaceeapp.com
 

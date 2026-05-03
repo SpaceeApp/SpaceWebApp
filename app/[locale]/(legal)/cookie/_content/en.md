@@ -9,7 +9,6 @@ Effective date: 2 May 2026
 The data controllers for data processing carried out through SPACE ("App") are:
 
 - **Controllers:** Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
-- **Address:** Via Villa 116, 33011 Artegna (UD), Italy
 - **Privacy email:** privacy@spaceeapp.com
 
 ## 2. What Are Cookies and Similar Technologies

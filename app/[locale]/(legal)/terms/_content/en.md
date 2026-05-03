@@ -9,7 +9,6 @@ Effective date: May 2, 2026
 The SPACE service ("App") is provided by:
 
 - Providers: Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
-- Address: Via Villa 116, 33011 Artegna (UD), Italy
 - Support email: support@spaceeapp.com
 - Legal email: legal@spaceeapp.com
 

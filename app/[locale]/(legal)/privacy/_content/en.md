@@ -9,7 +9,6 @@ Effective date: May 2, 2026
 The controllers of personal data processed through the SPACE App ("App") are:
 
 - **Controllers:** Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
-- **Address:** Via Villa 116, 33011 Artegna (UD), Italy
 - **Privacy Email:** privacy@spaceeapp.com
 
 The Controllers act as joint controllers pursuant to Art. 26 of Regulation (EU) 2016/679 (GDPR), jointly determining the purposes and means of processing. Data subjects may exercise their rights against any of the Controllers.

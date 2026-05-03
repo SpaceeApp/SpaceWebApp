@@ -9,7 +9,6 @@ Data di efficacia: 2 maggio 2026
 I titolari del trattamento dei dati effettuato tramite SPACE ("App") sono:
 
 - **Titolari:** Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
-- **Indirizzo:** Via Villa 116, 33011 Artegna (UD), Italia
 - **Email privacy:** privacy@spaceeapp.com
 
 ## 2. Cosa sono cookie e tecnologie simili
