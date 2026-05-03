@@ -1393,7 +1393,7 @@ const SlideCTA = ({ index, total }: SlideProps) => (
 
       <div className="flex flex-col items-center gap-1">
         <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.25em] uppercase">Contact</p>
-        <p className="text-white font-bold text-2xl">info@spaceeapp.com</p>
+        <a href="mailto:info@spaceeapp.com" className="text-white font-bold text-2xl hover:text-[#5E5CE6] transition-colors">info@spaceeapp.com</a>
       </div>
 
       <div className="flex gap-3">
