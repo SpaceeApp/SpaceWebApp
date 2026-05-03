@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Conthrax';
+  src: url('/Conthrax-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 /* ─── SPACE | VC pitch deck ───────────────────────────────────────────
    All styles live under `.pitch-root` so this file is safe to load
    alongside the rest of the site (no global class name collisions).

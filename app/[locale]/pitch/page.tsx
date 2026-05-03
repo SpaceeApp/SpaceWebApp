@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { PitchDeck } from "./PitchDeck";
+import VCPitchDeckV2 from "../../components/VCPitchDeckV2";
 
-// Hidden route: not linked from anywhere on the site, and noindex'd so it
-// doesn't get crawled. Reachable only by knowing the URL.
 export const metadata: Metadata = {
   title: "SPACE | Pitch Deck",
   robots: { index: false, follow: false },
@@ -16,5 +14,5 @@ export default async function PitchPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <PitchDeck />;
+  return <VCPitchDeckV2 />;
 }
