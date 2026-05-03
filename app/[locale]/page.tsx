@@ -68,7 +68,7 @@ function Nav() {
               href="/#get"
               className="cta-primary !py-2 !px-4 !text-xs"
             >
-              {t("cta")}
+              {t("cta")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span>
             </PressableLocaleLink>
           </div>
         </LiquidGlass>
@@ -104,7 +104,7 @@ function Hero() {
 
       <div className="relative z-10 mt-12 flex flex-col items-center gap-3">
         <PressableLocaleLink href="/#get" className="cta-primary cta-primary-lg">
-          {t("ctaPrimary")}
+          {t("ctaPrimary")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span>
           <ArrowIcon />
         </PressableLocaleLink>
         <LiquidGlass
