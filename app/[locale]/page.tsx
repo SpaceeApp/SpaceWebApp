@@ -389,7 +389,7 @@ function Footer() {
       </div>
 
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 border-t border-text-primary/5 px-6 py-6 text-xs text-text-secondary sm:flex-row">
-        <p>© {new Date().getFullYear()} SPACE</p>
+        <p>© {new Date().getFullYear()} <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span></p>
         <p className="text-text-secondary/70">{t("rights")}</p>
       </div>
     </footer>
