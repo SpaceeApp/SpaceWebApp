@@ -1592,10 +1592,10 @@ export default function VCPitchDeckV2() {
                   e.stopPropagation();
                   setCurrentSlide(idx);
                 }}
-                className={`h-1.5 rounded-full transition-all duration-500 ease-out ${
+                className={`rounded-full transition-all duration-500 ease-out ${
                   idx === currentSlide
-                    ? 'w-12 bg-[#5E5CE6] shadow-[0_0_10px_#5E5CE6]'
-                    : 'w-4 bg-white/20 hover:bg-white/40'
+                    ? 'w-3 h-3 bg-[#5E5CE6] shadow-[0_0_10px_#5E5CE6]'
+                    : 'w-2 h-2 bg-white/20 hover:bg-white/40'
                 }`}
               />
             ))}
