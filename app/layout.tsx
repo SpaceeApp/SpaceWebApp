@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +11,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const conthrax = localFont({
+  src: "../public/Conthrax-SemiBold.otf",
+  variable: "--font-conthrax",
+  weight: "600",
 });
 
 // Runs synchronously before first paint so the correct palette is applied
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${conthrax.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-canvas text-text-primary">
         <Script id="theme-init" strategy="beforeInteractive">

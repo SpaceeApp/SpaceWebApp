@@ -27,7 +27,7 @@ export default async function LegalLayout({
           >
             <div className="flex items-center justify-between gap-4 px-5 py-2.5">
               <PressableLocaleLink href="/" className="flex items-center gap-2">
-                <span className="text-sm font-semibold tracking-[0.3em] text-text-primary" style={{ fontFamily: "'Conthrax', sans-serif" }}>
+                <span className="text-sm font-semibold tracking-[0.3em] text-text-primary" style={{ fontFamily: "var(--font-conthrax)" }}>
                   SPACE
                 </span>
               </PressableLocaleLink>
@@ -75,7 +75,7 @@ export default async function LegalLayout({
 
       <footer className="mx-auto w-full max-w-3xl px-6 pb-10 pt-4 text-center text-xs text-text-secondary">
         <p>
-          © {new Date().getFullYear()} <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span> - {t("rights")}
+          © {new Date().getFullYear()} <span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span> - {t("rights")}
         </p>
       </footer>
     </>
