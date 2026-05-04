@@ -78,11 +78,11 @@ const SlideIntro = ({ index, total }: SlideProps) => (
     <div className="absolute top-10 flex w-full justify-between px-10 text-xs font-mono text-gray-400">
       <div className="flex flex-col text-left uppercase tracking-widest">
         <span className="text-white mb-1" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
-        <span>For the moments that matter</span>
+        <span>Per i momenti che contano</span>
       </div>
       <div className="flex flex-col text-right uppercase tracking-widest">
         <span>Investor deck · Seed round</span>
-        <span>2026 · Confidential</span>
+        <span>2026 · Riservato</span>
       </div>
     </div>
 
@@ -100,7 +100,7 @@ const SlideIntro = ({ index, total }: SlideProps) => (
       </h1>
 
       <p className="text-white text-3xl mt-6 font-light tracking-tight">
-        A universe of moments.
+        Un universo di momenti.
       </p>
     </div>
 
@@ -108,7 +108,7 @@ const SlideIntro = ({ index, total }: SlideProps) => (
     <div className="absolute bottom-16 flex w-full justify-between px-10 text-xs font-mono text-gray-400 uppercase tracking-widest">
       <span><span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span> · Deck v2.0</span>
       <span className="animate-pulse text-[#5E5CE6]">
-        → Press <span className="text-white">→</span> to begin · {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
+        → Premi <span className="text-white">→</span> per iniziare · {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
       </span>
     </div>
   </div>
@@ -117,7 +117,7 @@ const SlideIntro = ({ index, total }: SlideProps) => (
 // ── Slide 02 · What is SPACE ────────────────────────────────────────────────
 const SlideWhatIsSpace = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="01" title="WHAT IS SPACE" index={index} total={total} />
+    <SectionHeader section="01" title="COS'È SPACE" index={index} total={total} />
 
     <div className="flex-1 flex flex-col justify-center mt-20">
       {/* SPACE wordmark — top-left aligned, different position from slide 1 */}
@@ -128,29 +128,29 @@ const SlideWhatIsSpace = ({ index, total }: SlideProps) => (
         >
           SPACE
         </h1>
-        <span className="text-gray-500 italic text-2xl pb-4">noun · platform</span>
+        <span className="text-gray-500 italic text-2xl pb-4">sost. · piattaforma</span>
       </div>
 
       {/* Description with left-border accent */}
       <div className="border-l-4 border-[#5E5CE6] pl-8 max-w-5xl mb-14">
         <p className="text-4xl text-gray-300 leading-snug font-light">
-          Your <strong className="text-white font-bold">Space</strong> to upload photos and videos in the{' '}
-          <strong className="text-[#5E5CE6] font-semibold">highest quality</strong>,{' '}
-          <strong className="text-[#5E5CE6] font-semibold">quickly</strong> and{' '}
-          <strong className="text-[#5E5CE6] font-semibold">cross-platform</strong>.
+          Il tuo <strong className="text-white font-bold">Space</strong> per caricare foto e video nella{' '}
+          <strong className="text-[#5E5CE6] font-semibold">massima qualità</strong>,{' '}
+          <strong className="text-[#5E5CE6] font-semibold">velocemente</strong> e su{' '}
+          <strong className="text-[#5E5CE6] font-semibold">ogni piattaforma</strong>.
         </p>
       </div>
 
       {/* Pills */}
       <div className="flex flex-wrap gap-3">
-        <Pill>Highest Quality</Pill>
-        <Pill>Fast Upload</Pill>
-        <Pill>Cross-Platform</Pill>
-        <Pill>Zero Clutter</Pill>
+        <Pill>Massima Qualità</Pill>
+        <Pill>Caricamento Rapido</Pill>
+        <Pill>Multi-Piattaforma</Pill>
+        <Pill>Zero Disordine</Pill>
       </div>
     </div>
 
-    <SectionFooter left="Defining the product." right="Continue →" />
+    <SectionFooter left="Il prodotto, definito." right="Continua →" />
   </div>
 );
 
@@ -159,13 +159,13 @@ const SlideWhatIsSpace = ({ index, total }: SlideProps) => (
 type ChatMessage = { author: string; color: string; body: string; self?: boolean };
 
 const PROBLEM_MESSAGES: ChatMessage[] = [
-  { author: 'Marco',  color: 'text-orange-400', body: 'where do we upload the vacation photos?' },
+  { author: 'Marco',  color: 'text-orange-400', body: 'dove carichiamo le foto delle vacanze?' },
   { author: 'Sofia',  color: 'text-sky-400',    body: 'whatsapp?' },
-  { author: 'Luca',   color: 'text-pink-400',   body: 'whatsapp ruins the quality 😫 airdrop?' },
-  { author: 'Giulia', color: 'text-amber-300',  body: 'airdrop only between iphones 🙄 drive then?' },
-  { author: 'Marco',  color: 'text-orange-400', body: "drive is a mess to organize 😤" },
-  { author: 'Sofia',  color: 'text-sky-400',    body: 'there is literally no good option' },
-  { author: 'You',    color: '', body: '...so where do we send them? 😩', self: true },
+  { author: 'Luca',   color: 'text-pink-400',   body: 'whatsapp rovina la qualità 😫 airdrop?' },
+  { author: 'Giulia', color: 'text-amber-300',  body: 'airdrop solo tra iphone 🙄 drive allora?' },
+  { author: 'Marco',  color: 'text-orange-400', body: "drive è un casino da organizzare 😤" },
+  { author: 'Sofia',  color: 'text-sky-400',    body: 'ma esiste un\'opzione decente o no?' },
+  { author: 'You',    color: '', body: '...e quindi dove le mandiamo? 😩', self: true },
 ];
 
 // Steps: 0 off → 1 lock → 2 lockNotif → 3..(3+N) chat with N msgs. Then stop.
@@ -199,7 +199,7 @@ const LockScreen = ({ withNotif }: { withNotif: boolean }) => (
       <svg className="w-4 h-3" fill="none" viewBox="0 0 24 12" stroke="currentColor"><rect x="1" y="2" width="18" height="8" rx="2" strokeWidth={1.5} /><rect x="3" y="4" width="14" height="4" rx="1" fill="currentColor" /></svg>
     </div>
 
-    <div className="text-white/60 text-xs mt-6 font-light tracking-wide">Saturday, June 14</div>
+    <div className="text-white/60 text-xs mt-6 font-light tracking-wide">Sabato, 14 Giugno</div>
     <div className="text-white text-7xl font-thin mt-1" style={{ letterSpacing: '-0.02em' }}>9:41</div>
 
     {/* Notification banner */}
@@ -213,9 +213,9 @@ const LockScreen = ({ withNotif }: { withNotif: boolean }) => (
             <span className="text-white text-[11px] font-semibold uppercase tracking-wider">WhatsApp</span>
             <span className="text-white/50 text-[10px]">now</span>
           </div>
-          <div className="text-white text-sm font-semibold mt-0.5">Trip to Lisbon ✈️</div>
+          <div className="text-white text-sm font-semibold mt-0.5">Viaggio a Lisbona ✈️</div>
           <div className="text-white/80 text-xs mt-0.5 truncate">
-            <span className="text-orange-300">Marco:</span> where do we upload the vacation photos?
+            <span className="text-orange-300">Marco:</span> dove carichiamo le foto delle vacanze?
           </div>
         </div>
       </div>
@@ -233,7 +233,7 @@ const ChatScreen = ({ messageCount }: { messageCount: number }) => (
       <span className="text-[#00a884] text-xl">‹</span>
       <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-400 via-pink-500 to-purple-500 shrink-0" />
       <div className="flex-1 min-w-0">
-        <div className="text-white text-sm font-semibold truncate">Trip to Lisbon ✈️</div>
+        <div className="text-white text-sm font-semibold truncate">Viaggio a Lisbona ✈️</div>
         <div className="text-white/50 text-[10px]">Marco, Sofia, Luca, Giulia, +8</div>
       </div>
       <svg className="w-5 h-5 text-[#aebac1]" fill="currentColor" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" /></svg>
@@ -274,7 +274,7 @@ const ChatScreen = ({ messageCount }: { messageCount: number }) => (
     <div className="bg-[#1f2c33] p-2 flex items-center gap-2 shrink-0">
       <div className="flex-1 bg-[#2a3942] rounded-full px-3 py-2 text-white/40 text-xs flex items-center gap-2">
         <span>😊</span>
-        <span>Message</span>
+        <span>Messaggio</span>
       </div>
       <div className="w-9 h-9 rounded-full bg-[#00a884] flex items-center justify-center text-white">
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg>
@@ -305,7 +305,7 @@ const SlideProblem = ({ index, total }: SlideProps) => {
 
   return (
     <div className="flex flex-col h-full px-20 relative w-full">
-      <SectionHeader section="02" title="THE PROBLEM" index={index} total={total} />
+      <SectionHeader section="02" title="IL PROBLEMA" index={index} total={total} />
 
       <div className="flex-1 flex items-center justify-between gap-16 mt-20 mb-24">
         {/* iPhone mockup — wrapped for glow */}
@@ -326,25 +326,25 @@ const SlideProblem = ({ index, total }: SlideProps) => {
             className="text-white font-black tracking-tighter leading-[0.88]"
             style={{ fontSize: '7.5rem' }}
           >
-            Memories<br />
-            deserve<br />
-            <span className="text-[#5E5CE6]">better.</span>
+            I ricordi<br />
+            meritano<br />
+            <span className="text-[#5E5CE6]">di più.</span>
           </h2>
           <div className="mt-10 space-y-4 border-l-2 border-gray-800 pl-6">
             <p className="text-xl text-gray-400 font-light">
-              Photos <span className="text-[#5E5CE6] font-medium">scattered</span> across apps.
+              Foto <span className="text-[#5E5CE6] font-medium">disperse</span> tra le app.
             </p>
             <p className="text-xl text-gray-400 font-light">
-              Quality <span className="text-[#5E5CE6] font-medium">destroyed</span> in transit.
+              Qualità <span className="text-[#5E5CE6] font-medium">massacrata</span>, ogni volta.
             </p>
             <p className="text-xl text-gray-400 font-light">
-              Moments <span className="text-[#5E5CE6] font-medium">lost in the noise.</span>
+              Momenti che <span className="text-[#5E5CE6] font-medium">vanno perduti.</span>
             </p>
           </div>
         </div>
       </div>
 
-      <SectionFooter left="The status quo." right="→ The Solution" />
+      <SectionFooter left="Lo status quo." right="→ La Soluzione" />
     </div>
   );
 };
@@ -352,27 +352,27 @@ const SlideProblem = ({ index, total }: SlideProps) => {
 // ── Slide 04 · The Solution ─────────────────────────────────────────────────
 const SlideSolution = ({ index, total }: SlideProps) => (
   <div className="flex flex-col items-center justify-center h-full px-20 text-center relative w-full">
-    <SectionHeader section="03" title="THE SOLUTION" index={index} total={total} />
+    <SectionHeader section="03" title="LA SOLUZIONE" index={index} total={total} />
 
     <div className="flex flex-col items-center gap-10">
       <h2
         className="text-white font-black tracking-tighter leading-[0.85] animate-line-1"
         style={{ fontSize: '6.5rem' }}
       >
-        Everything<br />
-        <span className="text-[#5E5CE6]">Organised.</span>
+        Tutto<br />
+        <span className="text-[#5E5CE6]">Organizzato.</span>
       </h2>
 
       <h2
         className="text-white font-black tracking-tighter leading-[0.85] animate-line-2"
         style={{ fontSize: '6.5rem' }}
       >
-        Everything<br />
-        <span className="text-[#5E5CE6]">Yours.</span>
+        Tutto<br />
+        <span className="text-[#5E5CE6]">Tuo.</span>
       </h2>
     </div>
 
-    <SectionFooter left="Two promises." right="→ The Product" />
+    <SectionFooter left="Due promesse." right="→ Il Prodotto" />
   </div>
 );
 
@@ -440,45 +440,45 @@ const YourSpacesScreen = () => (
   <div className="absolute inset-0 bg-[#0a0a0c] flex flex-col">
     <PhoneStatusBar />
     <div className="px-3.5 pt-3 pb-2 flex justify-between items-baseline">
-      <h3 className="text-white font-black text-xl tracking-tight">Your Spaces</h3>
+      <h3 className="text-white font-black text-xl tracking-tight">I tuoi Space</h3>
       <span className="text-gray-500 text-[10px] font-mono">12</span>
     </div>
     <div className="px-3.5 flex gap-1.5 mb-3">
       <span className="text-[9px] px-2.5 py-1 rounded-full bg-[#5E5CE6] text-white font-medium">
-        All
+        Tutti
       </span>
       <span className="text-[9px] px-2.5 py-1 rounded-full bg-white/[0.04] text-gray-400 border border-white/5">
-        Recent
+        Recenti
       </span>
       <span className="text-[9px] px-2.5 py-1 rounded-full bg-white/[0.04] text-gray-400 border border-white/5">
-        Shared
+        Condivisi
       </span>
     </div>
     <div className="px-3.5 flex flex-col gap-2 flex-1 overflow-hidden">
       <FolderRow
         cover="from-orange-400 via-pink-500 to-purple-600"
-        title="Lisbon Trip"
-        sub="8 members · 248 photos"
+        title="Viaggio a Lisbona"
+        sub="8 membri · 248 foto"
       />
       <FolderRow
         cover="from-rose-400 via-red-500 to-pink-600"
-        title="Christmas '25"
-        sub="5 members · 156 photos"
+        title="Natale '25"
+        sub="5 membri · 156 foto"
       />
       <FolderRow
         cover="from-cyan-400 via-blue-500 to-indigo-600"
-        title="Wedding day"
-        sub="12 members · 421 photos"
+        title="Matrimonio"
+        sub="12 membri · 421 foto"
       />
       <FolderRow
         cover="from-amber-400 via-orange-500 to-red-600"
-        title="Summer in Sicily"
-        sub="6 members · 89 photos"
+        title="Estate in Sicilia"
+        sub="6 membri · 89 foto"
       />
       <FolderRow
         cover="from-emerald-400 via-teal-500 to-cyan-600"
-        title="Hike — Dolomites"
-        sub="4 members · 67 photos"
+        title="Escursione — Dolomiti"
+        sub="4 membri · 67 foto"
       />
     </div>
     <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#5E5CE6] flex items-center justify-center text-white text-2xl font-light shadow-lg shadow-[#5E5CE6]/50">
@@ -508,21 +508,21 @@ const GalleryScreen = () => (
     <PhoneStatusBar />
     <div className="px-3 py-1.5 flex items-center gap-2">
       <span className="text-[#5E5CE6] text-base">‹</span>
-      <span className="text-white font-semibold text-[12px] flex-1">Lisbon Trip</span>
+      <span className="text-white font-semibold text-[12px] flex-1">Viaggio a Lisbona</span>
       <span className="text-gray-500 text-base">⋯</span>
     </div>
     <div className="mx-3 h-28 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 relative overflow-hidden mb-2">
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
       <div className="absolute bottom-2 left-3 right-3">
-        <h3 className="text-white font-bold text-base tracking-tight">Lisbon Trip</h3>
-        <p className="text-white/70 text-[9px]">June 2025 · 248 photos · 8 members</p>
+        <h3 className="text-white font-bold text-base tracking-tight">Viaggio a Lisbona</h3>
+        <p className="text-white/70 text-[9px]">Giugno 2025 · 248 foto · 8 membri</p>
       </div>
     </div>
     <div className="px-3 flex justify-between items-center mb-1.5">
       <div className="flex gap-3 text-[10px]">
-        <span className="text-white font-semibold border-b border-[#5E5CE6] pb-0.5">Photos</span>
-        <span className="text-gray-500">Members</span>
-        <span className="text-gray-500">Comments</span>
+        <span className="text-white font-semibold border-b border-[#5E5CE6] pb-0.5">Foto</span>
+        <span className="text-gray-500">Membri</span>
+        <span className="text-gray-500">Commenti</span>
       </div>
     </div>
     <div className="flex-1 px-3 grid grid-cols-3 gap-1 overflow-hidden content-start">
@@ -553,8 +553,8 @@ const MemoryScreen = () => (
     <div className="relative z-10 pt-1 pb-2 px-3 flex items-center gap-2">
       <span className="text-white text-base">‹</span>
       <div className="flex-1 min-w-0">
-        <p className="text-white text-[11px] font-semibold truncate">Lisbon · Belém Tower</p>
-        <p className="text-white/70 text-[9px]">added by Marco · 2h ago</p>
+        <p className="text-white text-[11px] font-semibold truncate">Lisbona · Torre di Belém</p>
+        <p className="text-white/70 text-[9px]">aggiunto da Marco · 2h fa</p>
       </div>
       <span className="text-white text-base">⋯</span>
     </div>
@@ -609,13 +609,13 @@ const MemoryScreen = () => (
       <div className="space-y-1.5">
         <div className="flex gap-1.5 text-[10px]">
           <span className="text-orange-300 font-semibold shrink-0">@sofia</span>
-          <span className="text-white/90">incredible view!! ✨</span>
+          <span className="text-white/90">vista incredibile!! ✨</span>
         </div>
         <div className="flex gap-1.5 text-[10px]">
           <span className="text-sky-400 font-semibold shrink-0">@luca</span>
-          <span className="text-white/90">the lighting is unreal 🔥</span>
+          <span className="text-white/90">la luce è surreale 🔥</span>
         </div>
-        <div className="text-[9px] text-gray-500">View 3 more comments</div>
+        <div className="text-[9px] text-gray-500">Vedi altri 3 commenti</div>
       </div>
     </div>
   </div>
@@ -648,46 +648,46 @@ const PhoneShowcase = ({
 
 const SlideProductPreview = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="04" title="THE PRODUCT" index={index} total={total} />
+    <SectionHeader section="04" title="IL PRODOTTO" index={index} total={total} />
 
     <div className="flex-1 flex items-center justify-center gap-8 mt-20 mb-24">
-      <PhoneShowcase label="01 — Organise" title="Your Spaces" delay="0.1s">
+      <PhoneShowcase label="01 — Organizza" title="I tuoi Space" delay="0.1s">
         <YourSpacesScreen />
       </PhoneShowcase>
-      <PhoneShowcase label="02 — Relive" title="Inside a memory" lifted delay="0.3s">
+      <PhoneShowcase label="02 — Rivivilo" title="Dentro un ricordo" lifted delay="0.3s">
         <GalleryScreen />
       </PhoneShowcase>
-      <PhoneShowcase label="03 — Share" title="Together" delay="0.5s">
+      <PhoneShowcase label="03 — Condividi" title="Insieme" delay="0.5s">
         <MemoryScreen />
       </PhoneShowcase>
     </div>
 
-    <SectionFooter left="Designed for the moments that matter." right="→ The Market" />
+    <SectionFooter left="Progettato per i momenti che contano." right="→ Il Mercato" />
   </div>
 );
 
 // ── Slide 06 · The Landscape — Intro ────────────────────────────────────────
 const SlideLandscapeIntro = ({ index, total }: SlideProps) => (
   <div className="flex flex-col items-center justify-center h-full px-20 text-center relative w-full">
-    <SectionHeader section="05" title="THE LANDSCAPE" index={index} total={total} />
+    <SectionHeader section="05" title="IL PANORAMA" index={index} total={total} />
 
     <div className="flex flex-col items-center gap-16">
       <h3
         className="text-gray-400 font-light tracking-tight italic animate-rise"
         style={{ fontSize: '2.75rem', animationDelay: '0.15s' }}
       >
-        Everyone does one piece.
+        Ognuno copre il suo pezzo.
       </h3>
 
       <h2
         className="text-white font-black tracking-tighter animate-rise"
         style={{ fontSize: '6.5rem', animationDelay: '0.55s' }}
       >
-        <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span> <span className="text-[#5E5CE6]">does it all</span>
+        <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span> <span className="text-[#5E5CE6]">fa tutto</span>
       </h2>
     </div>
 
-    <SectionFooter left="The competitive gap." right="→ The Matrix" />
+    <SectionFooter left="Il divario competitivo." right="→ La Matrice" />
   </div>
 );
 
@@ -726,22 +726,22 @@ const COMPETITORS: { name: string; marks: [Mark, Mark, Mark, Mark, Mark] }[] = [
 ];
 
 const MATRIX_COLUMNS: { l1: string; l2: string }[] = [
-  { l1: 'Cross-', l2: 'Platform' },
-  { l1: 'Highest', l2: 'Quality' },
-  { l1: 'Collab', l2: 'Folders' },
-  { l1: 'Zero', l2: 'Clutter' },
-  { l1: 'Social', l2: ' ' },
+  { l1: 'Multi-', l2: 'Piattaforma' },
+  { l1: 'Massima', l2: 'Qualità' },
+  { l1: 'Cartelle', l2: 'Collab' },
+  { l1: 'Zero', l2: 'Disordine' },
+  { l1: 'Social', l2: ' ' },
 ];
 
 const SlideLandscapeMatrix = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="05" title="THE LANDSCAPE" index={index} total={total} />
+    <SectionHeader section="05" title="IL PANORAMA" index={index} total={total} />
 
     <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-6xl mx-auto w-full">
       <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] gap-x-4 gap-y-1 items-center">
         {/* Header row */}
         <div className="font-bold text-gray-500 uppercase tracking-widest text-xs border-b border-gray-800 pb-4">
-          Competitors
+          Competitor
         </div>
         {MATRIX_COLUMNS.map((col, i) => (
           <div
@@ -786,36 +786,36 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => (
       </div>
     </div>
 
-    <SectionFooter left="No compromises." right="→ The Market" />
+    <SectionFooter left="Nessun compromesso." right="→ Il Mercato" />
   </div>
 );
 
 // ── Slide 08 · Market Intro ──────────────────────────────────────────────────
 const SlideMarketIntro = ({ index, total }: SlideProps) => (
   <div className="flex flex-col items-center justify-center h-full text-center relative w-full">
-    <SectionHeader section="06" title="THE MARKET" index={index} total={total} />
+    <SectionHeader section="06" title="IL MERCATO" index={index} total={total} />
 
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#5E5CE6] rounded-full blur-[180px] opacity-8 pointer-events-none" />
 
     <div className="relative z-10 flex flex-col items-center gap-6">
-      <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">Market opportunity</p>
+      <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">Opportunità di mercato</p>
 
       <h2
         className="text-white font-black tracking-tighter leading-[0.88]"
         style={{ fontSize: '9rem' }}
       >
-        Let's talk<br />
-        <span className="text-[#5E5CE6]">numbers.</span>
+        Parliamo di<br />
+        <span className="text-[#5E5CE6]">numeri.</span>
       </h2>
 
       <div className="w-px h-10 bg-gradient-to-b from-[#5E5CE6]/60 to-transparent" />
 
       <p className="text-gray-500 text-lg font-light tracking-wide">
-        The data speaks for itself.
+        I dati parlano da soli.
       </p>
     </div>
 
-    <SectionFooter left="The opportunity." right="→ The Market" />
+    <SectionFooter left="L'opportunità." right="→ Il Mercato" />
   </div>
 );
 
@@ -827,22 +827,21 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
 
   return (
     <div className="flex flex-col h-full px-20 relative w-full">
-      <SectionHeader section="06" title="THE MARKET" index={index} total={total} />
+      <SectionHeader section="06" title="IL MERCATO" index={index} total={total} />
 
       <div className="flex flex-1 flex-col justify-start mt-24 mb-16 max-w-5xl mx-auto w-full">
         <h2 className="text-white text-5xl font-bold tracking-tight leading-tight mb-3">
-          A market <span className="text-[#5E5CE6]">on fire.</span>
+          Un mercato <span className="text-[#5E5CE6]">in fiamme.</span>
         </h2>
         <p className="text-gray-400 text-xl mb-8">
-          Trillions of photos taken, billions shared daily — yet no dedicated home for private,
-          high-quality sharing.
+          Miliardi di foto condivise ogni giorno. Eppure nessun posto fatto apposta per farlo bene.
         </p>
 
         <div className="grid grid-cols-3 gap-6 w-full">
 
           {/* ── Card 1: Photos per Year ── */}
           <div className="bg-[#1a1a1e] border border-gray-800 rounded-3xl p-6 flex flex-col">
-            <p className="text-white font-semibold text-sm mb-5">Photos per Year</p>
+            <p className="text-white font-semibold text-sm mb-5">Foto all&apos;Anno</p>
             <svg viewBox="0 0 300 115" className="w-full mb-5">
               <defs>
                 <linearGradient id="lgMkt1" x1="0" y1="0" x2="0" y2="1">
@@ -870,17 +869,17 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
               <text x="186" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace" textAnchor="middle">2020</text>
               <text x="292" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace" textAnchor="end">2025</text>
             </svg>
-            <div className="text-[#5E5CE6] font-black text-3xl mb-1">2.1T photos / year</div>
-            <p className="text-gray-500 text-sm">taken worldwide · +223% vs. 2013</p>
+            <div className="text-[#5E5CE6] font-black text-3xl mb-1">2.1T foto / anno</div>
+            <p className="text-gray-500 text-sm">scattate nel mondo · +223% vs. 2013</p>
           </div>
 
           {/* ── Card 2: Platforms ── */}
           <div className="bg-gradient-to-b from-[#5E5CE6]/20 to-[#1a1a1e] border border-[#5E5CE6]/30 rounded-3xl p-6 flex flex-col relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-[#5E5CE6]" />
-            <p className="text-white font-semibold text-sm mb-5">Platforms</p>
+            <p className="text-white font-semibold text-sm mb-5">Piattaforme</p>
             <svg viewBox="0 0 290 125" className="w-full mb-5">
               {/* Unit label */}
-              <text x="288" y="10" fill="#4b5563" fontSize="8" fontFamily="monospace" textAnchor="end">photos shared / day</text>
+              <text x="288" y="10" fill="#4b5563" fontSize="8" fontFamily="monospace" textAnchor="end">foto condivise / giorno</text>
               {/* WhatsApp 7B → 200px (full) */}
               <text x="74" y="26" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">WhatsApp</text>
               <rect x="78" y="12" width="200" height="22" rx="4" fill="#5E5CE6" />
@@ -898,13 +897,13 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
               <rect x="78" y="102" width="34" height="22" rx="4" fill="#5E5CE6" opacity="0.15" />
               <text x="117" y="117" fill="#6b7280" fontSize="10" fontFamily="monospace">1.2B</text>
             </svg>
-            <div className="text-white font-black text-3xl mb-1">7B photos / day</div>
-            <p className="text-gray-400 text-sm">shared on WhatsApp alone · quality destroyed</p>
+            <div className="text-white font-black text-3xl mb-1">7B foto / giorno</div>
+            <p className="text-gray-400 text-sm">condivise solo su WhatsApp · qualità distrutta</p>
           </div>
 
           {/* ── Card 3: Photo Storage Growth ── */}
           <div className="bg-[#1a1a1e] border border-gray-800 rounded-3xl p-6 flex flex-col">
-            <p className="text-white font-semibold text-sm mb-5">Avg. Photos Stored</p>
+            <p className="text-white font-semibold text-sm mb-5">Foto Arch. in Media</p>
             <svg viewBox="0 0 200 120" className="w-full mb-5">
               {/* Baseline */}
               <line x1="10" y1="100" x2="190" y2="100" stroke="#374151" strokeWidth="1" />
@@ -918,14 +917,14 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
               <text x="63" y="114" fill="#6b7280" fontSize="10" fontFamily="monospace" textAnchor="middle">2015</text>
               <text x="137" y="114" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="middle">2025</text>
             </svg>
-            <div className="text-[#5E5CE6] font-black text-3xl mb-1">3× more photos</div>
-            <p className="text-gray-500 text-sm">stored per user on average · 2015 → 2025</p>
+            <div className="text-[#5E5CE6] font-black text-3xl mb-1">3× più foto</div>
+            <p className="text-gray-500 text-sm">archiviate per utente · 2015 → 2025</p>
           </div>
 
         </div>
       </div>
 
-      <SectionFooter left="The shift to private sharing." right="→ Business Model" />
+      <SectionFooter left="Il passaggio alla condivisione privata." right="→ Business Model" />
     </div>
   );
 };
@@ -933,15 +932,15 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
 // ── Slide 09 · Business Model ────────────────────────────────────────────────
 const SlideBusinessModel = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="07" title="BUSINESS MODEL" index={index} total={total} />
+    <SectionHeader section="07" title="MODELLO DI BUSINESS" index={index} total={total} />
 
     <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-5xl mx-auto w-full">
       <div className="mb-10">
         <h2 className="text-white text-5xl font-bold tracking-tight mb-3">
-          Monetising without <span className="text-[#5E5CE6]">compromising.</span>
+          Monetizzare senza <span className="text-[#5E5CE6]">compromettere.</span>
         </h2>
         <p className="text-gray-400 text-xl max-w-3xl">
-          Built on user value, not user data. Two principles that are non-negotiable.
+          Cresce sul valore reale, non sui dati. Due cose che non si toccano.
         </p>
       </div>
 
@@ -950,7 +949,7 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
         {/* Freemium */}
         <div className="bg-[#0c0c14] border-2 border-[#5E5CE6] rounded-3xl p-10 flex flex-col relative shadow-[0_0_50px_rgba(94,92,230,0.12)]">
           <div className="absolute -top-3.5 left-10 px-4 py-1 bg-[#5E5CE6] text-white text-[10px] font-bold tracking-widest uppercase rounded-full">
-            Revenue Driver
+            Motore di Ricavi
           </div>
 
           <div className="flex items-start gap-6 mb-8">
@@ -964,7 +963,7 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
                 Freemium
               </h3>
               <p className="text-[#5E5CE6] text-xs font-mono tracking-widest uppercase">
-                Free core · <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>+ premium
+                Base gratuita · <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>+ premium
               </p>
             </div>
           </div>
@@ -973,9 +972,9 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
             <div className="flex gap-4">
               <div className="w-px bg-gray-800 shrink-0 ml-1" />
               <div>
-                <p className="text-white font-semibold text-lg mb-1">Free forever</p>
+                <p className="text-white font-semibold text-lg mb-1">Gratuito per sempre</p>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Join spaces, view galleries, contribute photos — completely free. Designed to maximise network effects and grow virally.
+                  Entri, condividi, aggiungi foto — gratis. Più persone usano SPACE, più vale usarlo.
                 </p>
               </div>
             </div>
@@ -983,12 +982,12 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
               <div className="w-px bg-[#5E5CE6]/40 shrink-0 ml-1" />
               <div>
                 <p className="text-white font-semibold text-lg mb-1">
-                  <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span><span className="text-[#5E5CE6]">+</span> — opt-in premium
+                  <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span><span className="text-[#5E5CE6]">+</span> — premium su scelta
                 </p>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Power users unlock extended storage, pro tools, and exclusive features. We monetise value — not basic access.
+                  Chi vuole di più, paga per avere di più: storage extra, strumenti pro, funzioni esclusive. Nessuno paga solo per stare dentro.
                 </p>
-                <p className="text-gray-600 text-xs mt-2 font-mono">Pricing TBD</p>
+                <p className="text-gray-600 text-xs mt-2 font-mono">Prezzo da definire</p>
               </div>
             </div>
           </div>
@@ -1004,32 +1003,32 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
             </div>
             <div>
               <h3 className="text-white font-black text-3xl tracking-tight mb-1">
-                Zero Ads
+                Zero Pubblicità
               </h3>
               <p className="text-[#5E5CE6] text-xs font-mono tracking-widest uppercase">
-                Privacy first · always
+                Privacy prima di tutto · sempre
               </p>
             </div>
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
             <p className="text-gray-300 text-lg leading-relaxed">
-              Memories are sacred. No data mining, no targeted advertising, no selling attention to third parties.{' '}
-              <span className="text-white font-semibold">Ever.</span>
+              I tuoi ricordi non sono un prodotto. Zero tracciamento, zero pubblicità mirata, zero vendita dei tuoi dati.{' '}
+              <span className="text-white font-semibold">Mai.</span>
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-4">
               <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
                 <p className="text-white font-black text-2xl mb-1">0</p>
-                <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">Ad revenue</p>
+                <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">Ricavi adv</p>
               </div>
               <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
                 <p className="text-white font-black text-2xl mb-1">0</p>
-                <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">Data sold</p>
+                <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">Dati venduti</p>
               </div>
               <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
                 <p className="text-[#5E5CE6] font-black text-2xl mb-1">∞</p>
-                <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">Trust</p>
+                <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">Fiducia</p>
               </div>
             </div>
           </div>
@@ -1038,7 +1037,7 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => (
       </div>
     </div>
 
-    <SectionFooter left="Value over algorithms." right="→ Tech Stack" />
+    <SectionFooter left="Prima il valore, poi tutto il resto." right="→ Stack Tecnologico" />
   </div>
 );
 
@@ -1094,34 +1093,34 @@ type StackBlock = {
 
 const STACK_BLOCKS: StackBlock[] = [
   {
-    eyebrow: 'The Frontend',
+    eyebrow: 'Il Frontend',
     icon: <StackIconSmartphone />,
     title: 'Smartphone',
     subtitle: 'iOS & Android',
     tags: ['React Native', 'TypeScript'],
-    description: 'We write the code once. It runs perfectly on every device, with no differences.',
+    description: 'Scriviamo il codice una sola volta. Funziona perfettamente su ogni dispositivo, senza differenze.',
     accent: '#5E5CE6',
     bg: 'rgba(94,92,230,0.06)',
     border: 'rgba(94,92,230,0.2)',
   },
   {
-    eyebrow: 'The Engine',
+    eyebrow: 'Il Motore',
     icon: <StackIconGear />,
-    title: 'Logic & Performance',
-    subtitle: 'Extreme speed and fluidity.',
+    title: 'Logica & Prestazioni',
+    subtitle: 'Velocità e fluidità estreme.',
     tags: ['NativeWind 4', 'React Navigation 7', 'Context API'],
-    description: 'Handles navigation between photos and the app style in a lightweight way — no infinite loading.',
+    description: 'Gestisce la navigazione tra le foto e lo stile dell\'app in modo leggero — nessun caricamento infinito.',
     accent: '#0ea5e9',
     bg: 'rgba(14,165,233,0.05)',
     border: 'rgba(14,165,233,0.18)',
   },
   {
-    eyebrow: 'The Backend',
+    eyebrow: 'Il Backend',
     icon: <StackIconCloud />,
-    title: 'Cloud & Security',
-    subtitle: 'Photos safe and in real time.',
+    title: 'Cloud & Sicurezza',
+    subtitle: 'Foto al sicuro e in tempo reale.',
     tags: ['Supabase', 'PostgreSQL', 'Auth', 'Storage', 'Realtime'],
-    description: 'Where your memories are saved in original quality and instantly shared with your friends.',
+    description: 'Dove i tuoi ricordi vengono salvati in qualità originale e condivisi istantaneamente con i tuoi amici.',
     accent: '#34d399',
     bg: 'rgba(52,211,153,0.05)',
     border: 'rgba(52,211,153,0.18)',
@@ -1130,12 +1129,12 @@ const STACK_BLOCKS: StackBlock[] = [
 
 const SlideTechStack = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="08" title="TECH STACK" index={index} total={total} />
+    <SectionHeader section="08" title="STACK TECNOLOGICO" index={index} total={total} />
 
     <div className="flex-1 flex flex-col justify-center mt-16 mb-6 w-full max-w-5xl mx-auto gap-8">
 
       <h2 className="text-white text-4xl font-bold tracking-tight">
-        Built to <span className="text-[#5E5CE6]">scale.</span>
+        Costruito per <span className="text-[#5E5CE6]">scalare.</span>
       </h2>
 
       {/* ── Three blocks ── */}
@@ -1181,31 +1180,31 @@ const SlideTechStack = ({ index, total }: SlideProps) => (
 
       {/* Footer */}
       <p className="text-gray-700 text-xs font-mono tracking-widest text-center uppercase">
-        Stack optimized for immediate scalability and minimal management costs
+        Stack ottimizzato per scalabilità immediata e costi di gestione minimi
       </p>
 
     </div>
 
-    <SectionFooter left="Lean stack, production-ready." right="→ The Team" />
+    <SectionFooter left="Stack snello, pronto per la produzione." right="→ Il Team" />
   </div>
 );
 
 // ── Slide · The Team ─────────────────────────────────────────────────────────
 const TEAM_MEMBERS = [
-  { name: 'Simone Copetti',    role: 'Co-Founder', photo: simoneSrc,   linkedin: 'https://www.linkedin.com/in/simone-copetti-9235b232a' },
-  { name: 'Andrea Citton',    role: 'Co-Founder', photo: andreaSrc,   linkedin: 'https://www.linkedin.com/in/andrea-citton-675785286/' },
-  { name: 'Bernardo Cecchini',role: 'Co-Founder', photo: '',          linkedin: 'https://www.linkedin.com/in/bernardo-cecchini-84a748353' },
-  { name: 'Matteo Bertini',   role: 'Co-Founder', photo: '',          linkedin: 'https://www.linkedin.com/in/matteo-bertini' },
+  { name: 'Simone Copetti',    role: 'Co-Fondatore', photo: simoneSrc,   linkedin: 'https://www.linkedin.com/in/simone-copetti-9235b232a' },
+  { name: 'Andrea Citton',    role: 'Co-Fondatore', photo: andreaSrc,   linkedin: 'https://www.linkedin.com/in/andrea-citton-675785286/' },
+  { name: 'Bernardo Cecchini',role: 'Co-Fondatore', photo: '',          linkedin: 'https://www.linkedin.com/in/bernardo-cecchini-84a748353' },
+  { name: 'Matteo Bertini',   role: 'Co-Fondatore', photo: '',          linkedin: 'https://www.linkedin.com/in/matteo-bertini' },
 ];
 
 const SlideTeam = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="09" title="THE TEAM" index={index} total={total} />
+    <SectionHeader section="09" title="IL TEAM" index={index} total={total} />
 
     <div className="flex-1 flex flex-col justify-center mt-20 max-w-5xl mx-auto w-full">
       <div className="mb-12">
         <h2 className="text-white text-5xl font-bold tracking-tight">
-          The builders behind <span className="text-[#5E5CE6]" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE.</span>
+          I costruttori dietro <span className="text-[#5E5CE6]" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE.</span>
         </h2>
       </div>
 
@@ -1258,43 +1257,43 @@ const SlideTeam = ({ index, total }: SlideProps) => (
       </div>
     </div>
 
-    <SectionFooter left="Obsessed builders." right="→ Join us" />
+    <SectionFooter left="Ossessionati dal prodotto." right="→ Unisciti a noi" />
   </div>
 );
 
 // ── Slide 12 · The Vision ────────────────────────────────────────────────────
 const SlideVision = ({ index, total }: SlideProps) => (
   <div className="flex flex-col items-center justify-center h-full text-center relative w-full">
-    <SectionHeader section="10" title="THE VISION" index={index} total={total} />
+    <SectionHeader section="10" title="LA VISIONE" index={index} total={total} />
 
     {/* Glow */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#5E5CE6] rounded-full blur-[160px] opacity-10 pointer-events-none" />
 
     <div className="relative z-10 flex flex-col items-center gap-8 mt-10">
       <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">
-        One step further
+        Guarda avanti.
       </p>
 
       <h2 className="text-white font-black tracking-tighter leading-[0.88]" style={{ fontSize: '9rem' }}>
-        Not an app.<br />
-        <span className="text-[#5E5CE6]">A social.</span>
+        Non un&apos;app.<br />
+        <span className="text-[#5E5CE6]">Un social.</span>
       </h2>
 
       <div className="w-px h-10 bg-gradient-to-b from-[#5E5CE6]/60 to-transparent" />
 
       <p className="text-gray-400 text-xl font-light max-w-xl leading-relaxed">
-        Private. Quality. Real connections.<br />No noise.
+        Privato. Qualità. Connessioni vere.<br />Nessun rumore.
       </p>
     </div>
 
-    <SectionFooter left="The future of memories." right="→ The platform" />
+    <SectionFooter left="Il futuro dei ricordi." right="→ La piattaforma" />
   </div>
 );
 
 // ── Slide 14 · Vision Expanded ───────────────────────────────────────────────
 const SlideVisionExpanded = ({ index, total }: SlideProps) => (
   <div className="flex flex-col h-full px-20 relative w-full">
-    <SectionHeader section="10" title="THE VISION" index={index} total={total} />
+    <SectionHeader section="10" title="LA VISIONE" index={index} total={total} />
 
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#5E5CE6] rounded-full blur-[180px] opacity-8 pointer-events-none" />
 
@@ -1302,12 +1301,12 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => (
 
       {/* Left — statement */}
       <div className="flex flex-col gap-4 shrink-0">
-        <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">The platform</p>
+        <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">La piattaforma</p>
         <div className="flex flex-col gap-0" style={{ fontSize: '4.2rem', lineHeight: '1.05' }}>
-          <span className="text-gray-600 font-black tracking-tighter">A concert.</span>
-          <span className="text-gray-500 font-black tracking-tighter">A club night.</span>
-          <span className="text-gray-300 font-black tracking-tighter">A competition.</span>
-          <span className="text-[#5E5CE6] font-black tracking-tighter">One SPACE.</span>
+          <span className="text-gray-600 font-black tracking-tighter">Un concerto.</span>
+          <span className="text-gray-500 font-black tracking-tighter">Una notte in discoteca.</span>
+          <span className="text-gray-300 font-black tracking-tighter">Una competizione.</span>
+          <span className="text-[#5E5CE6] font-black tracking-tighter">Un solo SPACE.</span>
         </div>
       </div>
 
@@ -1317,10 +1316,10 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => (
       {/* Right — communities */}
       <div className="flex flex-col gap-4 flex-1">
         {[
-          { emoji: '🎸', name: 'Artists & Bands',    sub: 'Concert night → fans get every shot' },
-          { emoji: '🪩', name: 'Clubs & Venues',     sub: 'Saturday night → guests find their photos' },
-          { emoji: '🏆', name: 'Sports & Competitions', sub: 'Any event → athletes, teams, fans' },
-          { emoji: '✨', name: 'Events & Festivals',  sub: 'Any gathering → one shared album' },
+          { emoji: '🎸', name: 'Artisti & Band',    sub: 'Notte del concerto → ogni fan trova le sue foto' },
+          { emoji: '🪩', name: 'Club & Locali',     sub: 'Sabato sera → gli ospiti trovano le loro foto' },
+          { emoji: '🏆', name: 'Sport & Competizioni', sub: 'Qualsiasi evento → atleti, squadre, tifosi' },
+          { emoji: '✨', name: 'Eventi & Festival',  sub: 'Qualsiasi raduno → un album condiviso' },
         ].map(({ emoji, name, sub }) => (
           <div key={name} className="flex items-center gap-5 bg-[#0e0e16] border border-gray-800 rounded-2xl px-6 py-4">
             <span className="text-3xl shrink-0">{emoji}</span>
@@ -1334,7 +1333,7 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => (
 
     </div>
 
-    <SectionFooter left="A platform, not just an app." right="→ Join us" />
+    <SectionFooter left="Una piattaforma, non solo un'app." right="→ Unisciti a noi" />
   </div>
 );
 
@@ -1373,13 +1372,13 @@ const SlideCTA = ({ index, total }: SlideProps) => (
       </h1>
 
       <p className="text-gray-300 text-3xl font-light tracking-tight">
-        Let's build the universe of memories.
+        Costruiamo insieme l&apos;universo dei ricordi.
       </p>
 
       <div className="w-px h-12 bg-gradient-to-b from-[#5E5CE6] to-transparent" />
 
       <div className="flex flex-col items-center gap-1">
-        <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.25em] uppercase">Contact</p>
+        <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.25em] uppercase">Contatto</p>
         <a href="mailto:info@spaceeapp.com" className="text-white font-bold text-2xl hover:text-[#5E5CE6] transition-colors">info@spaceeapp.com</a>
       </div>
 
@@ -1402,7 +1401,7 @@ const SlideCTA = ({ index, total }: SlideProps) => (
     </div>
 
     <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-gray-700 text-xs font-mono tracking-widest uppercase">
-      {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')} · End of deck
+      {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')} · Fine del deck
     </div>
   </div>
 );
@@ -1444,7 +1443,7 @@ const SLIDES: React.FC<SlideProps>[] = [
   SlideCTA,
 ];
 
-export default function VCPitchDeckV2() {
+export default function VCPitchDeckV2IT() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scale = useSlideScale();
   const total = SLIDES.length;

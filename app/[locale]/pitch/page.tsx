@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import VCPitchDeckV2 from "../../components/VCPitchDeckV2";
+import VCPitchDeckV2IT from "../../components/VCPitchDeckV2IT";
 
 export const metadata: Metadata = {
   title: "SPACE | Pitch Deck",
@@ -14,5 +15,5 @@ export default async function PitchPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <VCPitchDeckV2 />;
+  return locale === "it" ? <VCPitchDeckV2IT /> : <VCPitchDeckV2 />;
 }
