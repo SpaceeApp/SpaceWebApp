@@ -80,10 +80,6 @@ const SlideIntro = ({ index, total }: SlideProps) => (
         <span className="text-white mb-1" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
         <span>For the moments that matter</span>
       </div>
-      <div className="flex flex-col text-right uppercase tracking-widest">
-        <span>Investor deck · Seed round</span>
-        <span>2026 · Confidential</span>
-      </div>
     </div>
 
     {/* Centerpiece */}
