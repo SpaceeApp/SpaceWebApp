@@ -1304,8 +1304,8 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => (
         <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">La piattaforma</p>
         <div className="flex flex-col gap-0" style={{ fontSize: '4.2rem', lineHeight: '1.05' }}>
           <span className="text-gray-600 font-black tracking-tighter">Un concerto.</span>
-          <span className="text-gray-500 font-black tracking-tighter">Una serata in club.</span>
-          <span className="text-gray-300 font-black tracking-tighter">Una competizione.</span>
+          <span className="text-gray-500 font-black tracking-tighter">Una serata.</span>
+          <span className="text-gray-300 font-black tracking-tighter">Una gara.</span>
           <span className="text-[#5E5CE6] font-black tracking-tighter">Un solo SPACE.</span>
         </div>
       </div>
