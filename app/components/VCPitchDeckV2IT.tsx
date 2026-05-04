@@ -106,7 +106,7 @@ const SlideIntro = ({ index, total }: SlideProps) => (
 
     {/* Bottom footer */}
     <div className="absolute bottom-16 flex w-full justify-between px-10 text-xs font-mono text-gray-400 uppercase tracking-widest">
-      <span><span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span> · Deck v2.0</span>
+      <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
       <span className="animate-pulse text-[#5E5CE6]">
         → Premi <span className="text-white">→</span> per iniziare · {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
       </span>
