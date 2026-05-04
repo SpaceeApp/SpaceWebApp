@@ -62,7 +62,11 @@ Possiamo trattare dati che ti riguardano inseriti da altri utenti, ad esempio qu
 
 ## 4. Funzionalità di cifratura end-to-end (E2E)
 
-Le cartelle "private" utilizzano la cifratura end-to-end (E2E): i contenuti vengono criptati sul dispositivo prima dell'invio. I Titolari e Supabase non possono accedere ai contenuti in chiaro. La base giuridica è l'esecuzione del contratto (art. 6.1.b GDPR).
+Le cartelle di tipo "privato" applicano cifratura end-to-end (E2E) al contenuto fotografico: ogni foto è cifrata sul dispositivo prima dell'invio al server, quindi i Titolari e Supabase non possono accedere al contenuto visivo in chiaro. Sul server sono conservati i dati cifrati e le chiavi crittografiche avvolte con la chiave dell'utente.
+
+Importante: la cifratura E2E riguarda esclusivamente il contenuto delle foto. I metadati (nome della cartella, elenco membri, ruoli, timestamp, titoli delle foto) e le immagini di copertina non sono cifrati end-to-end e restano accessibili ai Titolari e a Supabase nell'ambito della gestione del servizio.
+
+La base giuridica è l'esecuzione del contratto (art. 6.1.b GDPR).
 
 ## 5. Finalità e basi giuridiche
 
@@ -112,7 +116,7 @@ Al termine, i dati sono cancellati o anonimizzati, salvo ulteriore conservazione
 
 ## 11. Sicurezza
 
-- **E2E:** cifratura end-to-end per cartelle private.
+- **E2E:** cifratura E2E del contenuto fotografico nelle cartelle private.
 - **Access Control:** Row Level Security e URL firmati a scadenza.
 - **Secure Storage:** token salvati in aree sicure del dispositivo.
 

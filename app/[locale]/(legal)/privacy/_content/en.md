@@ -62,7 +62,11 @@ We may process data about you entered by other users, for example when you are i
 
 ## 4. End-to-End Encryption (E2E)
 
-"Private" folders use end-to-end encryption (E2E): content is encrypted on the device before transmission. The Controllers and Supabase cannot access the content in plain text. The legal basis is the performance of a contract (Art. 6.1.b GDPR).
+"Private" folders apply end-to-end encryption (E2E) to photo content: each photo is encrypted on your device before being sent to the server, so the controllers and Supabase cannot access the visual content in plaintext. Only encrypted data and user-wrapped cryptographic keys are stored on the server.
+
+Important: E2E encryption covers photo content only. Metadata (folder name, member list, roles, timestamps, photo titles) and cover images are not end-to-end encrypted and remain accessible to the controllers and Supabase for service management purposes.
+
+The legal basis is the performance of a contract (Art. 6.1.b GDPR).
 
 ## 5. Purposes and Legal Bases
 
@@ -112,7 +116,7 @@ Upon expiry, data is deleted or anonymized, unless further retention is required
 
 ## 11. Security
 
-- **E2E:** end-to-end encryption for private folders.
+- **E2E:** end-to-end encryption of photo content in private folders.
 - **Access Control:** Row Level Security and time-limited signed URLs.
 - **Secure Storage:** tokens stored in secure areas of the device.
 

@@ -26,7 +26,7 @@ Se non accetti i Termini, non devi utilizzare l'App.
 
 SPACE è una piattaforma mobile collaborativa che consente agli utenti di:
 
-- creare cartelle personali o condivise, incluse cartelle private con cifratura end-to-end;
+- creare cartelle condivise (incluse cartelle private con cifratura end-to-end del contenuto fotografico);
 - invitare altri utenti e assegnare ruoli di collaborazione;
 - caricare, visualizzare e organizzare contenuti multimediali;
 - interagire tramite commenti, preferiti e funzionalità social (es. amicizie e "Best Moments");
@@ -102,7 +102,7 @@ Le funzionalità collaborative permettono la condivisione di cartelle con altri 
 
 I link di invito sono multi-uso e validi 7 giorni dalla data di creazione: chiunque disponga del token può accedere alla cartella entro tale termine. Se condividi un link di invito, sei responsabile del suo uso e della sua diffusione. L'App consente la revoca e la rigenerazione dei link di invito.
 
-Le cartelle di tipo "privato" utilizzano cifratura end-to-end: i contenuti sono cifrati sul dispositivo dell'utente prima di essere inviati al server. I Titolari non possono accedere al contenuto in chiaro di tali cartelle.
+Le cartelle private applicano cifratura end-to-end al contenuto fotografico: i Titolari non possono accedere alle foto in chiaro. I metadati (nomi, ruoli, timestamp) e le copertine non sono cifrati end-to-end.
 
 I contenuti caricati all'interno di cartelle condivise sono accessibili a tutti i partecipanti della cartella secondo i permessi impostati. L'utente accetta che altri partecipanti possano visualizzare i contenuti condivisi e interagire con essi secondo le funzionalità disponibili.
 

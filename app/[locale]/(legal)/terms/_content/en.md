@@ -26,7 +26,7 @@ If you do not accept the Terms, you must not use the App.
 
 SPACE is a collaborative mobile platform that allows users to:
 
-- create personal or shared folders, including private folders with end-to-end encryption;
+- create shared folders (including private folders with end-to-end encryption of photo content);
 - invite other users and assign collaboration roles;
 - upload, view and organize multimedia content;
 - interact through comments, favorites and social features (e.g., friendships and "Best Moments");
@@ -102,7 +102,7 @@ Collaborative features allow folders to be shared with other users through direc
 
 Invitation links are multi-use and valid for 7 days from the date of creation: anyone with the token can access the folder within that period. If you share an invitation link, you are responsible for its use and distribution. The App allows revocation and regeneration of invitation links.
 
-"Private" type folders use end-to-end encryption: content is encrypted on the user's device before being sent to the server. The Providers cannot access the plaintext content of such folders.
+Private folders apply end-to-end encryption to photo content; the controllers cannot access photos in plaintext. Metadata (names, roles, timestamps) and cover images are not end-to-end encrypted.
 
 Content uploaded within shared folders is accessible to all folder participants according to the permissions set. The user accepts that other participants may view shared content and interact with it according to the available features.
 
