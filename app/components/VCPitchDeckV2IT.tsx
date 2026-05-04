@@ -1204,7 +1204,7 @@ const SlideTeam = ({ index, total }: SlideProps) => (
     <div className="flex-1 flex flex-col justify-center mt-20 max-w-5xl mx-auto w-full">
       <div className="mb-12">
         <h2 className="text-white text-5xl font-bold tracking-tight">
-          I costruttori dietro <span className="text-[#5E5CE6]" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE.</span>
+          Le menti dietro <span className="text-[#5E5CE6]" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE.</span>
         </h2>
       </div>
 
