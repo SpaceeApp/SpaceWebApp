@@ -85,7 +85,7 @@ const SlideIntro = ({ index, total }: SlideProps) => (
     {/* Centerpiece */}
     <div className="flex flex-col items-center">
       <div className="z-0">
-        <SpaceLogo size={560} />
+        <SpaceLogo size={240} />
       </div>
 
       <h1
