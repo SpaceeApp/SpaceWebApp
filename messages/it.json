@@ -21,7 +21,7 @@
       ["Una cartella", "per ogni ricordo"],
       ["Invita", "solo chi vuoi tu"],
       ["Niente algoritmi", "niente feed"],
-      ["Solo voi,", "le vostre foto, il vostro spazio"]
+      ["Solo voi,", "le vostre foto, il vostro SPACE"]
     ]
   },
   "features": {
@@ -31,7 +31,7 @@
     "items": [
       {
         "title": "Cartelle condivise",
-        "body": "Crea uno spazio, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo"
+        "body": "Crea uno SPACE, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo"
       },
       {
         "title": "Solo su invito",
@@ -39,7 +39,7 @@
       },
       {
         "title": "Sincronizzato",
-        "body": "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo spazio. Subito"
+        "body": "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo SPACE. Subito"
       },
       {
         "title": "Leggero, veloce",
@@ -66,7 +66,7 @@
     "titlePrefix": "Il vostro",
     "titleSuffix": "vi aspetta",
     "bodyPre": "Siamo quasi pronti. Lasciaci la tua email e ti avvisiamo appena SPACE è scaricabile",
-    "bodyLive": "Crea il tuo primo spazio in meno di un minuto. Invita chi vuoi.",
+    "bodyLive": "Crea il tuo primo SPACE in meno di un minuto. Invita chi vuoi.",
     "iosDownload": "Scarica per iOS",
     "androidDownload": "Scarica per Android",
     "emailPlaceholder": "la-tua@email.com",
@@ -248,7 +248,7 @@
       "title": "IL MERCATO",
       "headlinePre": "Un mercato",
       "headlineAccent": "in fiamme.",
-      "lead": "Miliardi di foto condivise ogni giorno. Ma nessuno spazio pensato per farlo al meglio.",
+      "lead": "Miliardi di foto condivise ogni giorno. Ma nessuno SPACE pensato per farlo al meglio.",
       "card1": {
         "title": "Foto all'Anno",
         "stat": "2.1T foto / anno",
