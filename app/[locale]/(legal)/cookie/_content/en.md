@@ -1,142 +1,51 @@
-# Cookie Policy
+COOKIE POLICY
 
 Last updated: 2 May 2026
 
-Effective date: 2 May 2026
+1. DATA CONTROLLERS
+Controllers: Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini.
+Privacy email: privacy@spaceeapp.com
 
-## 1. Data Controllers
+2. COOKIES AND SIMILAR TECHNOLOGIES
+As SPACE is primarily a mobile app, we use technologies equivalent to cookies, including:
+• session tokens;
+• technical identifiers;
+• local storage (AsyncStorage) and secure device areas (SecureStore/Keychain);
+• browser local storage (web version, if available).
 
-The data controllers for data processing carried out through SPACE ("App") are:
+3. TECHNOLOGIES IN USE
 
-- **Controllers:** Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
-- **Privacy email:** privacy@spaceeapp.com
+Strictly necessary technical tools (legal basis: Art. 6.1.b and 6.1.f GDPR):
+• Supabase session token: login and backend communication. Duration: until logout/expiry. Provider: Supabase Inc.
+• Join token (SecureStore): invite management via deep link. Duration: temporary, until used. First party.
+• Language preference (AsyncStorage): remember selected language. Duration: until data deletion. First party.
+• Folder/photo cache (AsyncStorage): cached data for performance. Duration: until logout or data deletion. First party.
 
-## 2. What Are Cookies and Similar Technologies
+Functional tools (legal basis: Art. 6.1.a or 6.1.b GDPR):
+• Theme preference – light/dark (AsyncStorage): remember selected theme. Duration: until data deletion. First party.
+• Local UX state – e.g. tutorials seen (SecureStore): avoid repeating hints. Duration: until data deletion. First party.
+• Push notification token (APNs/FCM via Expo): receive push notifications. Duration: active session. Providers: Apple, Google, Expo Inc.
 
-Cookies are small text files that websites save in your browser. Since SPACE is primarily a mobile app, equivalent technologies may be used in addition to cookies, such as:
+Analytics and profiling:
+SPACE does not use analytics or profiling cookies. If introduced in the future, prior consent will be requested.
 
-- session tokens;
-- technical identifiers;
-- local app storage (e.g. AsyncStorage) or secure areas of the device (e.g. SecureStore/Keychain);
-- local browser storage when using the web version (if available).
+4. MANAGING PREFERENCES
+Mobile app: you can limit some technologies via device settings, app permissions, logout or uninstalling. Disabling essential tools may prevent the service from working.
+Browser (web version): manage or delete cookies/storage from browser settings. Disabling all technical cookies may compromise authentication.
 
-In this policy, for simplicity, we use the term "cookie" to also refer to similar technical non-advertising tracking technologies.
+5. CONSENT
+Strictly necessary technical tools do not require prior consent. For non-technical tools (if introduced in the future), we will collect prior consent and allow easy withdrawal.
 
-## 3. Which Categories We Use
+6. DATA SHARING
+Technical data may be processed by: authorised staff of the controllers; Supabase Inc. (servers in Ireland, EU); Expo Inc., Apple Inc., Google LLC (push notifications, possible transfers to the USA with GDPR safeguards – Standard Contractual Clauses); competent authorities.
+For details on personal data processing, see the Privacy Policy.
 
-### 3.1 Strictly Necessary Technical Cookies/Tools
+7. TRANSFERS OUTSIDE THE EEA
+Supabase servers are in Ireland (EU). The push notification service (Expo/APNs/FCM) may involve transfers to the USA; GDPR safeguards apply (Standard Contractual Clauses).
 
-These are necessary for the operation of the service, security, authentication and session management. Without these tools the App may not work properly.
+8. UPDATES
+This Cookie Policy may be updated for regulatory or technical changes. The updated version always shows the date of last update.
 
-Examples in the App:
-
-- authenticated session management and token renewal;
-- management of temporary technical tokens (e.g. join tokens from deep links);
-- access protection and service security;
-- saving essential preferences (e.g. language);
-- local cache of folders and photos for performance.
-
-Legal basis: contract performance/service provision and legitimate interest in security (Art. 6.1.b and 6.1.f GDPR).
-
-### 3.2 Functionality Cookies/Tools
-
-These are used to remember choices that are not strictly necessary but useful for the user experience (when activated). Examples: light/dark theme preference, local UX state (e.g. tutorials already viewed), push notification tokens.
-
-Legal basis: consent or, in applicable cases, performance of the service requested by the user (Art. 6.1.a or 6.1.b GDPR).
-
-### 3.3 Analytics Cookies/Tools
-
-As of the effective date of this policy, SPACE does not use non-technical profiling or marketing analytics cookies. If in the future non-technical or third-party analytics tools with non-anonymised statistical purposes are introduced, your prior consent will be requested where required by law.
-
-### 3.4 Profiling and Marketing Cookies/Tools
-
-As of the effective date of this policy, SPACE does not use profiling or advertising cookies.
-
-## 4. Summary List of Currently Used Tools
-
-#### Session token (Supabase Auth)
-- **Purpose:** Login, secure session maintenance and database communication
-- **Duration:** Until logout or token expiry
-- **Provider:** Supabase Inc. (third-party technical)
-- **Required:** Yes
-
-#### Technical join token (SecureStore/Keychain)
-- **Purpose:** Management of invitations via deep link and collaboration onboarding
-- **Duration:** Temporary, until consumed/expired
-- **Provider:** First party (App)
-- **Required:** Yes, when using the feature
-
-#### Language preference (AsyncStorage)
-- **Purpose:** Remember the selected language
-- **Duration:** Until app/local data deletion
-- **Provider:** First party (App)
-- **Required:** No
-
-#### Folder/photo cache (AsyncStorage)
-- **Purpose:** Performance — cached data to avoid repeated loads
-- **Duration:** Until logout or local data deletion
-- **Provider:** First party (App)
-- **Required:** No (graceful degradation without)
-
-#### Light/dark theme preference (AsyncStorage)
-- **Purpose:** Remember the selected theme
-- **Duration:** Until app/local data deletion
-- **Provider:** First party (App)
-- **Required:** No
-
-#### Local UX state — hints/tutorials seen (SecureStore)
-- **Purpose:** Avoid repetition of hints and improve in-app experience
-- **Duration:** Until app/local data deletion
-- **Provider:** First party (App)
-- **Required:** No
-
-#### Push notification token (APNs/FCM via Expo)
-- **Purpose:** Receiving push notifications on the device
-- **Duration:** For the duration of the active session; removed on logout
-- **Provider:** Apple Inc. (APNs), Google LLC (FCM), Expo Inc. — third-party technical
-- **Required:** No (optional feature)
-
-#### Web local storage (web version only)
-- **Purpose:** Technical browser-side functionality
-- **Duration:** Variable, depending on browser/session configuration
-- **Provider:** First party and/or third-party technical
-- **Required:** Typically yes for essential functions
-
-**Note:** The App relies on Supabase as a backend-as-a-service (BaaS) provider for authentication management, database, and storage. Supabase processes and saves locally technical identifiers strictly necessary for service delivery, operating in compliance with its own terms as data processor or independent controller.
-
-## 5. Managing Preferences
-
-### 5.1 Mobile App
-
-You can limit some local technologies by adjusting:
-
-- device settings;
-- app permissions;
-- logout, uninstalling the app, or deleting local data.
-
-Disabling essential technical tools may prevent the use of some features.
-
-### 5.2 Browser (Web Version)
-
-If you use SPACE via the web, you can manage or delete cookies/storage from your browser settings. Total disabling of technical cookies may compromise authentication and basic functionality.
-
-## 6. Communication and Consent
-
-When required by applicable law:
-
-- we will display appropriate informational tools (e.g. banners or equivalent notices on the web);
-- we will collect consent before activating non-technical cookies;
-- we will allow simple revocation or modification of preferences.
-
-Necessary technical cookies/tools do not require prior consent, without prejudice to the obligation to provide information.
-
-## 7. Sharing of Data Collected via Cookies/Similar Tools
-
-Technical data may be processed by:
-
-- authorised personnel of the Controllers;
-- Supabase Inc. (database, authentication, storage) — servers in Ireland (EU);
-- Expo Inc., Apple Inc., Google LLC (push notifications — possible transfers to the USA with GDPR safeguards: Standard Contractual Clauses);
-- competent authorities, in cases provided for by law.
-
-For more details on processing, please see our full Privacy Policy.
+9. CONTACT
+Email: privacy@spaceeapp.com
+Controllers: Simone Copetti, Andrea Citton, Bernardo Andrea Cecchini, Matteo Bertini
