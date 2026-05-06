@@ -322,147 +322,23 @@ const PhoneStatusBar = ({ light = true }: { light?: boolean }) => (
   </div>
 );
 
-const FOLDER_COVERS = [
-  'from-orange-400 via-pink-500 to-purple-600',
-  'from-rose-400 via-red-500 to-pink-600',
-  'from-cyan-400 via-blue-500 to-indigo-600',
-  'from-amber-400 via-orange-500 to-red-600',
-  'from-emerald-400 via-teal-500 to-cyan-600',
-];
+const YourSpacesScreen = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    <img src="/ScreenSpace.jpg" alt="Spaces" className="w-full h-full object-contain" />
+  </div>
+);
 
-const YourSpacesScreen = () => {
-  const t = useTranslations('schedule');
-  const rows = t.raw('product.spaces.rows') as Array<{ title: string; sub: string }>;
-  return (
-    <div className="absolute inset-0 bg-[#0a0a0c] flex flex-col">
-      <PhoneStatusBar />
-      <div className="px-3.5 pt-3 pb-2 flex justify-between items-baseline">
-        <h3 className="text-white font-black text-xl tracking-tight">{t('product.spaces.heading')}</h3>
-        <span className="text-gray-500 text-[10px] font-mono">12</span>
-      </div>
-      <div className="px-3.5 flex gap-1.5 mb-3">
-        <span className="text-[9px] px-2.5 py-1 rounded-full bg-[#5E5CE6] text-white font-medium">{t('product.spaces.filterAll')}</span>
-        <span className="text-[9px] px-2.5 py-1 rounded-full bg-white/[0.04] text-gray-400 border border-white/5">{t('product.spaces.filterRecent')}</span>
-        <span className="text-[9px] px-2.5 py-1 rounded-full bg-white/[0.04] text-gray-400 border border-white/5">{t('product.spaces.filterShared')}</span>
-      </div>
-      <div className="px-3.5 flex flex-col gap-2 flex-1 overflow-hidden">
-        {rows.map((row, i) => (
-          <div key={i} className="rounded-xl bg-white/[0.04] border border-white/10 overflow-hidden flex shrink-0">
-            <div className={`w-14 h-14 bg-gradient-to-br ${FOLDER_COVERS[i % FOLDER_COVERS.length]} shrink-0`} />
-            <div className="flex-1 px-2.5 py-1.5 flex flex-col justify-center min-w-0">
-              <h4 className="text-white text-[12px] font-semibold tracking-tight truncate">{row.title}</h4>
-              <p className="text-gray-500 text-[9px] mt-0.5 truncate">{row.sub}</p>
-              <div className="flex -space-x-1 mt-1">
-                <div className="w-2.5 h-2.5 rounded-full bg-orange-400 border border-[#0a0a0c]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-sky-400 border border-[#0a0a0c]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-pink-400 border border-[#0a0a0c]" />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#5E5CE6] flex items-center justify-center text-white text-2xl font-light shadow-lg shadow-[#5E5CE6]/50">+</div>
-    </div>
-  );
-};
+const GalleryScreen = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    <img src="/ScreenGallery.jpg" alt="Gallery" className="w-full h-full object-contain" />
+  </div>
+);
 
-const GALLERY_GRADIENTS = [
-  'from-orange-400 to-pink-500', 'from-cyan-400 to-blue-500', 'from-amber-400 to-red-500',
-  'from-pink-400 to-purple-500', 'from-emerald-400 to-cyan-500', 'from-rose-400 to-orange-500',
-  'from-indigo-400 to-purple-600', 'from-yellow-400 to-orange-500', 'from-blue-400 to-indigo-500',
-  'from-green-400 to-teal-500', 'from-purple-400 to-pink-500', 'from-sky-400 to-blue-600',
-];
-
-const GalleryScreen = () => {
-  const t = useTranslations('schedule');
-  return (
-    <div className="absolute inset-0 bg-[#0a0a0c] flex flex-col">
-      <PhoneStatusBar />
-      <div className="px-3 py-1.5 flex items-center gap-2">
-        <span className="text-[#5E5CE6] text-base">‹</span>
-        <span className="text-white font-semibold text-[12px] flex-1">{t('product.gallery.headerTitle')}</span>
-        <span className="text-gray-500 text-base">⋯</span>
-      </div>
-      <div className="mx-3 h-28 rounded-2xl bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 relative overflow-hidden mb-2">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-        <div className="absolute bottom-2 left-3 right-3">
-          <h3 className="text-white font-bold text-base tracking-tight">{t('product.gallery.heroTitle')}</h3>
-          <p className="text-white/70 text-[9px]">{t('product.gallery.heroMeta')}</p>
-        </div>
-      </div>
-      <div className="px-3 flex justify-between items-center mb-1.5">
-        <div className="flex gap-3 text-[10px]">
-          <span className="text-white font-semibold border-b border-[#5E5CE6] pb-0.5">{t('product.gallery.tabPhotos')}</span>
-          <span className="text-gray-500">{t('product.gallery.tabMembers')}</span>
-          <span className="text-gray-500">{t('product.gallery.tabComments')}</span>
-        </div>
-      </div>
-      <div className="flex-1 px-3 grid grid-cols-3 gap-1 overflow-hidden content-start">
-        {GALLERY_GRADIENTS.map((g, i) => (
-          <div key={i} className={`aspect-square rounded-md bg-gradient-to-br ${g}`} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const MemoryScreen = () => {
-  const t = useTranslations('schedule');
-  const comments = t.raw('product.memory.comments') as Array<{ user: string; text: string }>;
-  return (
-    <div className="absolute inset-0 flex flex-col bg-black">
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-pink-500 to-purple-700" />
-      <div className="absolute inset-0 mix-blend-overlay opacity-40"
-           style={{ backgroundImage: 'radial-gradient(rgba(0,0,0,0.4) 1px, transparent 1px)', backgroundSize: '6px 6px' }} />
-      <PhoneStatusBar />
-      <div className="relative z-10 pt-1 pb-2 px-3 flex items-center gap-2">
-        <span className="text-white text-base">‹</span>
-        <div className="flex-1 min-w-0">
-          <p className="text-white text-[11px] font-semibold truncate">{t('product.memory.title')}</p>
-          <p className="text-white/70 text-[9px]">{t('product.memory.meta')}</p>
-        </div>
-        <span className="text-white text-base">⋯</span>
-      </div>
-      <div className="flex-1" />
-      <div className="relative z-10 bg-black/55 backdrop-blur-xl border-t border-white/10 p-3">
-        <div className="flex items-center gap-3 mb-2.5">
-          <span className="flex items-center gap-1 text-[11px] text-white">
-            <svg className="w-4 h-4 text-[#FF3B30]" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-            24
-          </span>
-          <span className="flex items-center gap-1 text-[11px] text-white/80">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-            5
-          </span>
-          <span className="text-white/80">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-            </svg>
-          </span>
-          <div className="flex-1" />
-          <span className="text-white/80">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-            </svg>
-          </span>
-        </div>
-        <div className="space-y-1.5">
-          {comments.map((c, i) => (
-            <div key={i} className="flex gap-1.5 text-[10px]">
-              <span className={`font-semibold shrink-0 ${i === 0 ? 'text-orange-300' : 'text-sky-400'}`}>{c.user}</span>
-              <span className="text-white/90">{c.text}</span>
-            </div>
-          ))}
-          <div className="text-[9px] text-gray-500">{t('product.memory.more')}</div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const MemoryScreen = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    <img src="/ScreenProfile.png" alt="Profile" className="w-full h-full object-contain" />
+  </div>
+);
 
 const PhoneShowcase = ({ label, title, lifted, delay, children }: {
   label: string; title: string; lifted?: boolean; delay: string; children: React.ReactNode;
