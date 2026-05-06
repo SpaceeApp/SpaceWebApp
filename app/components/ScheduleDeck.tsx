@@ -830,9 +830,16 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => {
         <div className="flex flex-col gap-4 shrink-0">
           <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('visionExpanded.eyebrow')}</p>
           <div className="flex flex-col gap-0" style={{ fontSize: '4.2rem', lineHeight: '1.05' }}>
-            {lines.map((line, i) => (
-              <span key={i} className={`${lineColors[i]} font-black tracking-tighter`}>{line}</span>
-            ))}
+            {lines.map((line, i) => {
+              const parts = line.split('SPACE');
+              return (
+                <span key={i} className={`${lineColors[i]} font-black tracking-tighter`}>
+                  {parts.length > 1 ? parts.map((part, j) => (
+                    <span key={j}>{part}{j < parts.length - 1 && <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>}</span>
+                  )) : line}
+                </span>
+              );
+            })}
           </div>
         </div>
         <div className="w-px self-stretch bg-gradient-to-b from-transparent via-gray-800 to-transparent shrink-0" />
