@@ -93,7 +93,7 @@ const SlideWhatIsSpace = ({ index, total }: SlideProps) => {
   return (
     <div className="flex flex-col h-full px-20 relative w-full">
       <SectionHeader section={t('whatIsSpace.section')} title={t('whatIsSpace.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center mt-20">
+      <div className="flex-1 flex flex-col justify-center mt-20 mb-24">
         <div className="flex items-end gap-6 mb-14">
           <h1 className="text-white font-black tracking-tighter leading-none" style={{ fontSize: '11rem', fontFamily: "'Conthrax', sans-serif" }}>
             SPACE
@@ -705,7 +705,7 @@ const SlideTechStack = ({ index, total }: SlideProps) => {
   return (
     <div className="flex flex-col h-full px-20 relative w-full">
       <SectionHeader section={t('techStack.section')} title={t('techStack.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center mt-16 mb-6 w-full max-w-5xl mx-auto gap-8">
+      <div className="flex-1 flex flex-col justify-center mt-16 mb-20 w-full max-w-5xl mx-auto gap-8">
         <h2 className="text-white text-4xl font-bold tracking-tight">
           {t('techStack.headlinePre')} <span className="text-[#5E5CE6]">{t('techStack.headlineAccent')}</span>
         </h2>

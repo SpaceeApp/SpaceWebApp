@@ -209,12 +209,12 @@
         { "label": "03 — Condividi",  "title": "Insieme" }
       ],
       "footerLeft": "Progettato per i momenti che contano.",
-      "footerRight": "→ Il Mercato"
+      "footerRight": "→ Il Panorama"
     },
     "landscapeIntro": {
       "section": "05",
       "title": "IL PANORAMA",
-      "headline1": "Ognuno copre il suo pezzo.",
+      "headline1": "Ognuno fa una piccola parte.",
       "headline2Suffix": "fa tutto",
       "footerLeft": "Il divario competitivo.",
       "footerRight": "→ La Matrice"
@@ -248,7 +248,7 @@
       "title": "IL MERCATO",
       "headlinePre": "Un mercato",
       "headlineAccent": "in fiamme.",
-      "lead": "Miliardi di foto condivise ogni giorno. Eppure nessun posto fatto apposta per farlo bene.",
+      "lead": "Miliardi di foto condivise ogni giorno. Ma nessuno spazio pensato per farlo al meglio.",
       "card1": {
         "title": "Foto all'Anno",
         "stat": "2.1T foto / anno",
@@ -324,7 +324,7 @@
       ],
       "footerNote": "Stack ottimizzato per scalabilità immediata e costi di gestione minimi",
       "footerLeft": "Stack snello, pronto per la produzione.",
-      "footerRight": "→ Il Team"
+      "footerRight": "→ La Visione"
     },
     "team": {
       "section": "09",

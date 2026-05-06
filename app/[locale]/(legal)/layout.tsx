@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LiquidGlass, LiquidGlassFilter } from "../../components/LiquidGlass";
 import { PressableLocaleLink } from "../../components/PressableLink";
@@ -27,6 +28,13 @@ export default async function LegalLayout({
           >
             <div className="flex items-center justify-between gap-4 px-5 py-2.5">
               <PressableLocaleLink href="/" className="flex items-center gap-2">
+                <Image
+                  src="/space-logo.png"
+                  alt="SPACE logo"
+                  width={24}
+                  height={24}
+                  className="object-contain"
+                />
                 <span className="text-sm font-semibold tracking-[0.3em] text-text-primary" style={{ fontFamily: "var(--font-conthrax)" }}>
                   SPACE
                 </span>
