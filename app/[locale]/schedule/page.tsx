@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function PitchPage({
+export default async function SchedulePage({
   params,
 }: {
   params: Promise<{ locale: string }>;

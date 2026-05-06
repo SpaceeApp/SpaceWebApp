@@ -76,16 +76,14 @@ const SlideIntro = ({ index, total }: SlideProps) => (
   <div className="flex flex-col items-center justify-center h-full text-center relative w-full">
     {/* Top corners — editorial meta */}
     <div className="absolute top-10 flex w-full justify-between px-10 text-xs font-mono text-gray-400">
-      <div className="flex flex-col text-left uppercase tracking-widest">
-        <span className="text-white mb-1" style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
-        <span>For the moments that matter</span>
-      </div>
+      <span style={{ fontFamily: "'Conthrax', sans-serif" }} className="text-white">SPACE</span>
+      <span className="uppercase tracking-widest">For the moments that matter</span>
     </div>
 
     {/* Centerpiece */}
     <div className="flex flex-col items-center">
       <div className="z-0">
-        <SpaceLogo size={560} />
+        <SpaceLogo size={240} />
       </div>
 
       <h1

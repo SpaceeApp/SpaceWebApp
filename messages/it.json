@@ -97,119 +97,284 @@
     "backHomeShort": "Indietro",
     "rights": "Tutti i diritti riservati"
   },
-  "pitch": {
-    "tag": "Slide {n}",
-    "kbdHint": "Usa <kbd>Sinistra</kbd> <kbd>Destra</kbd> per navigare",
-    "slides": {
-      "intro": {
-        "brand": "SPACE",
-        "kicker": "Un universo di momenti",
-        "tagline": "Il tuo Spazio.",
-        "sub": "Il social privato per foto e video: alta qualità, upload istantaneo, collaborazione cross-platform.",
-        "footer": "Intro"
+  "schedule": {
+    "intro": {
+      "tagline": "Per i momenti che contano",
+      "centerCaption": "Un universo di momenti.",
+      "footerHint": "Premi"
+    },
+    "common": {
+      "pressToBegin": "per iniziare",
+      "endOfDeck": "Fine del deck"
+    },
+    "whatIsSpace": {
+      "section": "01",
+      "title": "COS'È SPACE",
+      "wordmarkSub": "sost. · piattaforma",
+      "descriptionPre": "Il tuo",
+      "descriptionWord": "Space",
+      "descriptionMid": "per caricare foto e video nella",
+      "highest": "massima qualità",
+      "comma": ", ",
+      "fast": "velocemente",
+      "and": "e su",
+      "crossPlatform": "ogni piattaforma",
+      "period": ".",
+      "pills": [
+        "Massima Qualità",
+        "Caricamento Rapido",
+        "Multi-Piattaforma",
+        "Zero Disordine"
+      ],
+      "footerLeft": "Il prodotto, definito.",
+      "footerRight": "Continua →"
+    },
+    "problem": {
+      "section": "02",
+      "title": "IL PROBLEMA",
+      "messages": [
+        { "author": "Marco",  "color": "text-orange-400", "body": "dove carichiamo le foto delle vacanze?" },
+        { "author": "Sofia",  "color": "text-sky-400",    "body": "whatsapp?" },
+        { "author": "Luca",   "color": "text-pink-400",   "body": "whatsapp rovina la qualità 😫 airdrop?" },
+        { "author": "Giulia", "color": "text-amber-300",  "body": "airdrop solo tra iphone 🙄 drive allora?" },
+        { "author": "Marco",  "color": "text-orange-400", "body": "drive è un casino da organizzare 😤" },
+        { "author": "Sofia",  "color": "text-sky-400",    "body": "ma esiste un'opzione decente o no?" },
+        { "author": "You",    "color": "",                "body": "...e quindi dove le mandiamo? 😩", "self": true }
+      ],
+      "lockDate": "Sabato, 14 Giugno",
+      "notifTitle": "Viaggio a Lisbona ✈️",
+      "notifBody": "dove carichiamo le foto delle vacanze?",
+      "notifAuthor": "Marco:",
+      "notifTime": "now",
+      "chatTitle": "Viaggio a Lisbona ✈️",
+      "chatMembers": "Marco, Sofia, Luca, Giulia, +8",
+      "composerPlaceholder": "Messaggio",
+      "headlineLine1": "I ricordi",
+      "headlineLine2": "meritano",
+      "headlineAccent": "di più.",
+      "bullets": [
+        { "pre": "Foto ", "accent": "disperse", "post": " tra le app." },
+        { "pre": "Qualità ", "accent": "massacrata", "post": ", ogni volta." },
+        { "pre": "Momenti che ", "accent": "vanno perduti.", "post": "" }
+      ],
+      "footerLeft": "Lo status quo.",
+      "footerRight": "→ La Soluzione"
+    },
+    "solution": {
+      "section": "03",
+      "title": "LA SOLUZIONE",
+      "line1Top": "Tutto",
+      "line1Accent": "Organizzato.",
+      "line2Top": "Tutto",
+      "line2Accent": "Tuo.",
+      "footerLeft": "Due promesse.",
+      "footerRight": "→ Il Prodotto"
+    },
+    "product": {
+      "section": "04",
+      "title": "IL PRODOTTO",
+      "spaces": {
+        "heading": "I tuoi Space",
+        "filterAll": "Tutti",
+        "filterRecent": "Recenti",
+        "filterShared": "Condivisi",
+        "rows": [
+          { "title": "Viaggio a Lisbona",   "sub": "8 membri · 248 foto" },
+          { "title": "Natale '25",          "sub": "5 membri · 156 foto" },
+          { "title": "Matrimonio",          "sub": "12 membri · 421 foto" },
+          { "title": "Estate in Sicilia",   "sub": "6 membri · 89 foto" },
+          { "title": "Escursione — Dolomiti", "sub": "4 membri · 67 foto" }
+        ]
       },
-      "problem": {
-        "brand": "Il Problema",
-        "title": "Il problema:",
-        "copy": "Dopo ogni viaggio o festa è sempre la stessa storia: centinaia di foto sparse fra WhatsApp, Drive e iCloud — lente, incompatibili, disorganizzate.<br /><br />Finisci per averne solo qualcuna, la galleria è satura, e i ricordi migliori si perdono nel rumore.",
-        "phoneNotice": "Notifica",
-        "quote": "\"Video in cui scorre la chat del gruppo su WhatsApp\"",
-        "quoteCaption": "Inserisci qui mini-video o gif della chat reale.",
-        "footer": "Punto critico"
+      "gallery": {
+        "headerTitle": "Viaggio a Lisbona",
+        "heroTitle": "Viaggio a Lisbona",
+        "heroMeta": "Giugno 2025 · 248 foto · 8 membri",
+        "tabPhotos": "Foto",
+        "tabMembers": "Membri",
+        "tabComments": "Commenti"
       },
-      "solution": {
-        "brand": "La Soluzione",
-        "title": "La soluzione:",
-        "note": "Tutto organizzato.<br />Tutto tuo.",
-        "screens": ["Schermata 1", "Schermata 2", "Schermata 3"],
-        "footer": "Panoramica prodotto"
-      },
-      "competitive": {
-        "brand": "Vantaggio Competitivo",
-        "title": "Ognuno fa un pezzo.<br />SPACE fa tutto.",
-        "tableHeaders": [
-          "Piattaforma",
-          "Qualità foto / video",
-          "Collaborazione",
-          "Ordine ricordi",
-          "Cross-platform"
+      "memory": {
+        "title": "Lisbona · Torre di Belém",
+        "meta": "aggiunto da Marco · 2h fa",
+        "comments": [
+          { "user": "@sofia", "text": "vista incredibile!! ✨" },
+          { "user": "@luca",  "text": "la luce è surreale 🔥" }
         ],
-        "tableRows": [
-          ["WhatsApp", "Compressione alta", "Chat-based", "Basso", "Forte"],
-          ["Drive / iCloud", "Alta", "Limitata", "Medio", "Parziale"],
-          ["Social pubblici", "Media", "Pubblica", "Basso", "Forte"],
-          ["SPACE", "Alta", "Privata e collaborativa", "Alta", "Forte"]
-        ],
-        "footer": "Tabella di confronto"
+        "more": "Vedi altri 3 commenti"
       },
-      "market": {
-        "brand": "Il Mercato",
-        "title": "Il mercato:",
-        "lead": "Grafici sulla crescita e sui trend del photo-sharing.",
-        "charts": [
-          { "title": "Foto Condivise nel Mondo", "bars": [42, 56, 64, 78, 92] },
-          { "title": "Preferenza Condivisione Privata", "bars": [36, 45, 61, 72, 84] },
-          { "title": "Domanda Cross-platform", "bars": [30, 49, 58, 73, 88] }
-        ],
-        "source": "Sostituire i grafici con dati reali (fonti: Statista, DataReportal, SensorTower).",
-        "footer": "Slancio del mercato"
+      "showcases": [
+        { "label": "01 — Organizza",  "title": "I tuoi Space" },
+        { "label": "02 — Rivivilo",   "title": "Dentro un ricordo" },
+        { "label": "03 — Condividi",  "title": "Insieme" }
+      ],
+      "footerLeft": "Progettato per i momenti che contano.",
+      "footerRight": "→ Il Mercato"
+    },
+    "landscapeIntro": {
+      "section": "05",
+      "title": "IL PANORAMA",
+      "headline1": "Ognuno copre il suo pezzo.",
+      "headline2Suffix": "fa tutto",
+      "footerLeft": "Il divario competitivo.",
+      "footerRight": "→ La Matrice"
+    },
+    "landscapeMatrix": {
+      "section": "05",
+      "title": "IL PANORAMA",
+      "competitorsHeader": "Competitor",
+      "columns": [
+        { "l1": "Multi-",   "l2": "Piattaforma" },
+        { "l1": "Massima",  "l2": "Qualità" },
+        { "l1": "Cartelle", "l2": "Collab" },
+        { "l1": "Zero",     "l2": "Disordine" },
+        { "l1": "Social",   "l2": " " }
+      ],
+      "footerLeft": "Nessun compromesso.",
+      "footerRight": "→ Il Mercato"
+    },
+    "marketIntro": {
+      "section": "06",
+      "title": "IL MERCATO",
+      "eyebrow": "Opportunità di mercato",
+      "headlineLine1": "Parliamo di",
+      "headlineAccent": "numeri.",
+      "sub": "I dati parlano da soli.",
+      "footerLeft": "L'opportunità.",
+      "footerRight": "→ Il Mercato"
+    },
+    "marketTrends": {
+      "section": "06",
+      "title": "IL MERCATO",
+      "headlinePre": "Un mercato",
+      "headlineAccent": "in fiamme.",
+      "lead": "Miliardi di foto condivise ogni giorno. Eppure nessun posto fatto apposta per farlo bene.",
+      "card1": {
+        "title": "Foto all'Anno",
+        "stat": "2.1T foto / anno",
+        "caption": "scattate nel mondo · +223% vs. 2013"
       },
-      "business": {
-        "brand": "Modello di Business",
-        "title": "Modello di business",
-        "note": "È gratis per tutti.<br />Non monetizziamo ancora.<br /><span class=\"accent\">Versione freemium?</span>",
-        "nextStepsTitle": "Prossimi step di monetizzazione",
-        "bullets": [
-          "Storage premium per eventi lunghi e video full-quality.",
-          "Piano famiglia / gruppo con spazio condiviso espanso.",
-          "Pack creator / eventi con accesso rapido via QR.",
-          "Target: primo test pricing entro 6 mesi."
-        ],
-        "footer": "Strategia di ricavi"
+      "card2": {
+        "title": "Piattaforme",
+        "axisLabel": "foto condivise / giorno",
+        "stat": "7B foto / giorno",
+        "caption": "condivise solo su WhatsApp · qualità distrutta"
       },
-      "tech": {
-        "brand": "Stack Tecnologico",
-        "title": "Stack tecnologico",
-        "lead": "Le tecnologie che usiamo.",
-        "chips": [
-          "React Native 0.81",
-          "Expo SDK 54",
-          "TypeScript 5.9",
-          "Supabase",
-          "PostgreSQL + RLS",
-          "NativeWind",
-          "React Navigation 7",
-          "i18next",
-          "expo-secure-store",
-          "Jest + eslint"
-        ],
-        "cards": [
-          { "title": "Frontend", "body": "App mobile single-codebase per iOS e Android." },
-          { "title": "Backend", "body": "Auth, database e storage centralizzati su Supabase." },
-          { "title": "Sicurezza", "body": "Token su secure store, policy RLS, accesso controllato." }
-        ],
-        "footer": "Capacità esecutiva"
+      "card3": {
+        "title": "Foto Arch. in Media",
+        "stat": "3× più foto",
+        "caption": "archiviate per utente · 2015 → 2025"
       },
-      "team": {
-        "brand": "Il Team",
-        "title": "Il team",
-        "profiles": [
-          { "name": "Profile 1", "role": "CEO / Product" },
-          { "name": "Profile 2", "role": "CTO / Engineering" },
-          { "name": "Profile 3", "role": "Growth / Marketing" },
-          { "name": "Profile 4", "role": "Design / Operations" }
-        ],
-        "footer": "Team fondatore"
+      "footerLeft": "Il passaggio alla condivisione privata.",
+      "footerRight": "→ Business Model"
+    },
+    "businessModel": {
+      "section": "07",
+      "title": "MODELLO DI BUSINESS",
+      "headlinePre": "Monetizzare senza",
+      "headlineAccent": "compromettere.",
+      "lead": "Cresce sul valore reale, non sui dati. Due cose che non si toccano.",
+      "freemium": {
+        "badge": "Motore di Ricavi",
+        "title": "Freemium",
+        "subtitlePre": "Base gratuita ·",
+        "subtitleSuffix": "+ premium",
+        "freeForeverTitle": "Gratuito per sempre",
+        "freeForeverBody": "Entri, condividi, aggiungi foto — gratis. Più persone usano SPACE, più vale usarlo.",
+        "premiumTitleSuffix": "— premium su scelta",
+        "premiumBody": "Chi vuole di più, paga per avere di più: storage extra, strumenti pro, funzioni esclusive. Nessuno paga solo per stare dentro.",
+        "pricingNote": "Prezzo da definire"
       },
-      "vision": {
-        "brand": "Visione & Call To Action",
-        "title": "Visione & call to action",
-        "heading": "Costruiamo insieme il futuro dei ricordi condivisi.",
-        "body": "Cerchiamo partner VC per accelerare prodotto, crescita e monetizzazione. Round target: <span class=\"accent\">[inserisci importo]</span>.",
-        "contacts": "Contatti: [Nome] | [Email] | [Telefono]",
-        "button": "Prenota un meeting",
-        "footer": "Richiesta finale"
-      }
+      "zeroAds": {
+        "title": "Zero Pubblicità",
+        "subtitle": "Privacy prima di tutto · sempre",
+        "body": "I tuoi ricordi non sono un prodotto. Zero tracciamento, zero pubblicità mirata, zero vendita dei tuoi dati.",
+        "bodyEmphasis": "Mai.",
+        "stat1Label": "Ricavi adv",
+        "stat2Label": "Dati venduti",
+        "stat3Label": "Fiducia"
+      },
+      "footerLeft": "Prima il valore, poi tutto il resto.",
+      "footerRight": "→ Stack Tecnologico"
+    },
+    "techStack": {
+      "section": "08",
+      "title": "STACK TECNOLOGICO",
+      "headlinePre": "Costruito per",
+      "headlineAccent": "scalare.",
+      "blocks": [
+        {
+          "eyebrow": "Il Frontend",
+          "title": "Smartphone",
+          "subtitle": "iOS & Android",
+          "description": "Scriviamo il codice una sola volta. Funziona perfettamente su ogni dispositivo, senza differenze."
+        },
+        {
+          "eyebrow": "Il Motore",
+          "title": "Logica & Prestazioni",
+          "subtitle": "Velocità e fluidità estreme.",
+          "description": "Gestisce la navigazione tra le foto e lo stile dell'app in modo leggero — nessun caricamento infinito."
+        },
+        {
+          "eyebrow": "Il Backend",
+          "title": "Cloud & Sicurezza",
+          "subtitle": "Foto al sicuro e in tempo reale.",
+          "description": "Dove i tuoi ricordi vengono salvati in qualità originale e condivisi istantaneamente con i tuoi amici."
+        }
+      ],
+      "footerNote": "Stack ottimizzato per scalabilità immediata e costi di gestione minimi",
+      "footerLeft": "Stack snello, pronto per la produzione.",
+      "footerRight": "→ Il Team"
+    },
+    "team": {
+      "section": "09",
+      "title": "IL TEAM",
+      "headlinePre": "Il team dietro",
+      "headlineAccent": "SPACE.",
+      "role": "Co-Fondatore",
+      "footerLeft": "Ossessionati dal prodotto.",
+      "footerRight": "→ Unisciti a noi"
+    },
+    "vision": {
+      "section": "10",
+      "title": "LA VISIONE",
+      "eyebrow": "Guarda avanti.",
+      "headlineLine1": "Non un'app.",
+      "headlineAccent": "Un social.",
+      "sub": "Privato. Qualità. Connessioni vere.",
+      "subLine2": "Nessun rumore.",
+      "footerLeft": "Il futuro dei ricordi.",
+      "footerRight": "→ La piattaforma"
+    },
+    "visionExpanded": {
+      "section": "10",
+      "title": "LA VISIONE",
+      "eyebrow": "La piattaforma",
+      "lines": [
+        "Un concerto.",
+        "Una serata.",
+        "Una gara.",
+        "Un solo SPACE."
+      ],
+      "communities": [
+        { "emoji": "🎸", "name": "Artisti & Band",          "sub": "Notte del concerto → ogni fan trova le sue foto" },
+        { "emoji": "🪩", "name": "Club & Locali",           "sub": "Sabato sera → gli ospiti trovano le loro foto" },
+        { "emoji": "🏆", "name": "Sport & Competizioni",    "sub": "Qualsiasi evento → atleti, squadre, tifosi" },
+        { "emoji": "✨", "name": "Eventi & Festival",       "sub": "Qualsiasi raduno → un album condiviso" }
+      ],
+      "footerLeft": "Una piattaforma, non solo un'app.",
+      "footerRight": "→ Unisciti a noi"
+    },
+    "cta": {
+      "tagline": "Costruiamo insieme l'universo dei ricordi.",
+      "contactLabel": "Contatto",
+      "contactEmail": "info@spaceeapp.com",
+      "socials": [
+        { "label": "LinkedIn",  "href": "https://www.linkedin.com/company/space-app-official/" },
+        { "label": "Instagram", "href": "https://www.instagram.com/spaceeapp" },
+        { "label": "TikTok",    "href": "https://www.tiktok.com/@spaceeapp" },
+        { "label": "X",         "href": "https://x.com/spaceeapp" }
+      ]
     }
   }
 }
