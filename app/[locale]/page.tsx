@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import Image from "next/image";
 import { LiquidGlass, LiquidGlassFilter } from "../components/LiquidGlass";
 import { PressableLocaleLink } from "../components/PressableLink";
 import { Link } from "../../i18n/navigation";
@@ -40,6 +41,13 @@ function Nav() {
         >
           <div className="flex items-center justify-between px-5 py-2.5">
             <PressableLocaleLink href="/" className="flex items-center gap-2">
+              <Image
+                src="/space-logo.png"
+                alt="SPACE logo"
+                width={24}
+                height={24}
+                className="object-contain"
+              />
               <span className="text-sm font-semibold tracking-[0.3em] text-text-primary" style={{ fontFamily: "var(--font-conthrax)" }}>
                 SPACE
               </span>
