@@ -167,6 +167,7 @@
       "line1Accent": "Organizzato.",
       "line2Top": "Tutto",
       "line2Accent": "Tuo.",
+      "scaleSeed": "Per cinque amici. O cinquemila.",
       "footerLeft": "Due promesse.",
       "footerRight": "→ Il Prodotto"
     },
@@ -346,10 +347,26 @@
       "footerLeft": "Il futuro dei ricordi.",
       "footerRight": "→ La piattaforma"
     },
+    "scaleBridge": {
+      "section": "X",
+      "title": "LA VISIONE",
+      "eyebrow": "La stessa meccanica",
+      "mechanicLine1": "Un momento. Tutte le foto.",
+      "mechanicLine2": "Chi c'era.",
+      "scales": [
+        { "count": "6",     "label": "Amici in viaggio",         "context": "Un weekend o un road trip",               "cta": "→ uno SPACE" },
+        { "count": "80",    "label": "Ospiti a un matrimonio",   "context": "Il giorno più importante della loro vita", "cta": "→ uno SPACE" },
+        { "count": "2.000", "label": "Fan a un concerto",        "context": "Il live di un artista",                   "cta": "→ uno SPACE" }
+      ],
+      "footer": "La meccanica è identica. La dimensione no.",
+      "footerLeft": "Lo stesso SPACE.",
+      "footerRight": "→ Qualsiasi scala"
+    },
     "visionExpanded": {
       "section": "X",
       "title": "LA VISIONE",
       "eyebrow": "La piattaforma",
+      "anchor": "Lo stesso SPACE. Un mondo più grande.",
       "lines": [
         "Un concerto.",
         "Una serata.",

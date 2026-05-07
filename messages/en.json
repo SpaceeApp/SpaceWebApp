@@ -167,6 +167,7 @@
       "line1Accent": "Organised.",
       "line2Top": "Everything",
       "line2Accent": "Yours.",
+      "scaleSeed": "For five friends. Or five thousand.",
       "footerLeft": "Two promises.",
       "footerRight": "→ The Product"
     },
@@ -346,10 +347,26 @@
       "footerLeft": "The future of memories.",
       "footerRight": "→ The platform"
     },
+    "scaleBridge": {
+      "section": "X",
+      "title": "THE VISION",
+      "eyebrow": "The same mechanic",
+      "mechanicLine1": "One moment. All photos.",
+      "mechanicLine2": "Everyone who was there.",
+      "scales": [
+        { "count": "6",     "label": "Friends on a trip",      "context": "A road trip or a weekend away",      "cta": "→ one SPACE" },
+        { "count": "80",    "label": "Guests at a wedding",    "context": "The biggest day of their life",       "cta": "→ one SPACE" },
+        { "count": "2,000", "label": "Fans at a concert",      "context": "An artist's live show",              "cta": "→ one SPACE" }
+      ],
+      "footer": "The mechanic is the same. The dimension isn't.",
+      "footerLeft": "The same Space.",
+      "footerRight": "→ Any scale"
+    },
     "visionExpanded": {
       "section": "X",
       "title": "THE VISION",
       "eyebrow": "The platform",
+      "anchor": "The same Space. A bigger world.",
       "lines": [
         "A concert.",
         "A club night.",

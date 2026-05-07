@@ -291,6 +291,9 @@ const SlideSolution = ({ index, total }: SlideProps) => {
           {t('solution.line2Top')}<br />
           <span className="text-[#5E5CE6]">{t('solution.line2Accent')}</span>
         </h2>
+        <p className="text-gray-500 text-xl font-light tracking-wide animate-line-sep italic">
+          {t('solution.scaleSeed')}
+        </p>
       </div>
       <SectionFooter left={t('solution.footerLeft')} right={t('solution.footerRight')} />
     </div>
@@ -801,6 +804,77 @@ const SlideTeam = ({ index, total }: SlideProps) => {
   );
 };
 
+const SlideScaleBridge = ({ index, total }: SlideProps) => {
+  const t = useTranslations('schedule');
+  const scales = t.raw('scaleBridge.scales') as Array<{ count: string; label: string; context: string; cta: string }>;
+
+  const rowAccent = [
+    { bar: 'w-0.5 bg-gray-700',                           numColor: 'text-gray-600', numSize: '2.2rem', labelSize: 'text-lg',   labelColor: 'text-gray-500', cta: 'text-gray-700' },
+    { bar: 'w-[3px] bg-gray-400',                         numColor: 'text-gray-300', numSize: '3.2rem', labelSize: 'text-2xl',  labelColor: 'text-gray-300', cta: 'text-gray-500' },
+    { bar: 'w-1 bg-[#5E5CE6] shadow-[0_0_10px_#5E5CE6]', numColor: 'text-white',    numSize: '4.5rem', labelSize: 'text-3xl',  labelColor: 'text-white',    cta: 'text-[#5E5CE6]' },
+  ];
+
+  return (
+    <div className="flex flex-col h-full px-20 relative w-full">
+      <SectionHeader section={t('scaleBridge.section')} title={t('scaleBridge.title')} index={index} total={total} />
+      <div className="flex-1 flex flex-col justify-start mt-20 mb-16 max-w-6xl mx-auto w-full gap-8">
+
+        {/* Top: mechanic headline */}
+        <div className="flex flex-col gap-2">
+          <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('scaleBridge.eyebrow')}</p>
+          <h2 className="text-white font-black tracking-tighter leading-[0.9]" style={{ fontSize: '4rem' }}>
+            {t('scaleBridge.mechanicLine1')}<br />
+            <span className="text-[#5E5CE6]">{t('scaleBridge.mechanicLine2')}</span>
+          </h2>
+          <p className="text-gray-400 text-xl font-light tracking-tight">{t('scaleBridge.footer')}</p>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-gray-800 w-full" />
+
+        {/* Three rows */}
+        <div className="flex flex-col">
+          {scales.map(({ count, label, context, cta }, i) => (
+            <div
+              key={label}
+              className={`flex items-center gap-7 py-6 animate-rise ${i < scales.length - 1 ? 'border-b border-gray-800/50' : ''}`}
+              style={{ animationDelay: `${0.1 + i * 0.18}s` }}
+            >
+              {/* Growing accent bar */}
+              <div className={`self-stretch rounded-full shrink-0 ${rowAccent[i].bar}`} />
+
+              {/* Number — grows per row, w-52 safely holds "2,000" at max size */}
+              <div
+                className={`font-black tracking-tighter leading-none shrink-0 w-72 ${rowAccent[i].numColor}`}
+                style={{
+                  fontSize: rowAccent[i].numSize,
+                  textShadow: i === 2 ? '0 0 40px rgba(94,92,230,0.45)' : undefined,
+                }}
+              >
+                {count}
+              </div>
+
+              {/* Label + context */}
+              <div className="flex-1 min-w-0">
+                <p className={`font-bold tracking-tight leading-tight ${rowAccent[i].labelSize} ${rowAccent[i].labelColor}`}>{label}</p>
+                <p className="text-gray-600 text-sm font-mono mt-1">{context}</p>
+              </div>
+
+              {/* CTA */}
+              <p className={`text-[10px] tracking-[0.2em] uppercase shrink-0 ${rowAccent[i].cta}`}>
+                {cta.replace('SPACE', '').trimEnd()}{' '}
+                <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
+              </p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+      <SectionFooter left={t('scaleBridge.footerLeft')} right={t('scaleBridge.footerRight')} />
+    </div>
+  );
+};
+
 const SlideVision = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   return (
@@ -850,6 +924,7 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => {
         </div>
         <div className="w-px self-stretch bg-gradient-to-b from-transparent via-gray-800 to-transparent shrink-0" />
         <div className="flex flex-col gap-4 flex-1">
+          <p className="text-[#5E5CE6] text-sm font-mono tracking-[0.2em] uppercase mb-1">{t('visionExpanded.anchor')}</p>
           {communities.map(({ emoji, name, sub }) => (
             <div key={name} className="flex items-center gap-5 bg-[#0e0e16] border border-gray-800 rounded-2xl px-6 py-4">
               <span className="text-3xl shrink-0">{emoji}</span>
@@ -962,6 +1037,7 @@ const SLIDES: React.FC<SlideProps>[] = [
   SlideBusinessModel,
   SlideTechStack,
   SlideVision,
+  SlideScaleBridge,
   SlideVisionExpanded,
   SlideTeam,
   SlideCTA,
