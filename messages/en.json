@@ -167,6 +167,7 @@
       "line1Accent": "Organised.",
       "line2Top": "Everything",
       "line2Accent": "Yours.",
+      "scaleLine": "For five friends. Or five thousand.",
       "footerLeft": "Two promises.",
       "footerRight": "→ The Product"
     },
@@ -346,10 +347,25 @@
       "footerLeft": "The future of memories.",
       "footerRight": "→ The platform"
     },
+    "visionBridge": {
+      "section": "X",
+      "title": "THE SCALE",
+      "headline1": "The same mechanic.",
+      "headline2": "At every scale.",
+      "cards": [
+        { "tag": "Personal", "size": "6 friends", "example": "Trip to Lisbon" },
+        { "tag": "Event",    "size": "80 guests",  "example": "Wedding day"    },
+        { "tag": "Platform", "size": "2,000 fans", "example": "Concert night"  }
+      ],
+      "mechanic": "Create a Space · Invite · Everyone gets every shot",
+      "footerLeft": "One product. Infinite contexts.",
+      "footerRight": "→ The Vision"
+    },
     "visionExpanded": {
       "section": "X",
       "title": "THE VISION",
       "eyebrow": "The platform",
+      "bridgeHeader": "The same Space. A bigger world.",
       "lines": [
         "A concert.",
         "A club night.",

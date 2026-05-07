@@ -291,6 +291,9 @@ const SlideSolution = ({ index, total }: SlideProps) => {
           {t('solution.line2Top')}<br />
           <span className="text-[#5E5CE6]">{t('solution.line2Accent')}</span>
         </h2>
+        <p className="text-gray-500 text-2xl font-light italic tracking-tight animate-line-2" style={{ animationDelay: '1.3s' }}>
+          {t('solution.scaleLine')}
+        </p>
       </div>
       <SectionFooter left={t('solution.footerLeft')} right={t('solution.footerRight')} />
     </div>
@@ -823,6 +826,60 @@ const SlideVision = ({ index, total }: SlideProps) => {
   );
 };
 
+const ScaleBridgeArrow = () => (
+  <div className="flex items-center self-center shrink-0 px-2">
+    <svg width="44" height="20" viewBox="0 0 44 20">
+      <line x1="2" y1="10" x2="30" y2="10" stroke="#5E5CE6" strokeWidth="1.2" strokeOpacity="0.3" strokeDasharray="3 3" />
+      <polygon points="28,6 42,10 28,14" fill="#5E5CE6" fillOpacity="0.3" />
+    </svg>
+  </div>
+);
+
+const SlideVisionBridge = ({ index, total }: SlideProps) => {
+  const t = useTranslations('schedule');
+  const cards = t.raw('visionBridge.cards') as Array<{ tag: string; size: string; example: string }>;
+  const tagColors = ['rgba(94,92,230,0.08)', 'rgba(94,92,230,0.14)', 'rgba(94,92,230,0.22)'];
+  const tagBorder = ['rgba(94,92,230,0.2)', 'rgba(94,92,230,0.35)', 'rgba(94,92,230,0.55)'];
+
+  return (
+    <div className="flex flex-col items-center justify-center h-full px-20 text-center relative w-full">
+      <SectionHeader section={t('visionBridge.section')} title={t('visionBridge.title')} index={index} total={total} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#5E5CE6] rounded-full blur-[180px] opacity-8 pointer-events-none" />
+      <div className="relative z-10 flex flex-col items-center gap-12 w-full max-w-5xl mx-auto">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-white font-black tracking-tighter animate-line-1" style={{ fontSize: '5.5rem', lineHeight: '1' }}>
+            {t('visionBridge.headline1')}
+          </h2>
+          <h2 className="text-[#5E5CE6] font-black tracking-tighter animate-line-2" style={{ fontSize: '5.5rem', lineHeight: '1' }}>
+            {t('visionBridge.headline2')}
+          </h2>
+        </div>
+
+        <div className="flex items-stretch w-full gap-0">
+          {cards.map((card, i) => (
+            <React.Fragment key={card.tag}>
+              {i > 0 && <ScaleBridgeArrow />}
+              <div
+                className="flex-1 flex flex-col gap-4 rounded-3xl p-8 text-left animate-rise"
+                style={{ background: tagColors[i], border: `1px solid ${tagBorder[i]}`, animationDelay: `${0.1 + i * 0.15}s` }}
+              >
+                <span className="text-[10px] font-mono tracking-[0.25em] uppercase text-[#5E5CE6]">{card.tag}</span>
+                <p className="text-white font-black tracking-tighter" style={{ fontSize: '3rem', lineHeight: '1' }}>{card.size}</p>
+                <p className="text-gray-400 text-lg font-light">{card.example}</p>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+
+        <p className="text-gray-700 text-xs font-mono tracking-[0.25em] uppercase animate-rise" style={{ animationDelay: '0.6s' }}>
+          {t('visionBridge.mechanic')}
+        </p>
+      </div>
+      <SectionFooter left={t('visionBridge.footerLeft')} right={t('visionBridge.footerRight')} />
+    </div>
+  );
+};
+
 const SlideVisionExpanded = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   const lines = t.raw('visionExpanded.lines') as string[];
@@ -835,6 +892,7 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => {
       <div className="flex-1 flex gap-16 items-center mt-16 max-w-6xl mx-auto w-full relative z-10">
         <div className="flex flex-col gap-4 shrink-0">
           <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('visionExpanded.eyebrow')}</p>
+          <p className="text-gray-400 text-xl font-light italic mb-2">{t('visionExpanded.bridgeHeader')}</p>
           <div className="flex flex-col gap-0" style={{ fontSize: '4.2rem', lineHeight: '1.05' }}>
             {lines.map((line, i) => {
               const parts = line.split('SPACE');
@@ -962,6 +1020,7 @@ const SLIDES: React.FC<SlideProps>[] = [
   SlideBusinessModel,
   SlideTechStack,
   SlideVision,
+  SlideVisionBridge,
   SlideVisionExpanded,
   SlideTeam,
   SlideCTA,
