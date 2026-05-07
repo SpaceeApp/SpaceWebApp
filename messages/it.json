@@ -10,7 +10,7 @@
     "cta": "Entra in "
   },
   "hero": {
-    "eyebrow": "per te e chi conta davvero",
+    "eyebrow": "per te e per chi conta davvero",
     "tagline": "Le tue foto. Le tue persone. Un posto solo vostro.",
     "taglineSub": "Cartelle condivise, senza rumore.",
     "ctaPrimary": "Entra in ",
@@ -61,16 +61,12 @@
     "body": "SPACE è pensato perché i ricordi restino fra chi li ha vissuti. Nessuna pubblicità, nessun tracciamento esterno, nessun feed pubblico"
   },
   "cta": {
-    "eyebrowPre": "inizia ora",
     "eyebrowLive": "scarica ora",
     "titlePrefix": "Il vostro",
     "titleSuffix": "vi aspetta",
-    "bodyPre": "Siamo quasi pronti. Lasciaci la tua email e ti avvisiamo appena SPACE è scaricabile",
     "bodyLive": "Crea il tuo primo SPACE in meno di un minuto. Invita chi vuoi.",
     "iosDownload": "Scarica per iOS",
-    "androidDownload": "Scarica per Android",
-    "emailPlaceholder": "la-tua@email.com",
-    "submit": "Avvisami al lancio"
+    "androidDownload": "Scarica per Android"
   },
   "footer": {
     "tagline": "Le tue foto. Le tue persone. Un posto solo vostro.",

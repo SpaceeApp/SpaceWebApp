@@ -66,6 +66,12 @@ function Nav() {
               >
                 {t("privacy")}
               </PressableLocaleLink>
+              <PressableLocaleLink
+                href="/#get"
+                className="transition-colors hover:text-text-primary"
+              >
+                {t("download")}
+              </PressableLocaleLink>
             </nav>
             <div className="flex items-center gap-2">
               <PressableLocaleLink
@@ -78,6 +84,7 @@ function Nav() {
                 links={[
                   { href: "/#features", label: t("features") },
                   { href: "/#privacy",  label: t("privacy")  },
+                  { href: "/#get",      label: t("download") },
                 ]}
                 ctaHref="/#get"
                 ctaLabel={<>{t("cta")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span></>}
@@ -241,7 +248,8 @@ function PrivacyBand() {
 
 /* ─── Big CTA ─────────────────────────────────────────────────────── */
 
-const IS_LIVE = process.env.NEXT_PUBLIC_LIVE_MODE === "true";
+const APP_STORE_URL = "https://apps.apple.com/";
+const PLAY_STORE_URL = "https://play.google.com/store";
 
 function BigCTA() {
   const t = useTranslations("cta");
@@ -251,7 +259,7 @@ function BigCTA() {
       className="reveal relative mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center sm:py-28 lg:py-40 scroll-mt-24"
     >
       <p className="mb-4 text-xs font-medium uppercase tracking-[0.4em] text-accent">
-        {IS_LIVE ? t("eyebrowLive") : t("eyebrowPre")}
+        {t("eyebrowLive")}
       </p>
       <h2 className="display text-[clamp(2.75rem,8vw,6rem)] font-semibold text-text-primary">
         {t("titlePrefix")} <span className="signature-fill" style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span>
@@ -259,33 +267,29 @@ function BigCTA() {
         {t("titleSuffix")}
       </h2>
       <p className="mt-6 max-w-lg text-lg text-text-secondary">
-        {IS_LIVE ? t("bodyLive") : t("bodyPre")}
+        {t("bodyLive")}
       </p>
 
-      {IS_LIVE ? (
-        <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
-          <a href="#download-ios" className="cta-primary cta-primary-lg">
-            {t("iosDownload")}
-            <ArrowIcon />
-          </a>
-          <a href="#download-android" className="cta-primary cta-primary-lg">
-            {t("androidDownload")}
-            <ArrowIcon />
-          </a>
-        </div>
-      ) : (
-        <form className="mt-12 flex w-full max-w-md flex-col gap-3 sm:flex-row">
-          <input
-            type="email"
-            required
-            placeholder={t("emailPlaceholder")}
-            className="flex-1 rounded-full border border-text-primary/10 bg-surface px-5 py-3 text-sm text-text-primary placeholder:text-text-secondary focus:border-accent focus:outline-none"
-          />
-          <button type="submit" className="cta-primary">
-            {t("submit")}
-          </button>
-        </form>
-      )}
+      <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
+        <a
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-primary cta-primary-lg"
+        >
+          {t("iosDownload")}
+          <ArrowIcon />
+        </a>
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-primary cta-primary-lg"
+        >
+          {t("androidDownload")}
+          <ArrowIcon />
+        </a>
+      </div>
     </section>
   );
 }

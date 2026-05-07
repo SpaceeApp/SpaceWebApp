@@ -61,16 +61,12 @@
     "body": "SPACE is designed so memories stay between those who lived them. No ads, no external tracking, no public feed"
   },
   "cta": {
-    "eyebrowPre": "start now",
     "eyebrowLive": "download now",
     "titlePrefix": "Your",
     "titleSuffix": "is waiting",
-    "bodyPre": "We're almost ready. Leave us your email and we'll let you know as soon as SPACE is available",
     "bodyLive": "Create your first space in under a minute. Invite anyone you like.",
     "iosDownload": "Download for iOS",
-    "androidDownload": "Download for Android",
-    "emailPlaceholder": "your@email.com",
-    "submit": "Notify me at launch"
+    "androidDownload": "Download for Android"
   },
   "footer": {
     "tagline": "Your photos. Your people. A place just for you.",

@@ -7,7 +7,6 @@ famiglia. Next.js 16 (App Router) + Tailwind v4.
 
 ```bash
 npm install
-cp .env.example .env.local   # poi modifica i valori se serve
 npm run dev
 ```
 
