@@ -66,12 +66,6 @@ function Nav() {
               >
                 {t("privacy")}
               </PressableLocaleLink>
-              <PressableLocaleLink
-                href="/#get"
-                className="transition-colors hover:text-text-primary"
-              >
-                {t("download")}
-              </PressableLocaleLink>
             </nav>
             <div className="flex items-center gap-2">
               <PressableLocaleLink
@@ -84,7 +78,6 @@ function Nav() {
                 links={[
                   { href: "/#features", label: t("features") },
                   { href: "/#privacy",  label: t("privacy")  },
-                  { href: "/#get",      label: t("download") },
                 ]}
                 ctaHref="/#get"
                 ctaLabel={<>{t("cta")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span></>}
@@ -152,7 +145,7 @@ function ScrollStage() {
   const lines = t.raw("lines") as [string, string][];
 
   return (
-    <section className="relative mx-auto max-w-6xl px-6 py-10 sm:py-40">
+    <section className="relative mx-auto max-w-6xl px-6 py-10 sm:py-24 lg:py-40">
       {lines.map(([accent, signature], i) => {
         const accentWords = accent.split(" ");
         return (
@@ -188,7 +181,7 @@ function FeatureGrid() {
   return (
     <section
       id="features"
-      className="relative mx-auto max-w-6xl px-6 py-16 sm:py-32"
+      className="relative mx-auto max-w-6xl px-6 py-16 sm:py-32 scroll-mt-24"
     >
       <div className="reveal mb-10 max-w-2xl sm:mb-16">
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-accent">
@@ -230,9 +223,9 @@ function PrivacyBand() {
   return (
     <section
       id="privacy"
-      className="reveal relative mx-auto my-12 max-w-6xl px-6 sm:my-24"
+      className="reveal relative mx-auto my-12 max-w-6xl px-6 sm:my-24 scroll-mt-28"
     >
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-accent-deep via-accent to-accent-soft p-10 text-white shadow-[0_40px_80px_-30px_rgba(74,72,212,0.45)] sm:p-16">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-accent-deep via-accent to-accent-soft p-6 text-white shadow-[0_40px_80px_-30px_rgba(74,72,212,0.45)] sm:p-10 lg:p-16">
         <div className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-white/20 blur-3xl" />
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-white/80">
           {t("eyebrow")}
@@ -255,7 +248,7 @@ function BigCTA() {
   return (
     <section
       id="get"
-      className="reveal relative mx-auto flex max-w-4xl flex-col items-center px-6 py-20 text-center sm:py-40"
+      className="reveal relative mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center sm:py-28 lg:py-40 scroll-mt-24"
     >
       <p className="mb-4 text-xs font-medium uppercase tracking-[0.4em] text-accent">
         {IS_LIVE ? t("eyebrowLive") : t("eyebrowPre")}
