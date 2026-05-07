@@ -108,7 +108,7 @@
       "endOfDeck": "End of deck"
     },
     "whatIsSpace": {
-      "section": "01",
+      "section": "I",
       "title": "WHAT IS SPACE",
       "wordmarkSub": "noun · platform",
       "descriptionPre": "Your",
@@ -130,7 +130,7 @@
       "footerRight": "Continue →"
     },
     "problem": {
-      "section": "02",
+      "section": "II",
       "title": "THE PROBLEM",
       "messages": [
         { "author": "Marco",  "color": "text-orange-400", "body": "where do we upload the vacation photos?" },
@@ -161,7 +161,7 @@
       "footerRight": "→ The Solution"
     },
     "solution": {
-      "section": "03",
+      "section": "III",
       "title": "THE SOLUTION",
       "line1Top": "Everything",
       "line1Accent": "Organised.",
@@ -171,7 +171,7 @@
       "footerRight": "→ The Product"
     },
     "product": {
-      "section": "04",
+      "section": "IV",
       "title": "THE PRODUCT",
       "spaces": {
         "heading": "Your Spaces",
@@ -204,15 +204,15 @@
         "more": "View 3 more comments"
       },
       "showcases": [
-        { "label": "01 — Organise", "title": "Your Spaces" },
-        { "label": "02 — Relive",   "title": "Inside a memory" },
-        { "label": "03 — Share",    "title": "Together" }
+        { "label": "01 — Create",   "title": "Your Spaces" },
+        { "label": "02 — Browse",   "title": "Group photos" },
+        { "label": "03 — Relive",   "title": "Your best moments" }
       ],
       "footerLeft": "Designed for the moments that matter.",
       "footerRight": "→ The Landscape"
     },
     "landscapeIntro": {
-      "section": "05",
+      "section": "V",
       "title": "THE LANDSCAPE",
       "headline1": "Everyone does one piece.",
       "headline2Suffix": "does it all",
@@ -220,7 +220,7 @@
       "footerRight": "→ The Matrix"
     },
     "landscapeMatrix": {
-      "section": "05",
+      "section": "V",
       "title": "THE LANDSCAPE",
       "competitorsHeader": "Competitors",
       "columns": [
@@ -234,7 +234,7 @@
       "footerRight": "→ The Market"
     },
     "marketIntro": {
-      "section": "06",
+      "section": "VI",
       "title": "THE MARKET",
       "eyebrow": "Market opportunity",
       "headlineLine1": "Let's talk",
@@ -244,7 +244,7 @@
       "footerRight": "→ The Market"
     },
     "marketTrends": {
-      "section": "06",
+      "section": "VI",
       "title": "THE MARKET",
       "headlinePre": "A market",
       "headlineAccent": "on fire.",
@@ -269,7 +269,7 @@
       "footerRight": "→ Business Model"
     },
     "businessModel": {
-      "section": "07",
+      "section": "VII",
       "title": "BUSINESS MODEL",
       "headlinePre": "Monetising without",
       "headlineAccent": "compromising.",
@@ -298,7 +298,7 @@
       "footerRight": "→ Tech Stack"
     },
     "techStack": {
-      "section": "08",
+      "section": "VIII",
       "title": "TECH STACK",
       "headlinePre": "Built to",
       "headlineAccent": "scale.",
@@ -327,7 +327,7 @@
       "footerRight": "→ The Vision"
     },
     "team": {
-      "section": "09",
+      "section": "IX",
       "title": "THE TEAM",
       "headlinePre": "The builders behind",
       "headlineAccent": "SPACE.",
@@ -336,7 +336,7 @@
       "footerRight": "→ Join us"
     },
     "vision": {
-      "section": "10",
+      "section": "X",
       "title": "THE VISION",
       "eyebrow": "One step further",
       "headlineLine1": "Not an app.",
@@ -347,7 +347,7 @@
       "footerRight": "→ The platform"
     },
     "visionExpanded": {
-      "section": "10",
+      "section": "X",
       "title": "THE VISION",
       "eyebrow": "The platform",
       "lines": [

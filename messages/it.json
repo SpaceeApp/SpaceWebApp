@@ -108,7 +108,7 @@
       "endOfDeck": "Fine del deck"
     },
     "whatIsSpace": {
-      "section": "01",
+      "section": "I",
       "title": "COS'È SPACE",
       "wordmarkSub": "sost. · piattaforma",
       "descriptionPre": "Il tuo",
@@ -130,7 +130,7 @@
       "footerRight": "Continua →"
     },
     "problem": {
-      "section": "02",
+      "section": "II",
       "title": "IL PROBLEMA",
       "messages": [
         { "author": "Marco",  "color": "text-orange-400", "body": "dove carichiamo le foto delle vacanze?" },
@@ -161,7 +161,7 @@
       "footerRight": "→ La Soluzione"
     },
     "solution": {
-      "section": "03",
+      "section": "III",
       "title": "LA SOLUZIONE",
       "line1Top": "Tutto",
       "line1Accent": "Organizzato.",
@@ -171,7 +171,7 @@
       "footerRight": "→ Il Prodotto"
     },
     "product": {
-      "section": "04",
+      "section": "IV",
       "title": "IL PRODOTTO",
       "spaces": {
         "heading": "I tuoi Space",
@@ -204,15 +204,15 @@
         "more": "Vedi altri 3 commenti"
       },
       "showcases": [
-        { "label": "01 — Organizza",  "title": "I tuoi Space" },
-        { "label": "02 — Rivivilo",   "title": "Dentro un ricordo" },
-        { "label": "03 — Condividi",  "title": "Insieme" }
+        { "label": "01 — Crea",       "title": "I tuoi Space" },
+        { "label": "02 — Sfoglia",    "title": "Le foto del gruppo" },
+        { "label": "03 — Rivivi",     "title": "I migliori momenti" }
       ],
       "footerLeft": "Progettato per i momenti che contano.",
       "footerRight": "→ Il Panorama"
     },
     "landscapeIntro": {
-      "section": "05",
+      "section": "V",
       "title": "IL PANORAMA",
       "headline1": "Ognuno fa una piccola parte.",
       "headline2Suffix": "fa tutto",
@@ -220,7 +220,7 @@
       "footerRight": "→ La Matrice"
     },
     "landscapeMatrix": {
-      "section": "05",
+      "section": "V",
       "title": "IL PANORAMA",
       "competitorsHeader": "Competitor",
       "columns": [
@@ -234,7 +234,7 @@
       "footerRight": "→ Il Mercato"
     },
     "marketIntro": {
-      "section": "06",
+      "section": "VI",
       "title": "IL MERCATO",
       "eyebrow": "Opportunità di mercato",
       "headlineLine1": "Parliamo di",
@@ -244,7 +244,7 @@
       "footerRight": "→ Il Mercato"
     },
     "marketTrends": {
-      "section": "06",
+      "section": "VI",
       "title": "IL MERCATO",
       "headlinePre": "Un mercato",
       "headlineAccent": "in fiamme.",
@@ -269,7 +269,7 @@
       "footerRight": "→ Business Model"
     },
     "businessModel": {
-      "section": "07",
+      "section": "VII",
       "title": "MODELLO DI BUSINESS",
       "headlinePre": "Monetizzare senza",
       "headlineAccent": "compromettere.",
@@ -298,7 +298,7 @@
       "footerRight": "→ Stack Tecnologico"
     },
     "techStack": {
-      "section": "08",
+      "section": "VIII",
       "title": "STACK TECNOLOGICO",
       "headlinePre": "Costruito per",
       "headlineAccent": "scalare.",
@@ -327,7 +327,7 @@
       "footerRight": "→ La Visione"
     },
     "team": {
-      "section": "09",
+      "section": "IX",
       "title": "IL TEAM",
       "headlinePre": "Il team dietro",
       "headlineAccent": "SPACE.",
@@ -336,7 +336,7 @@
       "footerRight": "→ Unisciti a noi"
     },
     "vision": {
-      "section": "10",
+      "section": "X",
       "title": "LA VISIONE",
       "eyebrow": "Guarda avanti.",
       "headlineLine1": "Non un'app.",
@@ -347,7 +347,7 @@
       "footerRight": "→ La piattaforma"
     },
     "visionExpanded": {
-      "section": "10",
+      "section": "X",
       "title": "LA VISIONE",
       "eyebrow": "La piattaforma",
       "lines": [

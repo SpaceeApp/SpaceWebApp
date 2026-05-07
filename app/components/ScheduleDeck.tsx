@@ -24,7 +24,7 @@ const SectionHeader = ({
 }: { section: string; title: string; index: number; total: number; sub?: string }) => (
   <div className="absolute top-10 flex w-full justify-between px-10 text-xs font-mono border-b border-gray-800 pb-4">
     <span className="text-gray-400">
-      <span className="text-[#5E5CE6]">§ {section}</span> — {title}
+      <span className="text-[#5E5CE6]">{section}</span> — {title}
     </span>
     <span className="text-gray-400">
       {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
@@ -301,10 +301,10 @@ const SlideSolution = ({ index, total }: SlideProps) => {
 
 const SmallPhone = ({ children, lifted }: { children: React.ReactNode; lifted?: boolean }) => (
   <div
-    className={`w-[250px] h-[480px] rounded-[2.5rem] bg-black relative overflow-hidden ${lifted ? '-translate-y-6' : ''}`}
+    className={`w-[110px] h-[212px] sm:w-[180px] sm:h-[347px] lg:w-[250px] lg:h-[480px] rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] bg-black relative overflow-hidden ${lifted ? '-translate-y-3 sm:-translate-y-5 lg:-translate-y-6' : ''}`}
     style={{ boxShadow: '0 0 0 6px #1a1a1e, 0 0 0 7px #2a2a2e, 0 25px 50px -12px rgba(94,92,230,0.25)' }}
   >
-    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-2xl z-50 border border-[#0a0a0a]" />
+    <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-10 h-3 sm:w-14 sm:h-4 lg:w-20 lg:h-5 bg-black rounded-2xl z-50 border border-[#0a0a0a]" />
     {children}
   </div>
 );
@@ -343,11 +343,11 @@ const MemoryScreen = () => (
 const PhoneShowcase = ({ label, title, lifted, delay, children }: {
   label: string; title: string; lifted?: boolean; delay: string; children: React.ReactNode;
 }) => (
-  <div className="flex flex-col items-center gap-5 animate-rise" style={{ animationDelay: delay }}>
+  <div className="flex flex-col items-center gap-2 sm:gap-4 lg:gap-5 animate-rise" style={{ animationDelay: delay }}>
     <SmallPhone lifted={lifted}>{children}</SmallPhone>
     <div className="text-center">
-      <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.25em] uppercase mb-1.5">{label}</p>
-      <p className="text-white text-lg font-bold tracking-tight">{title}</p>
+      <p className="text-[#5E5CE6] text-[8px] sm:text-[9px] lg:text-[10px] font-mono tracking-[0.25em] uppercase mb-1 sm:mb-1.5">{label}</p>
+      <p className="text-white text-sm sm:text-base lg:text-lg font-bold tracking-tight">{title}</p>
     </div>
   </div>
 );
@@ -356,9 +356,9 @@ const SlideProductPreview = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   const showcases = t.raw('product.showcases') as Array<{ label: string; title: string }>;
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full relative w-full pt-20 pb-28">
       <SectionHeader section={t('product.section')} title={t('product.title')} index={index} total={total} />
-      <div className="flex-1 flex items-center justify-center gap-8 mt-20 mb-24">
+      <div className="flex-1 flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 px-4 sm:px-12 lg:px-20">
         <PhoneShowcase label={showcases[0].label} title={showcases[0].title} delay="0.1s">
           <YourSpacesScreen />
         </PhoneShowcase>
@@ -961,13 +961,30 @@ const SLIDES: React.FC<SlideProps>[] = [
   SlideCTA,
 ];
 
+const TRANSITION_MS = 550;
+
 export default function ScheduleDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState<number | null>(null);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [animating, setAnimating] = useState(false);
+  const [enterClass, setEnterClass] = useState('slide-enter');
   const scale = useSlideScale();
   const total = SLIDES.length;
 
-  const goNext = () => setCurrentSlide((s) => Math.min(s + 1, total - 1));
-  const goPrev = () => setCurrentSlide((s) => Math.max(s - 1, 0));
+  const startTransition = (next: number, dir: 'next' | 'prev') => {
+    if (animating || next === currentSlide) return;
+    setDirection(dir);
+    setEnterClass(dir === 'next' ? 'slide-enter-next' : 'slide-enter-prev');
+    setPrevSlide(currentSlide);
+    setCurrentSlide(next);
+    setAnimating(true);
+    setTimeout(() => { setPrevSlide(null); setAnimating(false); }, TRANSITION_MS);
+  };
+
+  const goNext = () => startTransition(Math.min(currentSlide + 1, total - 1), 'next');
+  const goPrev = () => startTransition(Math.max(currentSlide - 1, 0), 'prev');
+  const goTo   = (idx: number) => startTransition(idx, idx > currentSlide ? 'next' : 'prev');
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -977,9 +994,10 @@ export default function ScheduleDeck() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [total]);
+  }, [currentSlide, animating, total]);
 
   const Current = SLIDES[currentSlide];
+  const Prev    = prevSlide !== null ? SLIDES[prevSlide] : null;
 
   return (
     <>
@@ -989,6 +1007,17 @@ export default function ScheduleDeck() {
           to   { opacity: 1; transform: translateY(0) scale(1); }
         }
         .slide-enter { animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+
+        @keyframes zoomEnter {
+          from { opacity: 0; transform: scale(1.08); filter: blur(6px); }
+          to   { opacity: 1; transform: scale(1);    filter: blur(0);   }
+        }
+        @keyframes zoomExit {
+          from { opacity: 1; transform: scale(1);    filter: blur(0);   }
+          to   { opacity: 0; transform: scale(0.92); filter: blur(6px); }
+        }
+        .slide-enter-next, .slide-enter-prev { animation: zoomEnter ${TRANSITION_MS}ms cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
+        .slide-exit-next,  .slide-exit-prev  { animation: zoomExit  ${TRANSITION_MS}ms cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
         @keyframes pulse-glow {
           0%, 100% { opacity: 0.4; transform: scale(1); }
           50%       { opacity: 0.7; transform: scale(1.05); }
@@ -1024,14 +1053,26 @@ export default function ScheduleDeck() {
         <div className="absolute inset-0 z-0 opacity-20"
              style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         <div className="relative z-10 shrink-0" style={{ width: DESIGN_W, height: DESIGN_H, transform: `scale(${scale})`, transformOrigin: 'center center' }}>
-          <div key={currentSlide} className="w-full h-full slide-enter flex items-center justify-center" onClick={goNext}>
+          {Prev && (
+            <div
+              key={`prev-${prevSlide}`}
+              className={`absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none ${direction === 'next' ? 'slide-exit-next' : 'slide-exit-prev'}`}
+            >
+              <Prev onNext={goNext} onPrev={goPrev} index={prevSlide! + 1} total={total} />
+            </div>
+          )}
+          <div
+            key={`curr-${currentSlide}`}
+            className={`absolute inset-0 w-full h-full flex items-center justify-center ${enterClass}`}
+            onClick={goNext}
+          >
             <Current onNext={goNext} onPrev={goPrev} index={currentSlide + 1} total={total} />
           </div>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-50 p-3 rounded-2xl bg-black/40 backdrop-blur-md border border-white/5">
             {SLIDES.map((_, idx) => (
               <button
                 key={idx}
-                onClick={(e) => { e.stopPropagation(); setCurrentSlide(idx); }}
+                onClick={(e) => { e.stopPropagation(); goTo(idx); }}
                 className={`rounded-full transition-all duration-500 ease-out ${
                   idx === currentSlide ? 'w-3 h-3 bg-[#5E5CE6] shadow-[0_0_10px_#5E5CE6]' : 'w-2 h-2 bg-white/20 hover:bg-white/40'
                 }`}
