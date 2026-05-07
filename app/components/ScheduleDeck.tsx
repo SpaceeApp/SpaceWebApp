@@ -561,6 +561,12 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
             <p className="text-gray-500 text-sm">{t('marketTrends.card3.caption')}</p>
           </div>
         </div>
+        <p className="text-gray-700 text-[10px] font-mono mt-3 text-right">
+          Source:{' '}
+          <a href="https://photutorial.com/photos-statistics/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
+            photutorial.com/photos-statistics
+          </a>
+        </p>
       </div>
       <SectionFooter left={t('marketTrends.footerLeft')} right={t('marketTrends.footerRight')} />
     </div>

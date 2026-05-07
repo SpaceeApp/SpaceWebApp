@@ -4,6 +4,7 @@ import Image from "next/image";
 import { LiquidGlass, LiquidGlassFilter } from "../components/LiquidGlass";
 import { PressableLocaleLink } from "../components/PressableLink";
 import { Link } from "../../i18n/navigation";
+import { NavMobileMenu } from "../components/NavMobileMenu";
 
 export default async function Home({
   params,
@@ -72,12 +73,23 @@ function Nav() {
                 {t("download")}
               </PressableLocaleLink>
             </nav>
-            <PressableLocaleLink
-              href="/#get"
-              className="cta-primary !py-2 !px-4 !text-xs"
-            >
-              {t("cta")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span>
-            </PressableLocaleLink>
+            <div className="flex items-center gap-2">
+              <PressableLocaleLink
+                href="/#get"
+                className="cta-primary !py-2 !px-4 !text-xs hidden sm:inline-flex"
+              >
+                {t("cta")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span>
+              </PressableLocaleLink>
+              <NavMobileMenu
+                links={[
+                  { href: "/#features", label: t("features") },
+                  { href: "/#privacy",  label: t("privacy")  },
+                  { href: "/#get",      label: t("download") },
+                ]}
+                ctaHref="/#get"
+                ctaLabel={<>{t("cta")}<span style={{ fontFamily: "var(--font-conthrax)" }}>SPACE</span></>}
+              />
+            </div>
           </div>
         </LiquidGlass>
       </div>
@@ -190,13 +202,13 @@ function FeatureGrid() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f) => (
+        {features.map((f, i) => (
           <div
             key={f.title}
             className="reveal card rounded-3xl p-7 transition-transform hover:-translate-y-1"
           >
             <div className="mb-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-accent-soft to-accent-deep shadow-[0_6px_18px_-6px_rgba(74,72,212,0.55)]">
-              <span className="h-3 w-3 rounded-full bg-white/90" />
+              <FeatureIcon index={i} />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-text-primary">
               {f.title}
@@ -405,6 +417,46 @@ function Footer() {
 }
 
 /* ─── Icons ───────────────────────────────────────────────────────── */
+
+const FEATURE_ICONS = [
+  /* 0 — Shared folders */
+  <svg key="folders" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/90" aria-hidden>
+    <path d="M3 7a2 2 0 012-2h3.17a2 2 0 011.42.59l1 1H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
+    <path d="M8 13h8M8 16h5" strokeOpacity="0.6" />
+  </svg>,
+  /* 1 — Invite only */
+  <svg key="lock" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/90" aria-hidden>
+    <rect x="5" y="11" width="14" height="10" rx="2" />
+    <path d="M8 11V7a4 4 0 018 0v4" />
+    <circle cx="12" cy="16" r="1.2" fill="currentColor" stroke="none" />
+  </svg>,
+  /* 2 — Synced */
+  <svg key="sync" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/90" aria-hidden>
+    <path d="M4 12a8 8 0 018-8 8 8 0 017.43 5" />
+    <path d="M20 12a8 8 0 01-8 8 8 8 0 01-7.43-5" />
+    <polyline points="20 4 20 9 15 9" />
+    <polyline points="4 20 4 15 9 15" />
+  </svg>,
+  /* 3 — Light, fast */
+  <svg key="zap" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/90" aria-hidden>
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+  </svg>,
+  /* 4 — Your memories */
+  <svg key="download" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/90" aria-hidden>
+    <path d="M12 3v13M8 12l4 4 4-4" />
+    <path d="M5 19h14" />
+  </svg>,
+  /* 5 — Beautiful to use */
+  <svg key="sparkles" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-white/90" aria-hidden>
+    <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z" />
+    <path d="M5 3l.75 2.25L8 6l-2.25.75L5 9l-.75-2.25L2 6l2.25-.75z" strokeOpacity="0.7" />
+    <path d="M19 15l.75 2.25L22 18l-2.25.75L19 21l-.75-2.25L16 18l2.25-.75z" strokeOpacity="0.7" />
+  </svg>,
+];
+
+function FeatureIcon({ index }: { index: number }) {
+  return FEATURE_ICONS[index % FEATURE_ICONS.length];
+}
 
 function ArrowIcon() {
   return (
