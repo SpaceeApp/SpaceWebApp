@@ -167,7 +167,6 @@
       "line1Accent": "Organizzato.",
       "line2Top": "Tutto",
       "line2Accent": "Tuo.",
-      "scaleLine": "Per cinque amici. O cinquemila.",
       "footerLeft": "Due promesse.",
       "footerRight": "→ Il Prodotto"
     },
@@ -347,25 +346,10 @@
       "footerLeft": "Il futuro dei ricordi.",
       "footerRight": "→ La piattaforma"
     },
-    "visionBridge": {
-      "section": "X",
-      "title": "LA SCALA",
-      "headline1": "La stessa meccanica.",
-      "headline2": "A ogni scala.",
-      "cards": [
-        { "tag": "Personale",   "size": "6 amici",      "example": "Viaggio a Lisbona"   },
-        { "tag": "Evento",      "size": "80 invitati",  "example": "Giorno del matrimonio" },
-        { "tag": "Piattaforma", "size": "2.000 fan",    "example": "Notte del concerto"  }
-      ],
-      "mechanic": "Crea uno Space · Invita · Tutti hanno ogni foto",
-      "footerLeft": "Un prodotto. Infiniti contesti.",
-      "footerRight": "→ La Visione"
-    },
     "visionExpanded": {
       "section": "X",
       "title": "LA VISIONE",
       "eyebrow": "La piattaforma",
-      "bridgeHeader": "Lo stesso Space. Un mondo più grande.",
       "lines": [
         "Un concerto.",
         "Una serata.",
