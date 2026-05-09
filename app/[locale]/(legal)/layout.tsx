@@ -66,7 +66,7 @@ export default async function LegalLayout({
         />
 
         <article className="relative mx-auto max-w-3xl">
-          <div className="card rounded-[2rem] px-6 py-10 sm:px-12 sm:py-14">
+          <div className="prose-legal card rounded-[2rem] px-6 py-10 sm:px-12 sm:py-14">
             {children}
           </div>
         </article>

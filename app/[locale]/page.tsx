@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { LiquidGlass, LiquidGlassFilter } from "../components/LiquidGlass";
-import { PressableLocaleLink } from "../components/PressableLink";
+import { PressableLocaleLink, SmoothScrollLink, HashCleaner } from "../components/PressableLink";
 import { Link } from "../../i18n/navigation";
 import { NavMobileMenu } from "../components/NavMobileMenu";
 
@@ -17,6 +17,7 @@ export default async function Home({
   return (
     <>
       <LiquidGlassFilter />
+      <HashCleaner />
       <Nav />
       <Hero />
       <ScrollStage />
@@ -132,12 +133,12 @@ function Hero() {
           variant="mild"
           style={{ borderRadius: 9999 }}
         >
-          <PressableLocaleLink
-            href="/#features"
+          <SmoothScrollLink
+            targetId="features"
             className="block px-7 py-[0.9rem] text-[0.9rem] font-semibold text-text-primary"
           >
             {t("ctaSecondary")}
-          </PressableLocaleLink>
+          </SmoothScrollLink>
         </LiquidGlass>
       </div>
     </section>

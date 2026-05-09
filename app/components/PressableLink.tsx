@@ -1,6 +1,6 @@
 "use client";
 
-import type { AnchorHTMLAttributes, PointerEvent } from "react";
+import { useEffect, type AnchorHTMLAttributes, type PointerEvent } from "react";
 import type { ComponentProps } from "react";
 import { Link } from "../../i18n/navigation";
 
@@ -44,4 +44,44 @@ export function PressableLocaleLink({
   ...rest
 }: PressableLocaleLinkProps) {
   return <Link {...rest} onPointerDown={capture(onPointerDown)} />;
+}
+
+export function SmoothScrollLink({
+  targetId,
+  offsetPx = 72,
+  onPointerDown,
+  ...rest
+}: {
+  targetId: string;
+  offsetPx?: number;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">) {
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - offsetPx;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+
+  return (
+    <a
+      href={`#${targetId}`}
+      onClick={handleClick}
+      onPointerDown={capture(onPointerDown as BaseProps["onPointerDown"])}
+      {...rest}
+    />
+  );
+}
+
+export function HashCleaner() {
+  useEffect(() => {
+    function onScroll() {
+      if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return null;
 }
