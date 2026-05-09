@@ -206,7 +206,7 @@ function FeatureGrid() {
         {features.map((f, i) => (
           <div
             key={f.title}
-            className="reveal card rounded-3xl p-7 transition-transform hover:-translate-y-1"
+            className="reveal card rounded-3xl p-6 sm:p-7 transition-transform sm:hover:-translate-y-1"
           >
             <div className="mb-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-accent-soft to-accent-deep shadow-[0_6px_18px_-6px_rgba(74,72,212,0.55)]">
               <FeatureIcon index={i} />
@@ -214,7 +214,7 @@ function FeatureGrid() {
             <h3 className="mb-2 text-lg font-semibold text-text-primary">
               {f.title}
             </h3>
-            <p className="text-sm leading-relaxed text-text-secondary">
+            <p className="text-sm leading-relaxed text-text-secondary break-words">
               {f.body}
             </p>
           </div>

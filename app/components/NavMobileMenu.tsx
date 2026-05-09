@@ -21,17 +21,43 @@ export function NavMobileMenu({
   // Close on navigation
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  // Lock body scroll while open
+  // Lock scroll while open (html + body for mobile Safari)
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    const { body, documentElement } = document;
+    const prevBody = body.style.overflow;
+    const prevHtml = documentElement.style.overflow;
+    if (open) {
+      body.style.overflow = 'hidden';
+      documentElement.style.overflow = 'hidden';
+    }
+    return () => {
+      body.style.overflow = prevBody;
+      documentElement.style.overflow = prevHtml;
+    };
   }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
+  const capturePointer = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
 
   return (
     <div className="sm:hidden">
       <button
+        type="button"
         aria-label={open ? 'Close menu' : 'Open menu'}
         aria-expanded={open}
+        aria-controls="mobile-menu"
+        onPointerDown={capturePointer}
         onClick={() => setOpen((v) => !v)}
         className="flex h-9 w-9 items-center justify-center rounded-full text-text-primary transition-colors hover:text-accent"
       >
@@ -54,7 +80,12 @@ export function NavMobileMenu({
             onClick={() => setOpen(false)}
           />
           {/* drawer */}
-          <div className="fixed inset-x-4 top-20 z-50 rounded-3xl border border-text-primary/10 bg-surface/90 p-6 shadow-2xl backdrop-blur-2xl">
+          <div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            className="fixed inset-x-4 top-20 z-50 rounded-3xl border border-text-primary/10 bg-surface/90 p-6 shadow-2xl backdrop-blur-2xl"
+          >
             <nav className="flex flex-col gap-1">
               {links.map(({ href, label }) => (
                 <PressableLocaleLink
