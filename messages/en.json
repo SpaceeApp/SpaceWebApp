@@ -350,9 +350,9 @@
       "mechanicLine1": "One moment. All photos.",
       "mechanicLine2": "Everyone who was there.",
       "scales": [
-        { "count": "6",     "label": "Friends on a trip",      "context": "A road trip or a weekend away",      "cta": "→ one SPACE" },
-        { "count": "80",    "label": "Guests at a wedding",    "context": "The biggest day of their life",       "cta": "→ one SPACE" },
-        { "count": "2,000", "label": "Fans at a concert",      "context": "An artist's live show",              "cta": "→ one SPACE" }
+        { "count": "10",     "label": "Friends on a trip",      "context": "A road trip or a weekend away",      "cta": "→ one SPACE" },
+        { "count": "100",    "label": "Guests at a wedding",    "context": "The biggest day of their life",       "cta": "→ one SPACE" },
+        { "count": "10,000", "label": "Fans at a concert",      "context": "An artist's live show",              "cta": "→ one SPACE" }
       ],
       "footer": "The mechanic is the same. The dimension isn't.",
       "footerLeft": "The same Space.",
