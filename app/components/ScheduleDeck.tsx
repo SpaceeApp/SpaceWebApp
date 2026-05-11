@@ -847,7 +847,6 @@ const SlideScaleBridge = ({ index, total }: SlideProps) => {
 
         {/* Top: mechanic headline */}
         <div className="flex flex-col gap-2">
-          <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('scaleBridge.eyebrow')}</p>
           <h2 className="text-white font-black tracking-tighter leading-[0.9]" style={{ fontSize: '4rem' }}>
             {t('scaleBridge.mechanicLine1')}<br />
             <span className="text-[#5E5CE6]">{t('scaleBridge.mechanicLine2')}</span>
