@@ -171,7 +171,17 @@ function ScrollStage() {
               </span>
             ))}
             <span className="scroll-phrase">
-              <span className="signature-fill">{signature}</span>
+              <span className="signature-fill">
+                {signature.replace(/SPACE$/i, "").trimEnd()}
+                {/SPACE$/i.test(signature) && (
+                  <>
+                    {" "}
+                    <span style={{ fontFamily: "var(--font-conthrax)" }}>
+                      {signature.match(/SPACE$/i)![0]}
+                    </span>
+                  </>
+                )}
+              </span>
             </span>
           </p>
         );
