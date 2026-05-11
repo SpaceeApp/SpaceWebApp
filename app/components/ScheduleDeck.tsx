@@ -787,7 +787,7 @@ const SlideTeam = ({ index, total }: SlideProps) => {
   return (
     <div className="flex flex-col h-full px-20 relative w-full">
       <SectionHeader section={t('team.section')} title={t('team.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center mt-20 max-w-5xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center -mt-8 max-w-5xl mx-auto w-full">
         <div className="mb-12">
           <h2 className="text-white text-5xl font-bold tracking-tight">
             {t('team.headlinePre')} <span className="text-[#5E5CE6]" style={{ fontFamily: "'Conthrax', sans-serif" }}>{t('team.headlineAccent')}</span>
