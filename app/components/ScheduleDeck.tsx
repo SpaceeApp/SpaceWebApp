@@ -343,6 +343,24 @@ const MemoryScreen = () => (
   </div>
 );
 
+const HomepageScreen = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    <img src="/screen-homepage.png" alt="Homepage" className="w-full h-full object-contain" />
+  </div>
+);
+
+const ProfiloScreen = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    <img src="/screen-profilo.png" alt="Profile" className="w-full h-full object-contain" />
+  </div>
+);
+
+const CartellaScreen = () => (
+  <div className="absolute inset-0 overflow-hidden">
+    <img src="/screen-cartella.png" alt="Space" className="w-full h-full object-contain" />
+  </div>
+);
+
 const PhoneShowcase = ({ label, title, lifted, delay, children }: {
   label: string; title: string; lifted?: boolean; delay: string; children: React.ReactNode;
 }) => (
@@ -362,15 +380,23 @@ const SlideProductPreview = ({ index, total }: SlideProps) => {
     <div className="flex flex-col h-full relative w-full pt-20 pb-28">
       <SectionHeader section={t('product.section')} title={t('product.title')} index={index} total={total} />
       <div className="flex-1 flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 px-4 sm:px-12 lg:px-20">
-        <PhoneShowcase label={showcases[0].label} title={showcases[0].title} delay="0.1s">
-          <YourSpacesScreen />
-        </PhoneShowcase>
-        <PhoneShowcase label={showcases[1].label} title={showcases[1].title} lifted delay="0.3s">
-          <GalleryScreen />
-        </PhoneShowcase>
-        <PhoneShowcase label={showcases[2].label} title={showcases[2].title} delay="0.5s">
-          <MemoryScreen />
-        </PhoneShowcase>
+        {[
+          { src: '/screen-homepage.png', alt: 'Homepage', label: showcases[0].label, title: showcases[0].title, delay: '0.1s', lift: false },
+          { src: '/screen-cartella.png', alt: 'Space',    label: showcases[1].label, title: showcases[1].title, delay: '0.3s', lift: true  },
+          { src: '/screen-profilo.png',  alt: 'Profile',  label: showcases[2].label, title: showcases[2].title, delay: '0.5s', lift: false },
+        ].map(({ src, alt, label, title, delay, lift }) => (
+          <div
+            key={src}
+            className={`flex flex-col items-center gap-2 sm:gap-4 lg:gap-5 animate-rise ${lift ? '-translate-y-3 sm:-translate-y-5 lg:-translate-y-6' : ''}`}
+            style={{ animationDelay: delay }}
+          >
+            <img src={src} alt={alt} className="h-[212px] sm:h-[347px] lg:h-[480px] w-auto object-contain drop-shadow-2xl" />
+            <div className="text-center">
+              <p className="text-[#5E5CE6] text-[8px] sm:text-[9px] lg:text-[10px] font-mono tracking-[0.25em] uppercase mb-1 sm:mb-1.5">{label}</p>
+              <p className="text-white text-sm sm:text-base lg:text-lg font-bold tracking-tight">{title}</p>
+            </div>
+          </div>
+        ))}
       </div>
       <SectionFooter left={t('product.footerLeft')} right={t('product.footerRight')} />
     </div>
