@@ -12,7 +12,7 @@
   "hero": {
     "eyebrow": "per te e per chi conta davvero",
     "tagline": "Le tue foto. Le tue persone. Un posto solo vostro.",
-    "taglineSub": "Cartelle condivise, senza rumore.",
+    "taglineSub": "Cartelle condivise, senza disordine.",
     "ctaPrimary": "Entra in ",
     "ctaSecondary": "Scopri di più"
   },
@@ -26,12 +26,12 @@
   },
   "features": {
     "eyebrow": "funzioni",
-    "titlePrefix": "Tutto quello che serve",
-    "titleSuffix": "Niente che non serve",
+    "titlePrefix": "Tutto ciò che ti serve,",
+    "titleSuffix": "Nient'altro.",
     "items": [
       {
         "title": "Cartelle condivise",
-        "body": "Crea uno SPACE, invita gli amici, caricate insieme. Ogni cartella è un piccolo mondo"
+        "body": "Crea il tuo SPACE, invita chi vuoi e condividete i vostri ricordi. Ogni SPACE diventa il vostro piccolo mondo."
       },
       {
         "title": "Solo su invito",
@@ -39,19 +39,19 @@
       },
       {
         "title": "Sincronizzato",
-        "body": "Aggiungi una foto sul telefono, appare sul tablet di chi condivide lo SPACE. Subito"
+        "body": "Aggiungi una foto dal telefono e apparirà all'istante sui dispositivi di chi condivide quello SPACE con te."
       },
       {
         "title": "Leggero, veloce",
-        "body": "Costruita per essere fluida. Scorri, carica, commenta senza attese"
+        "body": "Un'esperienza ultra-fluida. Sfoglia le foto, caricale e commenta senza alcun ritardo."
       },
       {
         "title": "I tuoi ricordi",
-        "body": "Le foto restano tue. Scarichi tutto quando vuoi, in pieno controllo"
+        "body": "Le foto restano tue. Scarica tutto ciò che vuoi in qualsiasi momento, mantenendo il controllo assoluto."
       },
       {
-        "title": "Bella da usare",
-        "body": "Interfaccia pulita, luce e vetro. Perché i ricordi meritano una cornice"
+        "title": "Un piacere da usare",
+        "body": "Un'interfaccia pulita, fatta di trasparenza ed eleganza. Perché i tuoi ricordi meritano la cornice migliore."
       }
     ]
   },
