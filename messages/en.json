@@ -236,7 +236,6 @@
       "eyebrow": "Market opportunity",
       "headlineLine1": "Let's talk",
       "headlineAccent": "numbers.",
-      "sub": "The data speaks for itself.",
       "footerLeft": "The opportunity.",
       "footerRight": "→ The Market"
     },
@@ -324,7 +323,7 @@
       "footerRight": "→ The Vision"
     },
     "team": {
-      "section": "IX",
+      "section": "X",
       "title": "THE TEAM",
       "headlinePre": "The builders behind",
       "headlineAccent": "SPACE.",
@@ -333,7 +332,7 @@
       "footerRight": "→ Join us"
     },
     "vision": {
-      "section": "X",
+      "section": "IX",
       "title": "THE VISION",
       "eyebrow": "One step further",
       "headlineLine1": "Not an app.",
@@ -344,7 +343,7 @@
       "footerRight": "→ The platform"
     },
     "scaleBridge": {
-      "section": "X",
+      "section": "IX",
       "title": "THE VISION",
       "eyebrow": "The same mechanic",
       "mechanicLine1": "One moment. All photos.",
@@ -359,7 +358,7 @@
       "footerRight": "→ Any scale"
     },
     "visionExpanded": {
-      "section": "X",
+      "section": "IX",
       "title": "THE VISION",
       "eyebrow": "The platform",
       "anchor": "The same Space. A bigger world.",
