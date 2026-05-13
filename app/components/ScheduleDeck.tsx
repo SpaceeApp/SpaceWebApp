@@ -6,7 +6,7 @@ import '../[locale]/schedule/schedule.css';
 
 const logoSrc = '/space-logo.png';
 const simoneSrc = '/team-simone.jpg';
-const andreaSrc = '/team-andrea.jpg';
+const andreaSrc = '/team-andrea.png';
 
 type SlideProps = {
   onNext: () => void;
@@ -681,15 +681,15 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => {
               </p>
               <div className="mt-8 grid grid-cols-3 gap-4">
                 <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
-                  <p className="text-white font-black text-2xl mb-1">0</p>
+                  <p className="text-white font-black text-2xl mb-1">{t('businessModel.zeroAds.stat1Value')}</p>
                   <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">{t('businessModel.zeroAds.stat1Label')}</p>
                 </div>
                 <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
-                  <p className="text-white font-black text-2xl mb-1">0</p>
+                  <p className="text-white font-black text-2xl mb-1">{t('businessModel.zeroAds.stat2Value')}</p>
                   <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">{t('businessModel.zeroAds.stat2Label')}</p>
                 </div>
                 <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
-                  <p className="text-[#5E5CE6] font-black text-2xl mb-1">∞</p>
+                  <p className="text-[#5E5CE6] font-black text-2xl mb-1">{t('businessModel.zeroAds.stat3Value')}</p>
                   <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">{t('businessModel.zeroAds.stat3Label')}</p>
                 </div>
               </div>

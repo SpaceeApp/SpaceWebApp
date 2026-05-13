@@ -253,8 +253,8 @@
       "card2": {
         "title": "Platforms",
         "axisLabel": "photos shared / day",
-        "stat": "7B photos / day",
-        "caption": "shared on WhatsApp alone · quality destroyed"
+        "stat": "14+B photos / day",
+        "caption": "shared on major social platforms · quality destroyed"
       },
       "card3": {
         "title": "Avg. Photos Stored",
@@ -279,16 +279,19 @@
         "freeForeverBody": "Join spaces, view galleries, contribute photos — completely free. Designed to maximise network effects and grow virally.",
         "premiumTitleSuffix": "— opt-in premium",
         "premiumBody": "Power users unlock extended storage, pro tools, and exclusive features. We monetise value — not basic access.",
-        "pricingNote": "Pricing TBD"
+        "pricingNote": "4.99€ / month"
       },
       "zeroAds": {
         "title": "Zero Ads",
-        "subtitle": "Privacy first · always",
-        "body": "Memories are sacred. No data mining, no targeted advertising, no selling attention to third parties.",
-        "bodyEmphasis": "Ever.",
-        "stat1Label": "Ad revenue",
-        "stat2Label": "Data sold",
-        "stat3Label": "Trust"
+        "subtitle": "Trust as competitive advantage",
+        "body": "In an era where 79% of users no longer trust who manages their data, privacy isn't a cost — ",
+        "bodyEmphasis": "it's our defensible moat.",
+        "stat1Value": "79%",
+        "stat1Label": "User distrust",
+        "stat2Value": "€12B",
+        "stat2Label": "Privacy market TAM",
+        "stat3Value": "100%",
+        "stat3Label": "Opt-in data sharing"
       },
       "footerLeft": "Value over algorithms.",
       "footerRight": "→ Tech Stack"

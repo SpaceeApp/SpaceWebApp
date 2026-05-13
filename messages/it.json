@@ -253,11 +253,11 @@
       "card2": {
         "title": "Piattaforme",
         "axisLabel": "foto condivise / giorno",
-        "stat": "7B foto / giorno",
-        "caption": "condivise solo su WhatsApp · qualità distrutta"
+        "stat": "14+B foto / giorno",
+        "caption": "condivise sui principali social · qualità distrutta"
       },
       "card3": {
-        "title": "Foto Arch. in Media",
+        "title": "Foto Archiviate in Media",
         "stat": "3× più foto",
         "caption": "archiviate per utente · 2015 → 2025"
       },
@@ -279,16 +279,19 @@
         "freeForeverBody": "Entri, condividi, aggiungi foto — gratis. Più persone usano SPACE, più vale usarlo.",
         "premiumTitleSuffix": "— premium su scelta",
         "premiumBody": "Chi vuole di più, paga per avere di più: storage extra, strumenti pro, funzioni esclusive. Nessuno paga solo per stare dentro.",
-        "pricingNote": "Prezzo da definire"
+        "pricingNote": "4,99€ / mese"
       },
       "zeroAds": {
         "title": "Zero Pubblicità",
-        "subtitle": "Privacy prima di tutto · sempre",
-        "body": "I tuoi ricordi non sono un prodotto. Zero tracciamento, zero pubblicità mirata, zero vendita dei tuoi dati.",
-        "bodyEmphasis": "Mai.",
-        "stat1Label": "Ricavi adv",
-        "stat2Label": "Dati venduti",
-        "stat3Label": "Fiducia"
+        "subtitle": "La fiducia come vantaggio competitivo",
+        "body": "In un'era in cui il 79% degli utenti non si fida più di chi gestisce i loro dati, la privacy non è un costo — ",
+        "bodyEmphasis": "è il nostro vantaggio difendibile.",
+        "stat1Value": "79%",
+        "stat1Label": "Sfiducia utenti",
+        "stat2Value": "12B€",
+        "stat2Label": "TAM mercato privacy",
+        "stat3Value": "100%",
+        "stat3Label": "Condivisione opt-in"
       },
       "footerLeft": "Prima il valore, poi tutto il resto.",
       "footerRight": "→ Stack Tecnologico"
