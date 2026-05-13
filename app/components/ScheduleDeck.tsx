@@ -526,66 +526,78 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
         <p className="text-gray-400 text-xl mb-8">{t('marketTrends.lead')}</p>
         <div className="grid grid-cols-3 gap-6 w-full">
           <div className="bg-[#1a1a1e] border border-gray-800 rounded-3xl p-6 flex flex-col">
-            <p className="text-white font-semibold text-sm mb-5">{t('marketTrends.card1.title')}</p>
-            <svg viewBox="0 0 300 115" className="w-full mb-5">
-              <defs>
-                <linearGradient id="lgMkt1" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#5E5CE6" stopOpacity="0.3" />
-                  <stop offset="100%" stopColor="#5E5CE6" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <line x1="38" y1="60" x2="292" y2="60" stroke="#1f2937" strokeWidth="1" strokeDasharray="4 3" />
-              <line x1="38" y1="43" x2="292" y2="43" stroke="#1f2937" strokeWidth="1" strokeDasharray="4 3" />
-              <line x1="38" y1="25" x2="292" y2="25" stroke="#1f2937" strokeWidth="1" strokeDasharray="4 3" />
-              <text x="34" y="63" fill="#4b5563" fontSize="9" fontFamily="monospace" textAnchor="end">1T</text>
-              <text x="34" y="46" fill="#4b5563" fontSize="9" fontFamily="monospace" textAnchor="end">1.5T</text>
-              <text x="34" y="28" fill="#4b5563" fontSize="9" fontFamily="monospace" textAnchor="end">2T</text>
-              <polygon points={areaFill} fill="url(#lgMkt1)" />
-              <polyline points={linePoints} fill="none" stroke="#5E5CE6" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
-              <circle cx="292" cy="22" r="4" fill="#5E5CE6" />
-              <text x="288" y="15" fill="#5E5CE6" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="end">2.1T</text>
-              <line x1="38" y1="95" x2="292" y2="95" stroke="#374151" strokeWidth="1" />
-              <text x="38" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace">2013</text>
-              <text x="186" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace" textAnchor="middle">2020</text>
-              <text x="292" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace" textAnchor="end">2025</text>
-            </svg>
-            <div className="text-[#5E5CE6] font-black text-3xl mb-1">{t('marketTrends.card1.stat')}</div>
-            <p className="text-gray-500 text-sm">{t('marketTrends.card1.caption')}</p>
+            <p className="text-white font-semibold text-sm mb-5 h-5">{t('marketTrends.card1.title')}</p>
+            <div className="w-full h-[140px] mb-5 flex items-center justify-center">
+              <svg viewBox="0 0 300 115" preserveAspectRatio="xMidYMid meet" className="w-full h-full">
+                <defs>
+                  <linearGradient id="lgMkt1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#5E5CE6" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#5E5CE6" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <line x1="38" y1="60" x2="292" y2="60" stroke="#1f2937" strokeWidth="1" strokeDasharray="4 3" />
+                <line x1="38" y1="43" x2="292" y2="43" stroke="#1f2937" strokeWidth="1" strokeDasharray="4 3" />
+                <line x1="38" y1="25" x2="292" y2="25" stroke="#1f2937" strokeWidth="1" strokeDasharray="4 3" />
+                <text x="34" y="63" fill="#4b5563" fontSize="9" fontFamily="monospace" textAnchor="end">1T</text>
+                <text x="34" y="46" fill="#4b5563" fontSize="9" fontFamily="monospace" textAnchor="end">1.5T</text>
+                <text x="34" y="28" fill="#4b5563" fontSize="9" fontFamily="monospace" textAnchor="end">2T</text>
+                <polygon points={areaFill} fill="url(#lgMkt1)" />
+                <polyline points={linePoints} fill="none" stroke="#5E5CE6" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
+                <circle cx="292" cy="22" r="4" fill="#5E5CE6" />
+                <text x="288" y="15" fill="#5E5CE6" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="end">2.1T</text>
+                <line x1="38" y1="95" x2="292" y2="95" stroke="#374151" strokeWidth="1" />
+                <text x="38" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace">2013</text>
+                <text x="186" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace" textAnchor="middle">2020</text>
+                <text x="292" y="108" fill="#6b7280" fontSize="9" fontFamily="monospace" textAnchor="end">2025</text>
+              </svg>
+            </div>
+            <div className="mt-auto">
+              <div className="text-[#5E5CE6] font-black text-3xl mb-1">{t('marketTrends.card1.stat')}</div>
+              <p className="text-gray-500 text-sm min-h-[2.5rem]">{t('marketTrends.card1.caption')}</p>
+            </div>
           </div>
           <div className="bg-gradient-to-b from-[#5E5CE6]/20 to-[#1a1a1e] border border-[#5E5CE6]/30 rounded-3xl p-6 flex flex-col relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-[#5E5CE6]" />
-            <p className="text-white font-semibold text-sm mb-5">{t('marketTrends.card2.title')}</p>
-            <svg viewBox="0 0 290 125" className="w-full mb-5">
-              <text x="288" y="10" fill="#4b5563" fontSize="8" fontFamily="monospace" textAnchor="end">{t('marketTrends.card2.axisLabel')}</text>
-              <text x="74" y="26" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">WhatsApp</text>
-              <rect x="78" y="12" width="200" height="22" rx="4" fill="#5E5CE6" />
-              <text x="272" y="27" fill="white" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="end">7B</text>
-              <text x="74" y="56" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">Snapchat</text>
-              <rect x="78" y="42" width="109" height="22" rx="4" fill="#5E5CE6" opacity="0.55" />
-              <text x="192" y="57" fill="#d1d5db" fontSize="10" fontFamily="monospace">3.8B</text>
-              <text x="74" y="86" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">Facebook</text>
-              <rect x="78" y="72" width="60" height="22" rx="4" fill="#5E5CE6" opacity="0.3" />
-              <text x="143" y="87" fill="#9ca3af" fontSize="10" fontFamily="monospace">2.1B</text>
-              <text x="74" y="116" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">Instagram</text>
-              <rect x="78" y="102" width="34" height="22" rx="4" fill="#5E5CE6" opacity="0.15" />
-              <text x="117" y="117" fill="#6b7280" fontSize="10" fontFamily="monospace">1.2B</text>
-            </svg>
-            <div className="text-white font-black text-3xl mb-1">{t('marketTrends.card2.stat')}</div>
-            <p className="text-gray-400 text-sm">{t('marketTrends.card2.caption')}</p>
+            <p className="text-white font-semibold text-sm mb-5 h-5">{t('marketTrends.card2.title')}</p>
+            <div className="w-full h-[140px] mb-5 flex items-center justify-center">
+              <svg viewBox="0 0 290 125" preserveAspectRatio="xMidYMid meet" className="w-full h-full">
+                <text x="288" y="10" fill="#4b5563" fontSize="8" fontFamily="monospace" textAnchor="end">{t('marketTrends.card2.axisLabel')}</text>
+                <text x="74" y="26" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">WhatsApp</text>
+                <rect x="78" y="12" width="200" height="22" rx="4" fill="#5E5CE6" />
+                <text x="272" y="27" fill="white" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="end">7B</text>
+                <text x="74" y="56" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">Snapchat</text>
+                <rect x="78" y="42" width="109" height="22" rx="4" fill="#5E5CE6" opacity="0.55" />
+                <text x="192" y="57" fill="#d1d5db" fontSize="10" fontFamily="monospace">3.8B</text>
+                <text x="74" y="86" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">Facebook</text>
+                <rect x="78" y="72" width="60" height="22" rx="4" fill="#5E5CE6" opacity="0.3" />
+                <text x="143" y="87" fill="#9ca3af" fontSize="10" fontFamily="monospace">2.1B</text>
+                <text x="74" y="116" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="end">Instagram</text>
+                <rect x="78" y="102" width="34" height="22" rx="4" fill="#5E5CE6" opacity="0.15" />
+                <text x="117" y="117" fill="#6b7280" fontSize="10" fontFamily="monospace">1.2B</text>
+              </svg>
+            </div>
+            <div className="mt-auto">
+              <div className="text-white font-black text-3xl mb-1">{t('marketTrends.card2.stat')}</div>
+              <p className="text-gray-400 text-sm min-h-[2.5rem]">{t('marketTrends.card2.caption')}</p>
+            </div>
           </div>
           <div className="bg-[#1a1a1e] border border-gray-800 rounded-3xl p-6 flex flex-col">
-            <p className="text-white font-semibold text-sm mb-5">{t('marketTrends.card3.title')}</p>
-            <svg viewBox="0 0 200 120" className="w-full mb-5">
-              <line x1="10" y1="100" x2="190" y2="100" stroke="#374151" strokeWidth="1" />
-              <rect x="38" y="76" width="50" height="24" rx="3" fill="#374151" />
-              <text x="63" y="71" fill="#6b7280" fontSize="12" fontFamily="monospace" fontWeight="bold" textAnchor="middle">630</text>
-              <rect x="112" y="25" width="50" height="75" rx="3" fill="#5E5CE6" />
-              <text x="137" y="20" fill="white" fontSize="12" fontFamily="monospace" fontWeight="bold" textAnchor="middle">2,000</text>
-              <text x="63" y="114" fill="#6b7280" fontSize="10" fontFamily="monospace" textAnchor="middle">2015</text>
-              <text x="137" y="114" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="middle">2025</text>
-            </svg>
-            <div className="text-[#5E5CE6] font-black text-3xl mb-1">{t('marketTrends.card3.stat')}</div>
-            <p className="text-gray-500 text-sm">{t('marketTrends.card3.caption')}</p>
+            <p className="text-white font-semibold text-sm mb-5 h-5">{t('marketTrends.card3.title')}</p>
+            <div className="w-full h-[140px] mb-5 flex items-center justify-center">
+              <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet" className="w-full h-full">
+                <line x1="10" y1="100" x2="190" y2="100" stroke="#374151" strokeWidth="1" />
+                <rect x="38" y="76" width="50" height="24" rx="3" fill="#374151" />
+                <text x="63" y="71" fill="#6b7280" fontSize="12" fontFamily="monospace" fontWeight="bold" textAnchor="middle">630</text>
+                <rect x="112" y="25" width="50" height="75" rx="3" fill="#5E5CE6" />
+                <text x="137" y="20" fill="white" fontSize="12" fontFamily="monospace" fontWeight="bold" textAnchor="middle">2,000</text>
+                <text x="63" y="114" fill="#6b7280" fontSize="10" fontFamily="monospace" textAnchor="middle">2015</text>
+                <text x="137" y="114" fill="#9ca3af" fontSize="10" fontFamily="monospace" textAnchor="middle">2025</text>
+              </svg>
+            </div>
+            <div className="mt-auto">
+              <div className="text-[#5E5CE6] font-black text-3xl mb-1">{t('marketTrends.card3.stat')}</div>
+              <p className="text-gray-500 text-sm min-h-[2.5rem]">{t('marketTrends.card3.caption')}</p>
+            </div>
           </div>
         </div>
         <p className="text-gray-700 text-[10px] font-mono mt-3 text-right">
