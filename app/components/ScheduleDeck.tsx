@@ -506,8 +506,6 @@ const SlideMarketIntro = ({ index, total }: SlideProps) => {
           {t('marketIntro.headlineLine1')}<br />
           <span className="text-[#5E5CE6]">{t('marketIntro.headlineAccent')}</span>
         </h2>
-        <div className="w-px h-10 bg-gradient-to-b from-[#5E5CE6]/60 to-transparent" />
-        <p className="text-gray-500 text-lg font-light tracking-wide">{t('marketIntro.sub')}</p>
       </div>
       <SectionFooter left={t('marketIntro.footerLeft')} right={t('marketIntro.footerRight')} />
     </div>
