@@ -283,15 +283,9 @@
       },
       "zeroAds": {
         "title": "Zero Pubblicità",
-        "subtitle": "La fiducia come vantaggio competitivo",
-        "body": "In un'era in cui il 79% degli utenti non si fida più di chi gestisce i loro dati, la privacy non è un costo — ",
-        "bodyEmphasis": "è il nostro vantaggio difendibile.",
-        "stat1Value": "79%",
-        "stat1Label": "Sfiducia utenti",
-        "stat2Value": "12B€",
-        "stat2Label": "TAM mercato privacy",
-        "stat3Value": "100%",
-        "stat3Label": "Condivisione opt-in"
+        "subtitle": "La fiducia è l'asset",
+        "body": "Niente ads significa niente scorciatoie sui ricavi. Quello che costruiamo invece — una base utenti reale e ingaggiata — ",
+        "bodyEmphasis": "è il fossato che le piattaforme ad-driven non possono replicare."
       },
       "footerLeft": "Prima il valore, poi tutto il resto.",
       "footerRight": "→ Stack Tecnologico"
@@ -368,7 +362,7 @@
       "lines": [
         "Un concerto.",
         "Una serata.",
-        "Una gara.",
+        "Una partita.",
         "Un solo SPACE."
       ],
       "communities": [

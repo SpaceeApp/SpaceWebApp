@@ -24,7 +24,7 @@ type SlideProps = {
 const SectionHeader = ({
   section, title, index, total, sub,
 }: { section: string; title: string; index: number; total: number; sub?: string }) => (
-  <div className="absolute top-10 flex w-full justify-between px-10 text-xs font-mono border-b border-gray-800 pb-4">
+  <div className="absolute top-10 inset-x-0 mx-auto max-w-6xl flex justify-between text-xs font-mono border-b border-gray-800 pb-4">
     <span className="text-gray-400">
       <span className="text-[#5E5CE6]">{section}</span> — {title}
     </span>
@@ -36,7 +36,7 @@ const SectionHeader = ({
 );
 
 const SectionFooter = ({ left, right }: { left: string; right: string }) => (
-  <div className="absolute bottom-16 flex w-full justify-between px-10 text-xs font-mono text-gray-400 border-t border-gray-800 pt-4">
+  <div className="absolute bottom-16 inset-x-0 mx-auto max-w-6xl flex justify-between text-xs font-mono text-gray-400 border-t border-gray-800 pt-4">
     <span>{left}</span>
     <span>{right}</span>
   </div>
@@ -61,7 +61,7 @@ const SlideIntro = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   return (
     <div className="flex flex-col items-center justify-center h-full text-center relative w-full">
-      <div className="absolute top-10 flex w-full justify-between px-10 text-xs font-mono text-gray-400">
+      <div className="absolute top-10 inset-x-0 mx-auto max-w-6xl flex justify-between text-xs font-mono text-gray-400">
         <span style={{ fontFamily: "'Conthrax', sans-serif" }} className="text-white">SPACE</span>
         <span className="uppercase tracking-widest">{t('intro.tagline')}</span>
       </div>
@@ -79,7 +79,7 @@ const SlideIntro = ({ index, total }: SlideProps) => {
         </p>
       </div>
 
-      <div className="absolute bottom-16 flex w-full justify-between px-10 text-xs font-mono text-gray-400 uppercase tracking-widest">
+      <div className="absolute bottom-16 inset-x-0 mx-auto max-w-6xl flex justify-between text-xs font-mono text-gray-400 uppercase tracking-widest">
         <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
         <span className="animate-pulse text-[#5E5CE6]">
           → {t('intro.footerHint')} <span className="text-white">→</span> {t('common.pressToBegin')} · {String(index).padStart(2, '0')} / {String(total).padStart(2, '0')}
@@ -93,9 +93,9 @@ const SlideWhatIsSpace = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   const pills = t.raw('whatIsSpace.pills') as string[];
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('whatIsSpace.section')} title={t('whatIsSpace.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center mt-20 mb-24">
+      <div className="flex-1 flex flex-col justify-center mt-20 mb-24 max-w-6xl mx-auto w-full">
         <div className="flex items-end gap-6 mb-14">
           <h1 className="text-white font-black tracking-tighter leading-none" style={{ fontSize: '11rem', fontFamily: "'Conthrax', sans-serif" }}>
             SPACE
@@ -246,9 +246,9 @@ const SlideProblem = ({ index, total }: SlideProps) => {
   else { phoneState = 'chat'; messageCount = Math.min(step - 2, messages.length); }
 
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('problem.section')} title={t('problem.title')} index={index} total={total} />
-      <div className="flex-1 flex items-center justify-between gap-16 mt-20 mb-24">
+      <div className="flex-1 flex items-center justify-between gap-16 mt-20 mb-24 max-w-6xl mx-auto w-full">
         <div className="shrink-0 relative">
           <div className="absolute inset-x-0 bottom-0 h-3/4 bg-[#5E5CE6]/20 blur-[70px] rounded-full pointer-events-none" />
           <PhoneFrame>
@@ -282,7 +282,7 @@ const SlideProblem = ({ index, total }: SlideProps) => {
 const SlideSolution = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   return (
-    <div className="flex flex-col items-center justify-center h-full px-20 text-center relative w-full">
+    <div className="flex flex-col items-center justify-center h-full px-16 text-center relative w-full">
       <SectionHeader section={t('solution.section')} title={t('solution.title')} index={index} total={total} />
       <div className="flex flex-col items-center gap-10">
         <h2 className="text-white font-black tracking-tighter leading-[0.85] animate-line-1" style={{ fontSize: '6.5rem' }}>
@@ -408,7 +408,7 @@ const SlideProductPreview = ({ index, total }: SlideProps) => {
 const SlideLandscapeIntro = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   return (
-    <div className="flex flex-col items-center justify-center h-full px-20 text-center relative w-full">
+    <div className="flex flex-col items-center justify-center h-full px-16 text-center relative w-full">
       <SectionHeader section={t('landscapeIntro.section')} title={t('landscapeIntro.title')} index={index} total={total} />
       <div className="flex flex-col items-center gap-16">
         <h3 className="text-gray-400 font-light tracking-tight italic animate-rise" style={{ fontSize: '2.75rem', animationDelay: '0.15s' }}>
@@ -460,7 +460,7 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   const columns = t.raw('landscapeMatrix.columns') as Array<{ l1: string; l2: string }>;
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('landscapeMatrix.section')} title={t('landscapeMatrix.title')} index={index} total={total} />
       <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] gap-x-4 gap-y-1 items-center">
@@ -519,9 +519,9 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
   const linePoints = '38,72 59,64 80,62 101,60 123,57 144,50 165,44 186,60 207,55 228,36 250,29 271,25 292,22';
   const areaFill = `${linePoints} 292,95 38,95`;
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('marketTrends.section')} title={t('marketTrends.title')} index={index} total={total} />
-      <div className="flex flex-1 flex-col justify-start mt-24 mb-16 max-w-5xl mx-auto w-full">
+      <div className="flex flex-1 flex-col justify-start mt-24 mb-16 max-w-6xl mx-auto w-full">
         <h2 className="text-white text-5xl font-bold tracking-tight leading-tight mb-3">
           {t('marketTrends.headlinePre')} <span className="text-[#5E5CE6]">{t('marketTrends.headlineAccent')}</span>
         </h2>
@@ -617,9 +617,9 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
 const SlideBusinessModel = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('businessModel.section')} title={t('businessModel.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-5xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-6xl mx-auto w-full">
         <div className="mb-10">
           <h2 className="text-white text-5xl font-bold tracking-tight mb-3">
             {t('businessModel.headlinePre')} <span className="text-[#5E5CE6]">{t('businessModel.headlineAccent')}</span>
@@ -681,20 +681,6 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => {
                 {t('businessModel.zeroAds.body')}{' '}
                 <span className="text-white font-semibold">{t('businessModel.zeroAds.bodyEmphasis')}</span>
               </p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
-                  <p className="text-white font-black text-2xl mb-1">{t('businessModel.zeroAds.stat1Value')}</p>
-                  <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">{t('businessModel.zeroAds.stat1Label')}</p>
-                </div>
-                <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
-                  <p className="text-white font-black text-2xl mb-1">{t('businessModel.zeroAds.stat2Value')}</p>
-                  <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">{t('businessModel.zeroAds.stat2Label')}</p>
-                </div>
-                <div className="bg-[#0c0c14] rounded-2xl p-4 text-center border border-gray-800">
-                  <p className="text-[#5E5CE6] font-black text-2xl mb-1">{t('businessModel.zeroAds.stat3Value')}</p>
-                  <p className="text-gray-500 text-xs font-mono uppercase tracking-wider">{t('businessModel.zeroAds.stat3Label')}</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -750,9 +736,9 @@ const SlideTechStack = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   const blocks = t.raw('techStack.blocks') as Array<{ eyebrow: string; title: string; subtitle: string; description: string }>;
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('techStack.section')} title={t('techStack.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center mt-16 mb-20 w-full max-w-5xl mx-auto gap-8">
+      <div className="flex-1 flex flex-col justify-center mt-16 mb-20 max-w-6xl mx-auto w-full gap-8">
         <h2 className="text-white text-4xl font-bold tracking-tight">
           {t('techStack.headlinePre')} <span className="text-[#5E5CE6]">{t('techStack.headlineAccent')}</span>
         </h2>
@@ -797,9 +783,9 @@ const TEAM_MEMBERS = [
 const SlideTeam = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('team.section')} title={t('team.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-center -mt-8 max-w-5xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center -mt-8 max-w-6xl mx-auto w-full">
         <div className="mb-12">
           <h2 className="text-white text-5xl font-bold tracking-tight">
             {t('team.headlinePre')} <span className="text-[#5E5CE6]" style={{ fontFamily: "'Conthrax', sans-serif" }}>{t('team.headlineAccent')}</span>
@@ -853,7 +839,7 @@ const SlideScaleBridge = ({ index, total }: SlideProps) => {
   ];
 
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('scaleBridge.section')} title={t('scaleBridge.title')} index={index} total={total} />
       <div className="flex-1 flex flex-col justify-start mt-20 mb-16 max-w-6xl mx-auto w-full gap-8">
 
@@ -940,10 +926,10 @@ const SlideVisionExpanded = ({ index, total }: SlideProps) => {
   const communities = t.raw('visionExpanded.communities') as Array<{ emoji: string; name: string; sub: string }>;
   const lineColors = ['text-gray-600', 'text-gray-500', 'text-gray-300', 'text-[#5E5CE6]'];
   return (
-    <div className="flex flex-col h-full px-20 relative w-full">
+    <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('visionExpanded.section')} title={t('visionExpanded.title')} index={index} total={total} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#5E5CE6] rounded-full blur-[180px] opacity-8 pointer-events-none" />
-      <div className="flex-1 flex gap-16 items-center mt-16 max-w-6xl mx-auto w-full relative z-10">
+      <div className="flex-1 flex gap-16 items-center mt-16 mb-20 max-w-6xl mx-auto w-full relative z-10">
         <div className="flex flex-col gap-4 shrink-0">
           <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('visionExpanded.eyebrow')}</p>
           <div className="flex flex-col gap-0" style={{ fontSize: '4.2rem', lineHeight: '1.05' }}>

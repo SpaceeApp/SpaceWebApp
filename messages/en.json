@@ -283,15 +283,9 @@
       },
       "zeroAds": {
         "title": "Zero Ads",
-        "subtitle": "Trust as competitive advantage",
-        "body": "In an era where 79% of users no longer trust who manages their data, privacy isn't a cost — ",
-        "bodyEmphasis": "it's our defensible moat.",
-        "stat1Value": "79%",
-        "stat1Label": "User distrust",
-        "stat2Value": "€12B",
-        "stat2Label": "Privacy market TAM",
-        "stat3Value": "100%",
-        "stat3Label": "Opt-in data sharing"
+        "subtitle": "Trust is the asset",
+        "body": "No ads means no shortcut to revenue. What we build instead — a real, engaged user base — ",
+        "bodyEmphasis": "is the moat ad-driven platforms can't replicate."
       },
       "footerLeft": "Value over algorithms.",
       "footerRight": "→ Tech Stack"
@@ -368,7 +362,7 @@
       "lines": [
         "A concert.",
         "A club night.",
-        "A competition.",
+        "A match.",
         "One SPACE."
       ],
       "communities": [
