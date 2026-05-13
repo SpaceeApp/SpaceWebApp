@@ -7,6 +7,8 @@ import '../[locale]/schedule/schedule.css';
 const logoSrc = '/space-logo.png';
 const simoneSrc = '/team-simone.jpg';
 const andreaSrc = '/team-andrea.png';
+const bernardoSrc = '/team-bernardo.png';
+const matteoSrc = '/team-matteo.png';
 
 type SlideProps = {
   onNext: () => void;
@@ -788,8 +790,8 @@ const SlideTechStack = ({ index, total }: SlideProps) => {
 const TEAM_MEMBERS = [
   { name: 'Simone Copetti',    photo: simoneSrc, linkedin: 'https://www.linkedin.com/in/simone-copetti-9235b232a' },
   { name: 'Andrea Citton',    photo: andreaSrc, linkedin: 'https://www.linkedin.com/in/andrea-citton-675785286/' },
-  { name: 'Bernardo Cecchini', photo: '',        linkedin: 'https://www.linkedin.com/in/bernardo-cecchini-84a748353' },
-  { name: 'Matteo Bertini',   photo: '',        linkedin: 'https://www.linkedin.com/in/matteo-bertini' },
+  { name: 'Bernardo Cecchini', photo: bernardoSrc, linkedin: 'https://www.linkedin.com/in/bernardo-cecchini-84a748353' },
+  { name: 'Matteo Bertini',   photo: matteoSrc, linkedin: 'https://www.linkedin.com/in/matteo-bertini' },
 ];
 
 const SlideTeam = ({ index, total }: SlideProps) => {
