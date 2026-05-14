@@ -846,66 +846,94 @@ const SlideTeam = ({ index, total }: SlideProps) => {
 
 const SlideScaleBridge = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
-  const scales = t.raw('scaleBridge.scales') as Array<{ count: string; label: string; context: string; cta: string }>;
+  const rows = t.raw('scaleBridge.rows') as Array<{ label: string; count: string; unit: string; context: string }>;
 
-  const rowAccent = [
-    { bar: 'w-0.5 bg-gray-700',                           numColor: 'text-gray-600', numSize: '2.2rem', labelSize: 'text-lg',   labelColor: 'text-gray-500', cta: 'text-gray-700' },
-    { bar: 'w-[3px] bg-gray-400',                         numColor: 'text-gray-300', numSize: '3.2rem', labelSize: 'text-2xl',  labelColor: 'text-gray-300', cta: 'text-gray-500' },
-    { bar: 'w-1 bg-[#5E5CE6] shadow-[0_0_10px_#5E5CE6]', numColor: 'text-white',    numSize: '4.5rem', labelSize: 'text-3xl',  labelColor: 'text-white',    cta: 'text-[#5E5CE6]' },
+  const rowStyles = [
+    { bar: 'w-0.5 bg-gray-700',                          labelSize: '2rem',   labelColor: 'text-gray-600', countSize: '2rem',   countColor: 'text-gray-600', unitSize: '0.9rem',  unitColor: 'text-gray-700', contextColor: 'text-gray-700' },
+    { bar: 'w-[3px] bg-gray-500',                        labelSize: '2.8rem', labelColor: 'text-gray-400', countSize: '2.8rem', countColor: 'text-gray-300', unitSize: '1.05rem', unitColor: 'text-gray-500', contextColor: 'text-gray-600' },
+    { bar: 'w-1 bg-gray-300',                            labelSize: '3.8rem', labelColor: 'text-gray-200', countSize: '3.8rem', countColor: 'text-white',    unitSize: '1.2rem',  unitColor: 'text-gray-400', contextColor: 'text-gray-500' },
+    { bar: 'w-1.5 bg-[#5E5CE6] shadow-[0_0_12px_#5E5CE6]', labelSize: '4.8rem', labelColor: 'text-[#5E5CE6]', countSize: '4.8rem', countColor: 'text-[#5E5CE6]', unitSize: '1.35rem', unitColor: 'text-[#5E5CE6]/70', contextColor: 'text-[#5E5CE6]/60' },
   ];
+
+  const renderWithSpaceFont = (text: string) => {
+    if (!text.includes('SPACE')) return text;
+    const parts = text.split('SPACE');
+    return parts.map((part, j) => (
+      <span key={j}>
+        {part}
+        {j < parts.length - 1 && <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>}
+      </span>
+    ));
+  };
 
   return (
     <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('scaleBridge.section')} title={t('scaleBridge.title')} index={index} total={total} />
-      <div className="flex-1 flex flex-col justify-start mt-20 mb-16 max-w-6xl mx-auto w-full gap-8">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#5E5CE6] rounded-full blur-[180px] opacity-10 pointer-events-none" />
+      <div className="flex-1 flex flex-col justify-center mt-16 mb-20 max-w-6xl mx-auto w-full gap-6 relative z-10">
 
-        {/* Top: mechanic headline */}
-        <div className="flex flex-col gap-2">
-          <h2 className="text-white font-black tracking-tighter leading-[0.9]" style={{ fontSize: '4rem' }}>
-            {t('scaleBridge.mechanicLine1')}<br />
-            <span className="text-[#5E5CE6]">{t('scaleBridge.mechanicLine2')}</span>
+        {/* Eyebrow + headline */}
+        <div className="flex flex-col gap-3">
+          <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('scaleBridge.eyebrow')}</p>
+          <h2 className="text-white font-black tracking-tighter leading-[0.9]" style={{ fontSize: '2.6rem' }}>
+            {t('scaleBridge.mechanicLine1')} <span className="text-[#5E5CE6]">{t('scaleBridge.mechanicLine2')}</span>
           </h2>
-          <p className="text-gray-400 text-xl font-light tracking-tight">{t('scaleBridge.footer')}</p>
         </div>
 
         {/* Divider */}
         <div className="h-px bg-gray-800 w-full" />
 
-        {/* Three rows */}
+        {/* Escalating rows: growing number+unit on the left, label on the right */}
         <div className="flex flex-col">
-          {scales.map(({ count, label, context, cta }, i) => (
-            <div
-              key={label}
-              className={`flex items-center gap-7 py-6 animate-rise ${i < scales.length - 1 ? 'border-b border-gray-800/50' : ''}`}
-              style={{ animationDelay: `${0.1 + i * 0.18}s` }}
-            >
-              {/* Growing accent bar */}
-              <div className={`self-stretch rounded-full shrink-0 ${rowAccent[i].bar}`} />
-
-              {/* Number — grows per row, w-52 safely holds "2,000" at max size */}
+          {rows.map(({ label, count, unit, context }, i) => {
+            const s = rowStyles[i] ?? rowStyles[rowStyles.length - 1];
+            const isLast = i === rows.length - 1;
+            return (
               <div
-                className={`font-black tracking-tighter leading-none shrink-0 w-72 ${rowAccent[i].numColor}`}
-                style={{
-                  fontSize: rowAccent[i].numSize,
-                  textShadow: i === 2 ? '0 0 40px rgba(94,92,230,0.45)' : undefined,
-                }}
+                key={label}
+                className={`flex items-center gap-8 py-3 animate-rise ${!isLast ? 'border-b border-gray-800/50' : ''}`}
+                style={{ animationDelay: `${0.1 + i * 0.15}s` }}
               >
-                {count}
-              </div>
+                {/* Growing accent bar */}
+                <div className={`self-stretch rounded-full shrink-0 ${s.bar}`} />
 
-              {/* Label + context */}
-              <div className="flex-1 min-w-0">
-                <p className={`font-bold tracking-tight leading-tight ${rowAccent[i].labelSize} ${rowAccent[i].labelColor}`}>{label}</p>
-                <p className="text-gray-600 text-sm font-mono mt-1">{context}</p>
-              </div>
+                {/* Growing number + unit (on the left, so it's clear what the figure refers to) */}
+                <div
+                  className={`shrink-0 flex gap-3 ${isLast ? 'items-center' : 'items-baseline'}`}
+                  style={{
+                    minWidth: '18rem',
+                    textShadow: isLast ? '0 0 40px rgba(94,92,230,0.5)' : undefined,
+                  }}
+                >
+                  <span
+                    className={`font-black tracking-tighter leading-none ${s.countColor}`}
+                    style={{ fontSize: s.countSize }}
+                  >
+                    {count}
+                  </span>
+                  <span
+                    className={`font-sans font-medium tracking-[0.08em] uppercase ${s.unitColor}`}
+                    style={{ fontSize: s.unitSize }}
+                  >
+                    {unit}
+                  </span>
+                </div>
 
-              {/* CTA */}
-              <p className={`text-[10px] tracking-[0.2em] uppercase shrink-0 ${rowAccent[i].cta}`}>
-                {cta.replace('SPACE', '').trimEnd()}{' '}
-                <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>
-              </p>
-            </div>
-          ))}
+                {/* Label + context */}
+                <div className="flex-1 min-w-0 flex flex-col gap-1 text-right">
+                  <p
+                    className={`font-black tracking-tighter leading-none ${s.labelColor}`}
+                    style={{ fontSize: s.labelSize }}
+                  >
+                    {renderWithSpaceFont(label)}
+                  </p>
+                  {context && (
+                    <p className={`text-sm font-sans tracking-tight ${s.contextColor}`}>{context}</p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
 
       </div>
@@ -932,50 +960,6 @@ const SlideVision = ({ index, total }: SlideProps) => {
         </p>
       </div>
       <SectionFooter left={t('vision.footerLeft')} right={t('vision.footerRight')} />
-    </div>
-  );
-};
-
-const SlideVisionExpanded = ({ index, total }: SlideProps) => {
-  const t = useTranslations('schedule');
-  const lines = t.raw('visionExpanded.lines') as string[];
-  const communities = t.raw('visionExpanded.communities') as Array<{ emoji: string; name: string; sub: string }>;
-  const lineColors = ['text-gray-600', 'text-gray-500', 'text-gray-300', 'text-[#5E5CE6]'];
-  return (
-    <div className="flex flex-col h-full px-16 relative w-full">
-      <SectionHeader section={t('visionExpanded.section')} title={t('visionExpanded.title')} index={index} total={total} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#5E5CE6] rounded-full blur-[180px] opacity-8 pointer-events-none" />
-      <div className="flex-1 flex gap-16 items-center mt-16 mb-20 max-w-6xl mx-auto w-full relative z-10">
-        <div className="flex flex-col gap-4 shrink-0">
-          <p className="text-gray-600 text-xs font-mono tracking-[0.3em] uppercase">{t('visionExpanded.eyebrow')}</p>
-          <div className="flex flex-col gap-0" style={{ fontSize: '4.2rem', lineHeight: '1.05' }}>
-            {lines.map((line, i) => {
-              const parts = line.split('SPACE');
-              return (
-                <span key={i} className={`${lineColors[i]} font-black tracking-tighter`}>
-                  {parts.length > 1 ? parts.map((part, j) => (
-                    <span key={j}>{part}{j < parts.length - 1 && <span style={{ fontFamily: "'Conthrax', sans-serif" }}>SPACE</span>}</span>
-                  )) : line}
-                </span>
-              );
-            })}
-          </div>
-        </div>
-        <div className="w-px self-stretch bg-gradient-to-b from-transparent via-gray-800 to-transparent shrink-0" />
-        <div className="flex flex-col gap-4 flex-1">
-          <p className="text-[#5E5CE6] text-sm font-mono tracking-[0.2em] uppercase mb-1">{t('visionExpanded.anchor')}</p>
-          {communities.map(({ emoji, name, sub }) => (
-            <div key={name} className="flex items-center gap-5 bg-[#0e0e16] border border-gray-800 rounded-2xl px-6 py-4">
-              <span className="text-3xl shrink-0">{emoji}</span>
-              <div>
-                <p className="text-white font-bold text-lg leading-tight">{name}</p>
-                <p className="text-gray-600 text-sm font-mono mt-0.5">{sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <SectionFooter left={t('visionExpanded.footerLeft')} right={t('visionExpanded.footerRight')} />
     </div>
   );
 };
@@ -1077,7 +1061,6 @@ const SLIDES: React.FC<SlideProps>[] = [
   SlideTechStack,
   SlideVision,
   SlideScaleBridge,
-  SlideVisionExpanded,
   SlideTeam,
   SlideCTA,
 ];

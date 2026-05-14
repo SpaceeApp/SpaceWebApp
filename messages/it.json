@@ -349,37 +349,17 @@
     "scaleBridge": {
       "section": "IX",
       "title": "LA VISIONE",
-      "eyebrow": "La stessa meccanica",
+      "eyebrow": "La stessa meccanica. Qualsiasi scala.",
       "mechanicLine1": "Un momento. Tutte le foto.",
       "mechanicLine2": "Chi c'era.",
-      "scales": [
-        { "count": "10",     "label": "Amici in viaggio",         "context": "Un weekend o un road trip",               "cta": "→ uno SPACE" },
-        { "count": "100",    "label": "Ospiti a un matrimonio",   "context": "Il giorno più importante della loro vita", "cta": "→ uno SPACE" },
-        { "count": "10.000", "label": "Fan a un concerto",        "context": "Il live di un artista",                   "cta": "→ uno SPACE" }
+      "rows": [
+        { "count": "10",     "unit": "amici",   "label": "In viaggio",        "context": "Un weekend, un road trip" },
+        { "count": "100",    "unit": "ospiti",  "label": "A un matrimonio",   "context": "Una laurea, un gala, un anniversario, una festa di compleanno" },
+        { "count": "10.000", "unit": "fan",     "label": "A un concerto",     "context": "Un festival, una partita, una sfilata, una conferenza, una gara" },
+        { "count": "∞",      "unit": "ricordi", "label": "In un solo SPACE",  "context": "" }
       ],
-      "footer": "La meccanica è identica. La dimensione no.",
       "footerLeft": "Lo stesso SPACE.",
       "footerRight": "→ Qualsiasi scala"
-    },
-    "visionExpanded": {
-      "section": "IX",
-      "title": "LA VISIONE",
-      "eyebrow": "La piattaforma",
-      "anchor": "Lo stesso SPACE. Un mondo più grande.",
-      "lines": [
-        "Un concerto.",
-        "Una serata.",
-        "Una partita.",
-        "Un solo SPACE."
-      ],
-      "communities": [
-        { "emoji": "🎸", "name": "Artisti & Band",          "sub": "Notte del concerto → ogni fan trova le sue foto" },
-        { "emoji": "🪩", "name": "Club & Locali",           "sub": "Sabato sera → gli ospiti trovano le loro foto" },
-        { "emoji": "🏆", "name": "Sport & Competizioni",    "sub": "Qualsiasi evento → atleti, squadre, tifosi" },
-        { "emoji": "✨", "name": "Eventi & Festival",       "sub": "Qualsiasi raduno → un album condiviso" }
-      ],
-      "footerLeft": "Una piattaforma, non solo un'app.",
-      "footerRight": "→ Unisciti a noi"
     },
     "cta": {
       "tagline": "Costruiamo insieme l'universo dei ricordi.",
