@@ -386,8 +386,8 @@
       "contactLabel": "Contact",
       "contactEmail": "info@spaceeapp.com",
       "socials": [
-        { "label": "LinkedIn",  "href": "https://www.linkedin.com/company/space-app-official/" },
-        { "label": "Instagram", "href": "https://www.instagram.com/spaceeapp" },
+        { "label": "LinkedIn",  "href": "https://www.linkedin.com/in/space-app-45533a405" },
+        { "label": "Instagram", "href": "https://www.instagram.com/space.app_" },
         { "label": "TikTok",    "href": "https://www.tiktok.com/@spaceeapp" },
         { "label": "X",         "href": "https://x.com/spaceeapp" }
       ]

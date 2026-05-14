@@ -320,7 +320,7 @@ function Footer() {
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/spaceeapp",
+      href: "https://www.instagram.com/space.app_",
       icon: InstagramIcon,
     },
     {
