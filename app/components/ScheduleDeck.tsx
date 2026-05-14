@@ -379,7 +379,7 @@ const SlideProductPreview = ({ index, total }: SlideProps) => {
   const t = useTranslations('schedule');
   const showcases = t.raw('product.showcases') as Array<{ label: string; title: string }>;
   return (
-    <div className="flex flex-col h-full relative w-full pt-20 pb-28">
+    <div className="flex flex-col h-full relative w-full pt-24 pb-32">
       <SectionHeader section={t('product.section')} title={t('product.title')} index={index} total={total} />
       <div className="flex-1 flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 px-4 sm:px-12 lg:px-20">
         {[
@@ -389,10 +389,10 @@ const SlideProductPreview = ({ index, total }: SlideProps) => {
         ].map(({ src, alt, label, title, delay, lift }) => (
           <div
             key={src}
-            className={`flex flex-col items-center gap-2 sm:gap-4 lg:gap-5 animate-rise ${lift ? '-translate-y-3 sm:-translate-y-5 lg:-translate-y-6' : ''}`}
+            className={`flex flex-col items-center gap-2 sm:gap-4 lg:gap-5 animate-rise ${lift ? '-translate-y-2 sm:-translate-y-3 lg:-translate-y-3' : ''}`}
             style={{ animationDelay: delay }}
           >
-            <img src={src} alt={alt} className="h-[212px] sm:h-[347px] lg:h-[480px] w-auto object-contain drop-shadow-2xl" />
+            <img src={src} alt={alt} className="h-[210px] sm:h-[345px] lg:h-[460px] w-auto object-contain drop-shadow-2xl" />
             <div className="text-center">
               <p className="text-[#5E5CE6] text-[8px] sm:text-[9px] lg:text-[10px] font-mono tracking-[0.25em] uppercase mb-1 sm:mb-1.5">{label}</p>
               <p className="text-white text-sm sm:text-base lg:text-lg font-bold tracking-tight">{title}</p>
@@ -604,7 +604,7 @@ const SlideMarketTrends = ({ index, total }: SlideProps) => {
         </div>
         <p className="text-gray-700 text-[10px] font-mono mt-3 text-right">
           Source:{' '}
-          <a href="https://photutorial.com/photos-statistics/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
+          <a href="https://photutorial.com/photos-statistics/" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="hover:text-gray-500 transition-colors">
             photutorial.com/photos-statistics
           </a>
         </p>
@@ -774,10 +774,10 @@ const SlideTechStack = ({ index, total }: SlideProps) => {
 };
 
 const TEAM_MEMBERS = [
-  { name: 'Simone Copetti',    photo: simoneSrc, linkedin: 'https://www.linkedin.com/in/simone-copetti-9235b232a' },
-  { name: 'Andrea Citton',    photo: andreaSrc, linkedin: 'https://www.linkedin.com/in/andrea-citton-675785286/' },
-  { name: 'Bernardo Cecchini', photo: bernardoSrc, linkedin: 'https://www.linkedin.com/in/bernardo-cecchini-84a748353' },
-  { name: 'Matteo Bertini',   photo: matteoSrc, linkedin: 'https://www.linkedin.com/in/matteo-bertini' },
+  { name: 'Simone Copetti',    role: 'CEO', photo: simoneSrc, email: 'simone.copetti@spaceeapp.com',    linkedin: 'https://www.linkedin.com/in/simone-copetti-9235b232a' },
+  { name: 'Matteo Bertini',    role: 'CTO', photo: matteoSrc, email: 'matteo.bertini@spaceeapp.com',    linkedin: 'https://www.linkedin.com/in/matteo-bertini' },
+  { name: 'Andrea Citton',     role: 'CMO', photo: andreaSrc, email: 'andrea.citton@spaceeapp.com',     linkedin: 'https://www.linkedin.com/in/andrea-citton-675785286/' },
+  { name: 'Bernardo Cecchini', role: 'CPO', photo: bernardoSrc, email: 'bernardo.cecchini@spaceeapp.com', linkedin: 'https://www.linkedin.com/in/bernardo-cecchini-84a748353' },
 ];
 
 const SlideTeam = ({ index, total }: SlideProps) => {
@@ -806,13 +806,15 @@ const SlideTeam = ({ index, total }: SlideProps) => {
               </div>
               <div className="px-6 py-5 flex items-end justify-between">
                 <div>
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
+                  <a href={`mailto:${member.email}`}
+                     onClick={(e) => e.stopPropagation()}
                      className="text-white font-bold text-base tracking-tight leading-snug mb-1 hover:text-[#5E5CE6] transition-colors block whitespace-nowrap">
                     {member.name}
                   </a>
-                  <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.2em] uppercase">{t('team.role')}</p>
+                  <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.2em] uppercase">{member.role}</p>
                 </div>
                 <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
+                   onClick={(e) => e.stopPropagation()}
                    className="w-8 h-8 rounded-lg bg-[#0A66C2]/10 border border-[#0A66C2]/30 flex items-center justify-center text-[#0A66C2] hover:bg-[#0A66C2]/20 transition-colors shrink-0 ml-3">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -1006,7 +1008,7 @@ const SlideCTA = ({ index, total }: SlideProps) => {
         <div className="w-px h-12 bg-gradient-to-b from-[#5E5CE6] to-transparent" />
         <div className="flex flex-col items-center gap-1">
           <p className="text-[#5E5CE6] text-[10px] font-mono tracking-[0.25em] uppercase">{t('cta.contactLabel')}</p>
-          <a href={`mailto:${t('cta.contactEmail')}`} className="text-white font-bold text-2xl hover:text-[#5E5CE6] transition-colors">
+          <a href={`mailto:${t('cta.contactEmail')}`} onClick={(e) => e.stopPropagation()} className="text-white font-bold text-2xl hover:text-[#5E5CE6] transition-colors">
             {t('cta.contactEmail')}
           </a>
         </div>
