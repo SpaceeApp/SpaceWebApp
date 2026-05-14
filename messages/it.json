@@ -235,7 +235,7 @@
       "title": "IL MERCATO",
       "eyebrow": "Opportunità di mercato",
       "headlineLine1": "Parliamo di",
-      "headlineAccent": "numeri.",
+      "headlineAccent": "numeri",
       "footerLeft": "L'opportunità.",
       "footerRight": "→ Il Mercato"
     },
@@ -284,8 +284,16 @@
       "zeroAds": {
         "title": "Zero Pubblicità",
         "subtitle": "La fiducia è l'asset",
-        "body": "Niente ads significa niente scorciatoie sui ricavi. Quello che costruiamo invece — una base utenti reale e ingaggiata — ",
-        "bodyEmphasis": "è il fossato che le piattaforme ad-driven non possono replicare."
+        "body": "Niente ads significa engagement più profondo e autentico. La nostra base utenti autenticata è un asset cumulativo — ",
+        "bodyEmphasis": "il moat che sblocca monetizzazione premium a livello di ecosistema.",
+        "stats": {
+          "adsValue": "0%",
+          "adsLabel": "Ads",
+          "moatValue": "1",
+          "moatLabel": "moat",
+          "trustValue": "∞",
+          "trustLabel": "Fiducia"
+        }
       },
       "footerLeft": "Prima il valore, poi tutto il resto.",
       "footerRight": "→ Stack Tecnologico"

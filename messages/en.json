@@ -235,7 +235,7 @@
       "title": "THE MARKET",
       "eyebrow": "Market opportunity",
       "headlineLine1": "Let's talk",
-      "headlineAccent": "numbers.",
+      "headlineAccent": "numbers",
       "footerLeft": "The opportunity.",
       "footerRight": "→ The Market"
     },
@@ -284,8 +284,16 @@
       "zeroAds": {
         "title": "Zero Ads",
         "subtitle": "Trust is the asset",
-        "body": "No ads means no shortcut to revenue. What we build instead — a real, engaged user base — ",
-        "bodyEmphasis": "is the moat ad-driven platforms can't replicate."
+        "body": "No ads means deeper, authentic engagement. Our authenticated user base is a compounding asset — ",
+        "bodyEmphasis": "the moat that unlocks premium, ecosystem-wide monetization.",
+        "stats": {
+          "adsValue": "0%",
+          "adsLabel": "Ads",
+          "moatValue": "1",
+          "moatLabel": "Moat",
+          "trustValue": "∞",
+          "trustLabel": "Trust"
+        }
       },
       "footerLeft": "Value over algorithms.",
       "footerRight": "→ Tech Stack"

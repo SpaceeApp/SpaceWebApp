@@ -133,10 +133,10 @@ const WhatsAppIcon = ({ className = 'w-5 h-5' }: { className?: string }) => (
 
 const PhoneFrame = ({ children }: { children: React.ReactNode }) => (
   <div
-    className="w-[280px] h-[520px] rounded-[3rem] bg-black relative overflow-hidden"
-    style={{ boxShadow: '0 0 0 8px #1a1a1e, 0 0 0 10px #252530, 0 40px 90px -10px rgba(94,92,230,0.55), 0 0 80px -20px rgba(94,92,230,0.25)' }}
+    className="w-[240px] h-[520px] rounded-[2.75rem] bg-black relative overflow-hidden"
+    style={{ boxShadow: '0 0 0 6px #1a1a1e, 0 0 0 8px #252530, 0 40px 90px -10px rgba(94,92,230,0.55), 0 0 80px -20px rgba(94,92,230,0.25)' }}
   >
-    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-3xl z-50 border border-[#0a0a0a]" />
+    <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-50 border border-[#0a0a0a]" />
     {children}
   </div>
 );
@@ -248,7 +248,7 @@ const SlideProblem = ({ index, total }: SlideProps) => {
   return (
     <div className="flex flex-col h-full px-16 relative w-full">
       <SectionHeader section={t('problem.section')} title={t('problem.title')} index={index} total={total} />
-      <div className="flex-1 flex items-center justify-between gap-16 mt-20 mb-24 max-w-6xl mx-auto w-full">
+      <div className="flex-1 flex items-center justify-center gap-20 mt-20 mb-24 w-full">
         <div className="shrink-0 relative">
           <div className="absolute inset-x-0 bottom-0 h-3/4 bg-[#5E5CE6]/20 blur-[70px] rounded-full pointer-events-none" />
           <PhoneFrame>
@@ -259,7 +259,7 @@ const SlideProblem = ({ index, total }: SlideProps) => {
             {phoneState === 'chat' && <ChatScreen key="chat" messageCount={messageCount} messages={messages} />}
           </PhoneFrame>
         </div>
-        <div className="flex-1 min-w-0">
+        <div className="min-w-0">
           <h2 className="text-white font-black tracking-tighter leading-[0.88]" style={{ fontSize: '7.5rem' }}>
             {t('problem.headlineLine1')}<br />
             {t('problem.headlineLine2')}<br />
@@ -676,11 +676,25 @@ const SlideBusinessModel = ({ index, total }: SlideProps) => {
                 <p className="text-[#5E5CE6] text-xs font-mono tracking-widest uppercase">{t('businessModel.zeroAds.subtitle')}</p>
               </div>
             </div>
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col justify-between gap-8">
               <p className="text-gray-300 text-lg leading-relaxed">
                 {t('businessModel.zeroAds.body')}{' '}
                 <span className="text-white font-semibold">{t('businessModel.zeroAds.bodyEmphasis')}</span>
               </p>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="bg-[#5E5CE6]/10 border border-[#5E5CE6]/30 rounded-xl px-3 py-2.5 flex flex-col items-center justify-center">
+                  <span className="text-white font-black text-xl tracking-tight">{t('businessModel.zeroAds.stats.adsValue')}</span>
+                  <span className="text-[#5E5CE6] text-[9px] font-mono tracking-widest uppercase mt-0.5">{t('businessModel.zeroAds.stats.adsLabel')}</span>
+                </div>
+                <div className="bg-[#5E5CE6]/10 border border-[#5E5CE6]/30 rounded-xl px-3 py-2.5 flex flex-col items-center justify-center">
+                  <span className="text-white font-black text-xl tracking-tight">{t('businessModel.zeroAds.stats.moatValue')}</span>
+                  <span className="text-[#5E5CE6] text-[9px] font-mono tracking-widest uppercase mt-0.5">{t('businessModel.zeroAds.stats.moatLabel')}</span>
+                </div>
+                <div className="bg-[#5E5CE6]/10 border border-[#5E5CE6]/30 rounded-xl px-3 py-2.5 flex flex-col items-center justify-center">
+                  <span className="text-white font-black text-xl tracking-tight">{t('businessModel.zeroAds.stats.trustValue')}</span>
+                  <span className="text-[#5E5CE6] text-[9px] font-mono tracking-widest uppercase mt-0.5">{t('businessModel.zeroAds.stats.trustLabel')}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
