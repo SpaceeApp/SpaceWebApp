@@ -289,10 +289,10 @@
         "stats": {
           "adsValue": "0%",
           "adsLabel": "Ads",
-          "moatValue": "1",
-          "moatLabel": "Moat",
+          "moatValue": "1:1",
+          "moatLabel": "Trust",
           "trustValue": "∞",
-          "trustLabel": "Trust"
+          "trustLabel": "Value"
         }
       },
       "footerLeft": "Value over algorithms.",

@@ -289,10 +289,10 @@
         "stats": {
           "adsValue": "0%",
           "adsLabel": "Ads",
-          "moatValue": "1",
-          "moatLabel": "moat",
+          "moatValue": "1:1",
+          "moatLabel": "Fiducia",
           "trustValue": "∞",
-          "trustLabel": "Fiducia"
+          "trustLabel": "Valore"
         }
       },
       "footerLeft": "Prima il valore, poi tutto il resto.",
