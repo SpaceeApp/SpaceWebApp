@@ -269,7 +269,7 @@
       "title": "MODELLO DI BUSINESS",
       "headlinePre": "Monetizzare senza",
       "headlineAccent": "compromettere.",
-      "lead": "Cresce sul valore reale, non sui dati. Due cose che non si toccano.",
+      "lead": "Cresce sul valore reale e sulla fiducia degli utenti. Due cose che non si toccano.",
       "freemium": {
         "badge": "Motore di Ricavi",
         "title": "Freemium",
@@ -353,7 +353,7 @@
       "mechanicLine1": "Un momento. Tutte le foto.",
       "mechanicLine2": "Chi c'era.",
       "rows": [
-        { "count": "10",     "unit": "amici",   "label": "In viaggio",        "context": "Un weekend, un road trip" },
+        { "count": "10",     "unit": "amici",   "label": "In viaggio",        "context": "Un weekend, una serata" },
         { "count": "100",    "unit": "ospiti",  "label": "A un matrimonio",   "context": "Una laurea, un gala, un anniversario, una festa di compleanno" },
         { "count": "10.000", "unit": "fan",     "label": "A un concerto",     "context": "Un festival, una partita, una sfilata, una conferenza, una gara" },
         { "count": "∞",      "unit": "ricordi", "label": "In un solo SPACE",  "context": "" }

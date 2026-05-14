@@ -269,7 +269,7 @@
       "title": "BUSINESS MODEL",
       "headlinePre": "Monetising without",
       "headlineAccent": "compromising.",
-      "lead": "Built on user value, not user data. Two principles that are non-negotiable.",
+      "lead": "Built on user value and user trust. Two principles that are non-negotiable.",
       "freemium": {
         "badge": "Revenue Driver",
         "title": "Freemium",
@@ -353,7 +353,7 @@
       "mechanicLine1": "One moment. All photos.",
       "mechanicLine2": "Everyone who was there.",
       "rows": [
-        { "count": "10",     "unit": "friends",  "label": "On a trip",      "context": "A weekend, a road trip" },
+        { "count": "10",     "unit": "friends",  "label": "On a trip",      "context": "A weekend, a night out" },
         { "count": "100",    "unit": "guests",   "label": "At a wedding",   "context": "A graduation, a gala, an anniversary, a birthday party" },
         { "count": "10,000", "unit": "fans",     "label": "At a concert",   "context": "A festival, a match, a fashion show, a conference, a race" },
         { "count": "∞",      "unit": "memories", "label": "In one SPACE",   "context": "" }

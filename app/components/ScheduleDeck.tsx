@@ -464,11 +464,11 @@ const SlideLandscapeMatrix = ({ index, total }: SlideProps) => {
       <SectionHeader section={t('landscapeMatrix.section')} title={t('landscapeMatrix.title')} index={index} total={total} />
       <div className="flex-1 flex flex-col justify-center mt-20 mb-20 max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] gap-x-4 gap-y-1 items-center">
-          <div className="font-bold text-gray-500 uppercase tracking-widest text-xs border-b border-gray-800 pb-4">
+          <div className="self-end font-bold text-gray-500 uppercase tracking-widest text-xs border-b border-gray-800 pb-4">
             {t('landscapeMatrix.competitorsHeader')}
           </div>
           {columns.map((col, i) => (
-            <div key={i} className="font-bold text-white text-center text-base uppercase tracking-wide border-b border-gray-800 pb-4 leading-tight">
+            <div key={i} className="self-end font-bold text-white text-center text-base uppercase tracking-wide border-b border-gray-800 pb-4 leading-tight">
               {col.l1}<br />{col.l2}
             </div>
           ))}
