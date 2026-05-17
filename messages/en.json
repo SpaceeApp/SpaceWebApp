@@ -88,6 +88,20 @@
       "synced"
     ]
   },
+  "authCallback": {
+    "titleLoading": "One moment...",
+    "subtitleLoading": "Getting everything ready.",
+    "titleRedirecting": "Opening SPACE...",
+    "subtitleRedirecting": "The app should open automatically. If it doesn't, tap the button below.",
+    "buttonOpen": "Open SPACE",
+    "crossDeviceButton": "I confirmed on a computer, not on my phone",
+    "titleConfirming": "Confirming...",
+    "subtitleConfirming": "We're verifying your account.",
+    "titleConfirmed": "Email confirmed!",
+    "subtitleConfirmed": "Open SPACE on your phone and log in normally.",
+    "titleError": "Invalid link",
+    "subtitleError": "The link has expired or has already been used. Go back to the app and request a new one."
+  },
   "legal": {
     "backHome": "Back to home",
     "backHomeShort": "Back",

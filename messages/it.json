@@ -88,6 +88,20 @@
       "sincronizzato"
     ]
   },
+  "authCallback": {
+    "titleLoading": "Un attimo...",
+    "subtitleLoading": "Stiamo preparando tutto.",
+    "titleRedirecting": "Apertura di SPACE...",
+    "subtitleRedirecting": "L'app dovrebbe aprirsi automaticamente. Se non succede, tocca il bottone qui sotto.",
+    "buttonOpen": "Apri SPACE",
+    "crossDeviceButton": "Ho confermato da un computer, non dal telefono",
+    "titleConfirming": "Conferma in corso...",
+    "subtitleConfirming": "Stiamo verificando il tuo account.",
+    "titleConfirmed": "Email confermata!",
+    "subtitleConfirmed": "Apri SPACE sul tuo telefono e accedi normalmente.",
+    "titleError": "Link non valido",
+    "subtitleError": "Il link è scaduto o è già stato utilizzato. Torna nell'app e richiedi un nuovo link."
+  },
   "legal": {
     "backHome": "Torna alla home",
     "backHomeShort": "Indietro",
