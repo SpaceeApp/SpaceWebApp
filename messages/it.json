@@ -89,6 +89,7 @@
     ]
   },
   "authCallback": {
+    "eyebrow": "Benvenuto in",
     "titleLoading": "Un attimo...",
     "subtitleLoading": "Stiamo preparando tutto.",
     "titleRedirecting": "Apertura di SPACE...",
@@ -101,6 +102,15 @@
     "subtitleConfirmed": "Apri SPACE sul tuo telefono e accedi normalmente.",
     "titleError": "Link non valido",
     "subtitleError": "Il link è scaduto o è già stato utilizzato. Torna nell'app e richiedi un nuovo link."
+  },
+  "join": {
+    "metaTitle": "Apri l'invito in SPACE",
+    "metaDescription": "Apri l'invito alla cartella nell'app SPACE. Se non hai ancora l'app, scaricala dagli store.",
+    "eyebrow": "Invito a uno SPACE",
+    "title": "Aprilo nell'app",
+    "body": "Se hai già l'app installata si aprirà automaticamente. Altrimenti scaricala qui sotto e l'invito ti aspetterà al primo avvio.",
+    "iosDownload": "Scarica per iOS",
+    "androidDownload": "Scarica per Android"
   },
   "legal": {
     "backHome": "Torna alla home",

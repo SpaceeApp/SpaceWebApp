@@ -89,6 +89,7 @@
     ]
   },
   "authCallback": {
+    "eyebrow": "Welcome to",
     "titleLoading": "One moment...",
     "subtitleLoading": "Getting everything ready.",
     "titleRedirecting": "Opening SPACE...",
@@ -101,6 +102,15 @@
     "subtitleConfirmed": "Open SPACE on your phone and log in normally.",
     "titleError": "Invalid link",
     "subtitleError": "The link has expired or has already been used. Go back to the app and request a new one."
+  },
+  "join": {
+    "metaTitle": "Open your SPACE invite",
+    "metaDescription": "Open your folder invite in the SPACE app. If you don't have the app yet, grab it from the stores.",
+    "eyebrow": "Invite to a SPACE",
+    "title": "Open it in the app",
+    "body": "If you already have the app installed it will open automatically. Otherwise download it below and the invite will be waiting at first launch.",
+    "iosDownload": "Download for iOS",
+    "androidDownload": "Download for Android"
   },
   "legal": {
     "backHome": "Back to home",

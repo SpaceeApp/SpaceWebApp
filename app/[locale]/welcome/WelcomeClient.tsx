@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 type Status = "loading" | "redirecting" | "confirming" | "confirmed" | "error";
 
@@ -95,17 +94,21 @@ export default function WelcomeClient() {
       {/* Ambient gradient — same as the homepage hero */}
       <div className="hero-ambient" aria-hidden />
 
-      <div className="relative z-10 w-full max-w-sm flex flex-col items-center gap-8">
+      <div className="relative z-10 w-full max-w-sm flex flex-col items-center gap-10">
 
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <Image src="/space-logo.png" alt="SPACE" width={36} height={36} priority />
-          <span
-            className="text-xl tracking-[0.3em] text-text-primary"
-            style={{ fontFamily: "var(--font-conthrax)" }}
-          >
-            SPACE
-          </span>
+        {/* Wordmark header — matches homepage hero/CTA typography */}
+        <div className="flex flex-col items-center text-center">
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.4em] text-accent">
+            {t("eyebrow")}
+          </p>
+          <h1 className="display text-[clamp(2.25rem,8vw,3.5rem)] font-semibold text-text-primary">
+            <span
+              className="signature-fill"
+              style={{ fontFamily: "var(--font-conthrax)" }}
+            >
+              SPACE
+            </span>
+          </h1>
         </div>
 
         {/* Card */}
@@ -141,14 +144,14 @@ export default function WelcomeClient() {
 
           {/* Title + subtitle */}
           <div className="flex flex-col gap-2">
-            <h1 className="text-xl font-bold text-text-primary">
+            <h2 className="text-xl font-semibold text-text-primary">
               {status === "loading" && t("titleLoading")}
               {status === "redirecting" && t("titleRedirecting")}
               {status === "confirming" && t("titleConfirming")}
               {status === "confirmed" && t("titleConfirmed")}
               {status === "error" && t("titleError")}
-            </h1>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+            </h2>
+            <p className="text-sm leading-relaxed text-text-secondary">
               {status === "loading" && t("subtitleLoading")}
               {status === "redirecting" && t("subtitleRedirecting")}
               {status === "confirming" && t("subtitleConfirming")}
@@ -159,13 +162,9 @@ export default function WelcomeClient() {
 
           {/* Open app button (same-device fallback) */}
           {status === "redirecting" && deepLink && (
-            <a href={deepLink} className="cta-primary w-full justify-center">
+            <a href={deepLink} className="cta-primary cta-primary-lg w-full justify-center">
               {t("buttonOpen")}
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
+              <ArrowIcon />
             </a>
           )}
 
@@ -173,8 +172,7 @@ export default function WelcomeClient() {
           {status === "redirecting" && tokenHash && (
             <button
               onClick={() => void handleCrossDevice()}
-              className="text-xs underline underline-offset-2 transition-colors"
-              style={{ color: "var(--color-text-secondary)" }}
+              className="text-xs underline underline-offset-2 text-text-secondary transition-colors"
             >
               {t("crossDeviceButton")}
             </button>
@@ -183,5 +181,19 @@ export default function WelcomeClient() {
         </div>
       </div>
     </main>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+      <path
+        d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

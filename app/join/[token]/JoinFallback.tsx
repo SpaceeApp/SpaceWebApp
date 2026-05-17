@@ -7,6 +7,14 @@ const UUID_V4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f
 
 type Platform = "ios" | "android" | "desktop";
 
+export type JoinTexts = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  iosDownload: string;
+  androidDownload: string;
+};
+
 function detectPlatform(ua: string): Platform {
   if (/android/i.test(ua)) return "android";
   if (/iphone|ipad|ipod/i.test(ua)) return "ios";
@@ -17,7 +25,13 @@ function detectPlatform(ua: string): Platform {
   return "desktop";
 }
 
-export default function JoinFallback({ token }: { token: string }) {
+export default function JoinFallback({
+  token,
+  texts,
+}: {
+  token: string;
+  texts: JoinTexts;
+}) {
   const [platform, setPlatform] = useState<Platform>("desktop");
 
   useEffect(() => {
@@ -42,10 +56,10 @@ export default function JoinFallback({ token }: { token: string }) {
 
       <div className="relative z-10 mx-auto flex w-full max-w-xl flex-col items-center">
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.4em] text-accent">
-          Invito a uno SPACE
+          {texts.eyebrow}
         </p>
         <h1 className="display text-[clamp(2.25rem,7vw,4rem)] font-semibold text-text-primary">
-          Aprilo nell&apos;app{" "}
+          {texts.title}{" "}
           <span
             className="signature-fill"
             style={{ fontFamily: "var(--font-conthrax)" }}
@@ -54,9 +68,7 @@ export default function JoinFallback({ token }: { token: string }) {
           </span>
         </h1>
         <p className="mt-6 max-w-md text-base text-text-secondary sm:text-lg">
-          Se hai già l&apos;app installata si aprirà automaticamente.
-          Altrimenti scaricala qui sotto e l&apos;invito ti aspetterà al
-          primo avvio.
+          {texts.body}
         </p>
 
         <div className="mt-12 flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row">
@@ -67,7 +79,7 @@ export default function JoinFallback({ token }: { token: string }) {
               rel="noopener noreferrer"
               className="cta-primary cta-primary-lg w-full justify-center sm:w-auto"
             >
-              Scarica per iOS
+              {texts.iosDownload}
               <ArrowIcon />
             </a>
           )}
@@ -78,7 +90,7 @@ export default function JoinFallback({ token }: { token: string }) {
               rel="noopener noreferrer"
               className="cta-primary cta-primary-lg w-full justify-center sm:w-auto"
             >
-              Scarica per Android
+              {texts.androidDownload}
               <ArrowIcon />
             </a>
           )}
