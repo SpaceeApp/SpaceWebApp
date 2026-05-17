@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "7X5MC54KVL.com.spaceapp1.space",
+        "paths": ["/join/*"]
+      }
+    ]
+  }
+}

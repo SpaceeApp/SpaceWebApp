@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.spaceapp.space",
+      "sha256_cert_fingerprints": [
+        "41:59:5B:4C:4C:40:BC:A1:99:8D:7B:20:48:D3:A8:2D:BA:25:BE:35:26:97:8D:11:C4:E8:5C:60:5D:9F:74:E3"
+      ]
+    }
+  }
+]
