@@ -45,13 +45,13 @@ export default function WelcomeClient() {
       link = `space://auth/callback#access_token=${hashParams.access_token}&refresh_token=${hashParams.refresh_token}`;
     } else if (queryParams.token_hash && EMAIL_OTP_TYPES.has(queryParams.type ?? "")) {
       // OTP / email-confirmation token — pass through; app handles verifyOtp
-      link = `space://auth/callback?token_hash=${queryParams.token_hash}&type=${queryParams.type}`;
+      link = `space://auth/callback?token_hash=${encodeURIComponent(queryParams.token_hash)}&type=${encodeURIComponent(queryParams.type)}`;
       // Keep these for the cross-device confirm button
       setTokenHash(queryParams.token_hash);
       setTokenType(queryParams.type);
     } else if (queryParams.code) {
       // PKCE code — only exchangeable on the same device (verifier is in the app)
-      link = `space://auth/callback?code=${queryParams.code}`;
+      link = `space://auth/callback?code=${encodeURIComponent(queryParams.code)}`;
     } else {
       setStatus("error");
       return;
