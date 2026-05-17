@@ -5,6 +5,7 @@ import { LiquidGlass, LiquidGlassFilter } from "../components/LiquidGlass";
 import { PressableLocaleLink, SmoothScrollLink, HashCleaner } from "../components/PressableLink";
 import { Link } from "../../i18n/navigation";
 import { NavMobileMenu } from "../components/NavMobileMenu";
+import { APP_STORE_URL, PLAY_STORE_URL } from "../lib/storeLinks";
 
 export default async function Home({
   params,
@@ -258,9 +259,6 @@ function PrivacyBand() {
 }
 
 /* ─── Big CTA ─────────────────────────────────────────────────────── */
-
-const APP_STORE_URL = "https://apps.apple.com/";
-const PLAY_STORE_URL = "https://play.google.com/store";
 
 function BigCTA() {
   const t = useTranslations("cta");

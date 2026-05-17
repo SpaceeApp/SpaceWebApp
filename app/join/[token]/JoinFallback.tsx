@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const APPSTORE_URL = "https://apps.apple.com/app/id6768677963";
-const PLAYSTORE_URL =
-  "https://play.google.com/store/apps/details?id=com.spaceapp.space";
+import { APP_STORE_URL, PLAY_STORE_URL } from "../../lib/storeLinks";
 
 const UUID_V4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -40,90 +37,67 @@ export default function JoinFallback({ token }: { token: string }) {
   const showAndroid = platform === "android" || platform === "desktop";
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#0A0A0C",
-        color: "#FFFFFF",
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "32px 24px",
-        textAlign: "center",
-      }}
-    >
-      <div style={{ maxWidth: 420, width: "100%" }}>
-        <h1
-          style={{
-            fontSize: 28,
-            fontWeight: 600,
-            margin: "0 0 12px",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Apri l&apos;invito in SPACE
+    <main className="relative flex min-h-screen flex-col items-center justify-center px-6 py-16 text-center">
+      <div className="hero-ambient" aria-hidden />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-xl flex-col items-center">
+        <p className="mb-4 text-xs font-medium uppercase tracking-[0.4em] text-accent">
+          Invito a uno SPACE
+        </p>
+        <h1 className="display text-[clamp(2.25rem,7vw,4rem)] font-semibold text-text-primary">
+          Aprilo nell&apos;app{" "}
+          <span
+            className="signature-fill"
+            style={{ fontFamily: "var(--font-conthrax)" }}
+          >
+            SPACE
+          </span>
         </h1>
-        <p
-          style={{
-            fontSize: 16,
-            lineHeight: 1.5,
-            opacity: 0.75,
-            margin: "0 0 32px",
-          }}
-        >
-          Se hai l&apos;app installata si aprirà automaticamente.
-          <br />
-          Altrimenti scaricala qui:
+        <p className="mt-6 max-w-md text-base text-text-secondary sm:text-lg">
+          Se hai già l&apos;app installata si aprirà automaticamente.
+          Altrimenti scaricala qui sotto e l&apos;invito ti aspetterà al
+          primo avvio.
         </p>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 12,
-            alignItems: "stretch",
-          }}
-        >
+        <div className="mt-12 flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row">
           {showIos && (
             <a
-              href={APPSTORE_URL}
-              style={{
-                display: "block",
-                background: "#5E5CE6",
-                color: "#FFFFFF",
-                padding: "14px 20px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: 16,
-              }}
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-primary cta-primary-lg w-full justify-center sm:w-auto"
             >
-              Scarica su App Store
+              Scarica per iOS
+              <ArrowIcon />
             </a>
           )}
           {showAndroid && (
             <a
-              href={PLAYSTORE_URL}
-              style={{
-                display: "block",
-                background: showIos ? "transparent" : "#5E5CE6",
-                color: "#FFFFFF",
-                padding: "14px 20px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: 16,
-                border: showIos ? "1px solid rgba(255,255,255,0.2)" : "none",
-              }}
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-primary cta-primary-lg w-full justify-center sm:w-auto"
             >
-              Scarica su Google Play
+              Scarica per Android
+              <ArrowIcon />
             </a>
           )}
         </div>
       </div>
     </main>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+      <path
+        d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
