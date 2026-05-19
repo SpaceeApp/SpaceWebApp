@@ -1,6 +1,6 @@
 # Termini e Condizioni
 
-Ultimo aggiornamento: 2 maggio 2026
+Ultimo aggiornamento: 19 maggio 2026
 
 ## 1. Titolari del Servizio
 
@@ -24,7 +24,7 @@ SPACE è una piattaforma mobile che consente di: creare cartelle condivise (incl
 
 ## 5. Requisiti di Età
 
-L'uso dell'App non è consentito ai minori di 14 anni (o l'età minima prevista dal tuo Paese). Per i minori sotto tale soglia, l'utilizzo è consentito solo con il consenso esplicito dei genitori o di chi esercita la responsabilità genitoriale.
+L'utilizzo dell'App è consentito a chi ha compiuto almeno 14 anni (in Italia, ai sensi dell'art. 2-quinquies D.Lgs. 196/2003) o l'età minima prevista dalla normativa applicabile nel proprio Paese se superiore. Al di sotto di tale soglia, l'utilizzo è ammesso esclusivamente con il consenso esplicito di un genitore o di chi esercita la responsabilità genitoriale.
 
 ## 6. Uso Consentito e Divieti
 
@@ -47,6 +47,8 @@ L'owner o chi è autorizzato gestisce partecipanti e permessi. I link di invito 
 ## 9. Moderazione
 
 I Titolari possono rimuovere contenuti illeciti, sospendere account e collaborare con le autorità. Per segnalazioni: report@spaceeapp.com. I Titolari si impegnano ad analizzare le segnalazioni entro 24 ore. Hai a disposizione funzionalità integrate per bloccare utenti abusivi.
+
+Puoi contestare qualsiasi decisione di moderazione scrivendo a legal@spaceeapp.com, indicando il contenuto oggetto della decisione e le ragioni della contestazione. I Titolari forniranno risposta motivata entro un termine ragionevole.
 
 ## 10. Proprietà Intellettuale
 

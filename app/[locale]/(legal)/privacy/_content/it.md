@@ -1,6 +1,6 @@
 # Informativa sulla Privacy
 
-Ultimo aggiornamento: 2 maggio 2026
+Ultimo aggiornamento: 19 maggio 2026
 
 ## 1. Titolare del Trattamento
 
@@ -8,6 +8,8 @@ I titolari del trattamento sono: Simone Copetti, Andrea Citton, Bernardo Andrea 
 **Email privacy:** privacy@spaceeapp.com
 
 I Titolari operano in qualità di contitolari ai sensi dell'art. 26 GDPR. Non è stato nominato un DPO.
+
+I Titolari hanno definito internamente un accordo di contitolarità che disciplina, tra l'altro, la gestione delle richieste di esercizio dei diritti degli interessati e le procedure in caso di violazione dei dati personali. Il punto di contatto unico per gli interessati è privacy@spaceeapp.com. L'essenza dell'accordo è disponibile su richiesta al medesimo indirizzo.
 
 ## 2. Dati Raccolti
 
@@ -82,7 +84,7 @@ I server Supabase sono in Irlanda (UE). Il servizio push di Expo può comportare
 - **Account/profilo:** fino a cancellazione account.
 - **Contenuti in cartelle condivise:** alla cancellazione dell'account, i riferimenti all'autore vengono anonimizzati (non il contenuto stesso), per preservare l'integrità dei contenuti condivisi con gli altri membri. I contenuti di cartelle di cui sei l'unico membro vengono rimossi definitivamente.
 - **Cartelle nel cestino:** fino a 30 giorni.
-- **Push token:** per la durata della sessione attiva.
+- **Push token:** fino alla disconnessione; eliminati dal dispositivo e revocati sul server al logout.
 - **Feedback e segnalazioni:** per il tempo necessario alla valutazione.
 - **Log tecnici:** per il periodo strettamente necessario.
 
@@ -92,13 +94,27 @@ Adottiamo: autenticazione e gestione sessione; token in storage sicuro del dispo
 
 ## 10. Diritti dell'Interessato
 
-Puoi esercitare i diritti di: accesso, rettifica, cancellazione, limitazione, opposizione, portabilità e revoca del consenso. Puoi proporre reclamo al Garante per la protezione dei dati personali.
+Puoi esercitare i seguenti diritti ai sensi degli artt. 15–22 GDPR:
+
+- **Accesso** (art. 15): ottenere conferma che sia in corso un trattamento e ricevere copia dei dati.
+- **Rettifica** (art. 16): correggere dati inesatti o incompleti.
+- **Cancellazione** (art. 17): richiedere la rimozione dei dati quando non sono più necessari o il trattamento è privo di base giuridica.
+- **Limitazione** (art. 18): sospendere il trattamento in determinati casi previsti dalla legge.
+- **Opposizione** (art. 21): opporsi al trattamento basato su legittimo interesse.
+- **Portabilità** (art. 20): ricevere i dati in formato strutturato e leggibile da dispositivo automatico, per i trattamenti basati su contratto o consenso.
+- **Revoca del consenso:** in qualsiasi momento, senza pregiudizio per la liceità del trattamento precedente.
+
+I Titolari rispondono alle richieste entro 30 giorni dalla ricezione. Il termine può essere prorogato di ulteriori 60 giorni in caso di particolare complessità o elevato numero di richieste.
+
+Non effettuiamo decisioni automatizzate né profilazione con effetti giuridici o analoghi ai sensi dell'art. 22 GDPR.
+
+Puoi proporre reclamo al **Garante per la Protezione dei Dati Personali** (www.garanteprivacy.it).
 
 **Contatto:** privacy@spaceeapp.com
 
 ## 11. Minori
 
-Il servizio non è destinato a soggetti di età inferiore ai 14 anni. Per utenti in Paesi con soglia di età superiore, o per minori di 14 anni, il trattamento è lecito solo previo consenso del titolare della responsabilità genitoriale.
+L'utilizzo del servizio richiede un'età minima di 14 anni (in Italia, ai sensi dell'art. 2-quinquies D.Lgs. 196/2003) o l'età superiore prevista dalla normativa applicabile nel Paese dell'utente. Al di sotto della soglia applicabile, l'utilizzo è ammesso esclusivamente previo consenso del titolare della responsabilità genitoriale. Non raccogliamo consapevolmente dati personali di utenti al di sotto della soglia applicabile senza tale consenso.
 
 ## 12. Modifiche
 

@@ -1,6 +1,6 @@
 # Cookie Policy
 
-Ultimo aggiornamento: 2 maggio 2026
+Ultimo aggiornamento: 19 maggio 2026
 
 ## 1. Titolari del Trattamento
 
@@ -25,11 +25,11 @@ Poiché SPACE è principalmente un'app mobile, utilizziamo tecnologie equivalent
 - Preferenza lingua (AsyncStorage): ricordare la lingua selezionata. Durata: fino alla cancellazione dati. Prima parte.
 - Cache cartelle/foto (AsyncStorage): dati in cache per le prestazioni. Durata: fino al logout o alla cancellazione dati. Prima parte.
 
-**Strumenti di funzionalità** (base giuridica: art. 6.1.a o 6.1.b GDPR):
+**Strumenti di funzionalità** (base giuridica variabile per strumento):
 
-- Preferenza tema chiaro/scuro (AsyncStorage): ricordare il tema selezionato. Durata: fino alla cancellazione dati. Prima parte.
-- Stato UX locale - es. tutorial visti (SecureStore): evitare la ripetizione di hint. Durata: fino alla cancellazione dati. Prima parte.
-- Token notifica push (APNs/FCM via Expo): ricezione notifiche push. Durata: per la sessione attiva. Fornitori: Apple, Google, Expo Inc.
+- Preferenza tema chiaro/scuro (AsyncStorage): ricordare il tema selezionato. Durata: fino alla cancellazione dati. Base giuridica: art. 6.1.b GDPR. Prima parte.
+- Stato UX locale — es. tutorial visti (SecureStore): evitare la ripetizione di hint. Durata: fino alla cancellazione dati. Base giuridica: art. 6.1.b GDPR. Prima parte.
+- Token notifica push (APNs/FCM via Expo): ricezione notifiche push. Durata: fino alla disconnessione. Base giuridica: art. 6.1.a GDPR (consenso espresso mediante autorizzazione OS). Fornitori: Apple, Google, Expo Inc.
 
 **Analytics e profilazione:**
 SPACE non utilizza cookie analytics o di profilazione. Se verranno introdotti in futuro, verrà richiesto il consenso preventivo.
@@ -46,7 +46,7 @@ Gli strumenti tecnici strettamente necessari non richiedono consenso preventivo.
 
 ## 6. Condivisione dei Dati
 
-I dati tecnici possono essere trattati da: personale autorizzato dei Titolari; Supabase Inc. (server in Irlanda, UE); Expo Inc., Apple Inc., Google LLC (notifiche push, possibili trasferimenti negli USA con garanzie GDPR - Clausole Contrattuali Standard); autorità competenti.
+I dati tecnici possono essere trattati da: personale autorizzato dei Titolari; Supabase Inc. (server in Irlanda, UE); Expo Inc., Apple Inc., Google LLC (notifiche push, possibili trasferimenti negli USA con garanzie GDPR — Clausole Contrattuali Standard); autorità competenti.
 
 Per dettagli sul trattamento dei dati personali, consulta la Privacy Policy.
 
