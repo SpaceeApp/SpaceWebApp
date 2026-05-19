@@ -410,6 +410,14 @@ function Footer() {
                 {t("cookiePolicy")}
               </Link>
             </li>
+            <li>
+              <Link
+                href="/support"
+                className="transition-colors hover:text-accent"
+              >
+                {t("support")}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
